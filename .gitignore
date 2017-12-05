@@ -1,0 +1,10 @@
+etc
+exe
+.idea
+src/lib
+src/.idea
+src/server/.idea
+src/client/.idea
+src/server/lib
+src/client/lib
+src/client testing
