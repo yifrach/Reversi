@@ -5,6 +5,7 @@ CMakeFiles/Reversi.dir/src/AI.cpp.o: ../include/AI.h
 CMakeFiles/Reversi.dir/src/AI.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/src/AI.cpp.o: ../include/BoardScanner.h
 CMakeFiles/Reversi.dir/src/AI.cpp.o: ../include/Cell.h
+CMakeFiles/Reversi.dir/src/AI.cpp.o: ../include/Client.h
 CMakeFiles/Reversi.dir/src/AI.cpp.o: ../include/Flip.h
 CMakeFiles/Reversi.dir/src/AI.cpp.o: ../include/GameManager.h
 CMakeFiles/Reversi.dir/src/AI.cpp.o: ../include/Player.h
@@ -26,6 +27,18 @@ CMakeFiles/Reversi.dir/src/Cell.cpp.o: ../include/Cell.h
 CMakeFiles/Reversi.dir/src/Cell.cpp.o: ../include/Point.h
 CMakeFiles/Reversi.dir/src/Cell.cpp.o: ../src/Cell.cpp
 
+CMakeFiles/Reversi.dir/src/Client.cpp.o: ../include/Board.h
+CMakeFiles/Reversi.dir/src/Client.cpp.o: ../include/Cell.h
+CMakeFiles/Reversi.dir/src/Client.cpp.o: ../include/Client.h
+CMakeFiles/Reversi.dir/src/Client.cpp.o: ../include/ConvertString.h
+CMakeFiles/Reversi.dir/src/Client.cpp.o: ../include/Player.h
+CMakeFiles/Reversi.dir/src/Client.cpp.o: ../include/Point.h
+CMakeFiles/Reversi.dir/src/Client.cpp.o: ../src/Client.cpp
+
+CMakeFiles/Reversi.dir/src/ConvertString.cpp.o: ../include/ConvertString.h
+CMakeFiles/Reversi.dir/src/ConvertString.cpp.o: ../include/Point.h
+CMakeFiles/Reversi.dir/src/ConvertString.cpp.o: ../src/ConvertString.cpp
+
 CMakeFiles/Reversi.dir/src/Flip.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/src/Flip.cpp.o: ../include/Cell.h
 CMakeFiles/Reversi.dir/src/Flip.cpp.o: ../include/Flip.h
@@ -36,6 +49,7 @@ CMakeFiles/Reversi.dir/src/Game.cpp.o: ../include/AI.h
 CMakeFiles/Reversi.dir/src/Game.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/src/Game.cpp.o: ../include/BoardScanner.h
 CMakeFiles/Reversi.dir/src/Game.cpp.o: ../include/Cell.h
+CMakeFiles/Reversi.dir/src/Game.cpp.o: ../include/Client.h
 CMakeFiles/Reversi.dir/src/Game.cpp.o: ../include/Flip.h
 CMakeFiles/Reversi.dir/src/Game.cpp.o: ../include/Game.h
 CMakeFiles/Reversi.dir/src/Game.cpp.o: ../include/GameManager.h
@@ -48,6 +62,7 @@ CMakeFiles/Reversi.dir/src/GameManager.cpp.o: ../include/AI.h
 CMakeFiles/Reversi.dir/src/GameManager.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/src/GameManager.cpp.o: ../include/BoardScanner.h
 CMakeFiles/Reversi.dir/src/GameManager.cpp.o: ../include/Cell.h
+CMakeFiles/Reversi.dir/src/GameManager.cpp.o: ../include/Client.h
 CMakeFiles/Reversi.dir/src/GameManager.cpp.o: ../include/Flip.h
 CMakeFiles/Reversi.dir/src/GameManager.cpp.o: ../include/GameManager.h
 CMakeFiles/Reversi.dir/src/GameManager.cpp.o: ../include/Player.h
@@ -61,6 +76,12 @@ CMakeFiles/Reversi.dir/src/Human.cpp.o: ../include/Player.h
 CMakeFiles/Reversi.dir/src/Human.cpp.o: ../include/Point.h
 CMakeFiles/Reversi.dir/src/Human.cpp.o: ../src/Human.cpp
 
+CMakeFiles/Reversi.dir/src/Player.cpp.o: ../include/Board.h
+CMakeFiles/Reversi.dir/src/Player.cpp.o: ../include/Cell.h
+CMakeFiles/Reversi.dir/src/Player.cpp.o: ../include/Player.h
+CMakeFiles/Reversi.dir/src/Player.cpp.o: ../include/Point.h
+CMakeFiles/Reversi.dir/src/Player.cpp.o: ../src/Player.cpp
+
 CMakeFiles/Reversi.dir/src/Point.cpp.o: ../include/Point.h
 CMakeFiles/Reversi.dir/src/Point.cpp.o: ../src/Point.cpp
 
@@ -68,6 +89,7 @@ CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/AI.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Board.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/BoardScanner.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Cell.h
+CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Client.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Flip.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Game.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/GameManager.h

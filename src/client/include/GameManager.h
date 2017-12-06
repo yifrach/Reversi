@@ -4,10 +4,11 @@
 #include "BoardScanner.h"
 #include "Flip.h"
 #include "AI.h"
+#include "Client.h"
 #include <iostream>
 
 /**
- * The class responsible for the managing of the game
+ * The class responsible for the logic of the game
  */
 class GameManager {
  public:
@@ -23,6 +24,9 @@ class GameManager {
   //the method get a player and playing a single turn of the AI.
   Point playOneTurnAI(Player *playerAI);
 
+  void playOneTurnClient(int color, Player *playerClient);
+
+  void playOneTurnClientFake(Player *playerClient, Player *playerFake);
  private:
   int wall;
   BoardScanner *scanner;

@@ -32,11 +32,20 @@ class Game {
   //playing the game against the AI
   void playAI();
 
+  //present the main
+  void menuGame();
+
+  //p;aying the game with a remote player
+  void playClient();
+
+  //read a word from the file
+  void readFile();
+
  private:
   int size;
-  int player1Color;
-  int player2Color;
-  GameManager *manage;
+//  int player1Color;
+//  int player2Color;
+  GameManager *manager;
   BoardScanner *scanner;
   Board *board;
   Player *player1;

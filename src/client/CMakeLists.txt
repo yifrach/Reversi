@@ -12,11 +12,16 @@ set(SOURCE_FILES
         include/BoardScanner.h
         src/Cell.cpp
         include/Cell.h
+        include/Client.h
+        src/Client.cpp
+        include/ConvertString.h
+        src/ConvertString.cpp
         src/Game.cpp
         include/Game.h
         src/GameManager.cpp
         include/GameManager.h
         include/Player.h
+        src/Player.cpp
         src/Point.cpp
         include/Point.h
         src/AI.cpp
@@ -33,17 +38,22 @@ set(TEST_FILES
         include/BoardScanner.h
         src/Cell.cpp
         include/Cell.h
+        include/Client.h
+        src/Client.cpp
+        include/ConvertString.h
+        src/ConvertString.cpp
         src/Game.cpp
         include/Game.h
         src/GameManager.cpp
         include/GameManager.h
         include/Player.h
+        src/Player.cpp
         src/Point.cpp
         include/Point.h
-        include/AI.h
         src/AI.cpp
-        include/Human.h
+        include/AI.h
         src/Human.cpp
+        include/Human.h
         src/Flip.cpp
         include/Flip.h
         tests/PointTest.cpp

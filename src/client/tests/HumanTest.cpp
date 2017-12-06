@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "../include/Human.h"
-enum Color { empty = -1, white, black };
 
 TEST(HumanTest, SimpleTest) {
   Human human;

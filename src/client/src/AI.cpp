@@ -1,46 +1,6 @@
 #include "../include/AI.h"
-enum Color { white, black };
 
-AI::AI() : score(0) {}
-
-/**
- * Printing the players color
- */
-void AI::print() {
-  cout << "0";
-}
-
-/**
- * Getter for our players score
- * @return - the players score
- */
-int AI::getScore() {
-  return score;
-}
-
-/**
- * Updating the players score accoring to the board
- * @param updatedScore - the players new score
- */
-void AI::updateScore(int updatedScore) {
-  score = updatedScore;
-}
-
-/**
- * Getter for the players color
- * @return - the players color
- */
-int AI::getColor() {
-  return color;
-}
-
-/**
- * The method get a color and set is value in the member color
- * @param newColor - an Integer that represent the new color value of the member
- */
-void AI::setColor(int newColor) {
-  color = newColor;
-}
+AI::AI() {}
 
 /**
  * The method get a Board and calculate his most smart move and return its move
@@ -80,10 +40,10 @@ Point AI::playTurn(Board *board) {
     }
   }
   Point resPoint = *scanner->getPointsVector()[min];
-  for (int i = 0; i < moves->size(); i++) {
-    moves[i].clear();
-  }
-  delete[] moves;
+    for(int i=0;i<moves->size();i++) {
+        moves[i].clear();
+    }
+    delete[] moves;
   delete[] movesMax;
   delete scanner;
   return resPoint;
@@ -118,7 +78,7 @@ void AI::checkPoint(Board *tempBoard, int i, BoardScanner *scanner) {
     whiteDisk = whiteDisk - diskFlip;
     moves[i].push_back(blackDisk - whiteDisk);
   }
-  tempBS->freeMovesList();
+    tempBS->freeMovesList();
   delete flip;
   delete tempBS;
 }

@@ -2,7 +2,6 @@
 #include "../include/Board.h"
 #include "../include/Flip.h"
 #include "../include/AI.h"
-enum Color { white, black };
 
 TEST(AI_Test, SimpleTest) {
   AI playerAI;
