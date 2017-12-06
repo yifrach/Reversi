@@ -1,4 +1,5 @@
 #include <limits>
+#include <cstdlib>
 #include "../include/GameManager.h"
 
 /**
@@ -99,7 +100,12 @@ void GameManager::playOneTurnClient(int color, Player *playerClient) {
       } while (!scanner->isValidMove(row, col) || cin.fail());
     }
     //************try and catch************//
-    ((Client *) playerClient)->sendSocketPoint(row, col);
+    try {
+      ((Client *) playerClient)->sendSocketPoint(row, col);
+    } catch (const char *msg) {
+      cout << "Failed to connect to server. Reason:" << msg << endl;
+      exit(-1);
+    }
     //adding the cell to the board
     board->addCell(row, col, color);
     cout << endl;
@@ -109,14 +115,25 @@ void GameManager::playOneTurnClient(int color, Player *playerClient) {
     //if the player has no moves we'll inform him passing the turn back
     cout << "No possible moves! Play passes back to the other player.\n\n";
     //************try and catch************//
-    ((Client *) playerClient)->sendSocketNoMove("NoMove");
+    try {
+      ((Client *) playerClient)->sendSocketNoMove("NoMove");
+    } catch (const char *msg) {
+      cout << "Failed to connect to server. Reason:" << msg << endl;
+      exit(-1);
+    }
   }
   //first freeing our previous turns moves listscanner->freeMovesList();
   scanner->freeMovesList();
 }
 
 void GameManager::playOneTurnClientFake(Player *playerClient, Player *playerFake) {
-  Point point=((Client*)playerClient)->readSocket();
+  Point point(0,0);
+  try {
+    point=((Client*)playerClient)->readSocket();
+  } catch (const char *msg) {
+    cout << "Failed to connect to server. Reason:" << msg << endl;
+    exit(-1);
+  }
   if(point.getX()!=-1) {
     board->addCell(point.getX(), point.getY(), playerFake->getColor());
     cout << endl;

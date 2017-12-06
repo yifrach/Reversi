@@ -23,6 +23,7 @@ void Game::initialize() {
     case 3:readFile();
       try {
         player1->setColor(((Client*)player1)->connectToServer());
+        clientColor=player1->getColor();
       } catch (const char *msg) {
         cout << "Failed to connect to server. Reason:" << msg << endl;
         exit(-1);
@@ -33,13 +34,12 @@ void Game::initialize() {
       } else {
         player2->setColor(black);
       }
+      break;
     default:cout << "wrong input!! try again" << endl;
       cin >> mode;
       break;
   }
-  //getting a size to the board from the user
-  cout << "Please Enter the size of the board: ";
-  cin >> size;
+  size=4;
   cout << endl;
   board = new Board(size);
   scanner = new BoardScanner(board);
@@ -124,37 +124,46 @@ void Game::playAI() {
 }
 
 
-//************************************//
 void Game::playClient() {
   bool blackPlayed = false;
   while (scanner->hasMoves(black) || scanner->hasMoves(white)) {
     board->print();
     if (blackPlayed) {
-      cout << "Player O it's your move." << endl;
-      manager->playOneTurnClient(white, player1);
-      blackPlayed = false;
+      if(player1->getColor()==white) {
+        cout << "Player O it's your move." << endl;
+        manager->playOneTurnClient(white, player1);
+        blackPlayed = false;
+      } else {
+        manager->playOneTurnClientFake(player1, player2);
+        blackPlayed = false;
+      }
     } else {
-      cout << "Player X it's your move." << endl;
-      manager->playOneTurnClient(black, player1);
-      blackPlayed = true;
+      if(player1->getColor()==black) {
+        cout << "Player X it's your move." << endl;
+        manager->playOneTurnClient(black, player1);
+        blackPlayed = true;
+      } else {
+        manager->playOneTurnClientFake(player1, player2);
+        blackPlayed = false;
+      }
     }
   }
 }
 
 
 void Game::readFile() {
-  char *IP;
-  int port;
-  ifstream inFile;
-
-  //**********************//
-  inFile.open("user.txt");
-
-  inFile>>IP;
-  inFile>>port;
-
-  inFile.close();
-  player1=new Client(IP,port);
+//  char *IP;
+//  int port;
+//  ifstream inFile;
+//
+//  //**********************//
+//  inFile.open("user.txt");
+//
+//  inFile>>IP;
+//  inFile>>port;
+//
+//  inFile.close();
+  player1=new Client("127.0.0.1",8000);
 }
 
 //The destructor of the class

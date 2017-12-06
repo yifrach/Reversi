@@ -51,6 +51,7 @@ class Game {
   Player *player1;
   Player *player2;
   int mode;
+  int clientColor;
 };
 
 #endif //EX2_GAMEMANAGER_H

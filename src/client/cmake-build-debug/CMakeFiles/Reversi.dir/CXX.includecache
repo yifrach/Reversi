@@ -151,6 +151,8 @@ stdlib.h
 /home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/GameManager.cpp
 limits
 -
+cstdlib
+-
 ../include/GameManager.h
 /home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/GameManager.h
 
