@@ -63,7 +63,7 @@ void Client::sendSocketPoint(int arg1, int arg2) {
   ConvertString convert;
   const char *str = convert.convertInt(arg1, arg2);
   // Write the exercise arguments to the socket
-  int n = write(clientSocket, &str, sizeof(str));
+  int n = write(clientSocket, str, sizeof(str));
   if (n == -1) {
     throw "Error writing arg1 to socket";
   }
@@ -71,7 +71,7 @@ void Client::sendSocketPoint(int arg1, int arg2) {
 
 void Client::sendSocketNoMove(char *str) {
   // Write the exercise arguments to the socket
-  int n = write(clientSocket, &str, sizeof(str));
+  int n = write(clientSocket, str, sizeof(str));
   if (n == -1) {
     throw "Error writing arg1 to socket";
   }
@@ -80,7 +80,7 @@ void Client::sendSocketNoMove(char *str) {
 Point Client::readSocket() {
   // Read the result from the server
   char buffer[200];
-  int n = read(clientSocket, &buffer, sizeof(buffer));
+  int n = read(clientSocket, buffer, sizeof(buffer));
   if (n == -1) {
     throw "Error reading result from socket";
   }

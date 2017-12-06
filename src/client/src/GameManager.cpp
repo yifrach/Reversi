@@ -76,7 +76,6 @@ Point GameManager::playOneTurnAI(Player *playerAI) {
   }
 }
 
-//*************************************************************//
 void GameManager::playOneTurnClient(int color, Player *playerClient) {
   int row, col;
   //first freeing our previous turns moves listscanner->freeMovesList();
@@ -113,13 +112,21 @@ void GameManager::playOneTurnClient(int color, Player *playerClient) {
     flip->flipBoard(row, col, color);
   } else {
     //if the player has no moves we'll inform him passing the turn back
-    cout << "No possible moves! Play passes back to the other player.\n\n";
-    //************try and catch************//
-    try {
-      ((Client *) playerClient)->sendSocketNoMove("NoMove");
-    } catch (const char *msg) {
-      cout << "Failed to connect to server. Reason:" << msg << endl;
-      exit(-1);
+    if(scanner->hasMoves(playerClient->getColor())) {
+      cout << "No possible moves! Play passes back to the other player.\n\n";
+      try {
+        ((Client *) playerClient)->sendSocketNoMove("NoMove");
+      } catch (const char *msg) {
+        cout << "Failed to connect to server. Reason:" << msg << endl;
+        exit(-1);
+      }
+    } else {
+      try {
+        ((Client *) playerClient)->sendSocketNoMove("End");
+      } catch (const char *msg) {
+        cout << "Failed to connect to server. Reason:" << msg << endl;
+        exit(-1);
+      }
     }
   }
   //first freeing our previous turns moves listscanner->freeMovesList();
@@ -137,12 +144,12 @@ void GameManager::playOneTurnClientFake(Player *playerClient, Player *playerFake
   if(point.getX()!=-1) {
     board->addCell(point.getX(), point.getY(), playerFake->getColor());
     cout << endl;
-    flip->flipBoard(point.getY(), point.getY(), playerFake->getColor());
+    flip->flipBoard(point.getX(), point.getY(), playerFake->getColor());
     cout<<"Player played: ";
     point.print();
     cout<<endl;
   } else {
-    cout<<"Player has no moves, it's your turn: ";
+    cout<<"Player has no moves, it's your turn: "<<endl;
   }
 }
 
