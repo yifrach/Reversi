@@ -14,7 +14,7 @@ char *ConvertString::endGame() {
 
 }
 
-const char *ConvertString::convertInt(int num1, int num2) {
+const char* ConvertString::convertInt(int num1, int num2) {
   string str;
 
   ostringstream convert;
@@ -22,6 +22,8 @@ const char *ConvertString::convertInt(int num1, int num2) {
   convert << num1 << ", " << num2;
 
   str = convert.str();
+
+  cout<<str<<endl;
 
   return str.c_str();
 }

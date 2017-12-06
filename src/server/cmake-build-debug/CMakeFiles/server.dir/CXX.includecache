@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/Server.h
 
-/home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp
+/home/yarin/CLionProjects/reversiProject/Reversi/src/server/src/Server.cpp
 ../include/Server.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/Server.h
 sys/socket.h
 -
 netinet/in.h
@@ -24,9 +24,9 @@ iostream
 stdio.h
 -
 
-/home/uri/CLionProjects/cpp/Reversi/src/server/src/main.cpp
+/home/yarin/CLionProjects/reversiProject/Reversi/src/server/src/main.cpp
 ../include/Server.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/Server.h
 iostream
 -
 stdlib.h

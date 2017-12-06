@@ -80,7 +80,7 @@ void Client::sendSocketNoMove(char *str) {
 Point Client::readSocket() {
   // Read the result from the server
   char buffer[200];
-  int n = read(clientSocket, buffer, sizeof(buffer));
+  int n = read(clientSocket, &buffer, sizeof(buffer));
   if (n == -1) {
     throw "Error reading result from socket";
   }

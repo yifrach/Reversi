@@ -78,7 +78,7 @@ void Server::start() {
 void Server::handleClient(int activePlayer, int recivePlayer, bool &playGame) {
   char buffer[4096];
   // Read new exercise arguments
-  int readBytes = read(activePlayer, buffer, sizeof(buffer));
+  int readBytes = read(activePlayer, &buffer, sizeof(buffer));
   if (readBytes < 0) {
     cout << "Error reading string" << endl;
     return;
@@ -94,7 +94,7 @@ void Server::handleClient(int activePlayer, int recivePlayer, bool &playGame) {
     return;
   }
   // Write the result back to the reciveClient
-  int sendBytes = write(recivePlayer, buffer, readBytes);
+  int sendBytes = write(recivePlayer, &buffer, readBytes);
   if (sendBytes < 0) {
     cout << "Error writing to socket" << endl;
     return;
