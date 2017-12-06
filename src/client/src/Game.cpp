@@ -144,7 +144,7 @@ void Game::playClient() {
         blackPlayed = true;
       } else {
         manager->playOneTurnClientFake(player1, player2);
-        blackPlayed = false;
+        blackPlayed = true;
       }
     }
   }
@@ -163,7 +163,7 @@ void Game::readFile() {
 //  inFile>>port;
 //
 //  inFile.close();
-  player1=new Client("127.0.0.1",8000);
+  player1=new Client("127.0.0.1",8001);
 }
 
 //The destructor of the class
