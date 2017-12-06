@@ -40,10 +40,10 @@ Point AI::playTurn(Board *board) {
     }
   }
   Point resPoint = *scanner->getPointsVector()[min];
-    for(int i=0;i<moves->size();i++) {
-        moves[i].clear();
-    }
-    delete[] moves;
+  for (int i = 0; i < moves->size(); i++) {
+    moves[i].clear();
+  }
+  delete[] moves;
   delete[] movesMax;
   delete scanner;
   return resPoint;
@@ -78,7 +78,7 @@ void AI::checkPoint(Board *tempBoard, int i, BoardScanner *scanner) {
     whiteDisk = whiteDisk - diskFlip;
     moves[i].push_back(blackDisk - whiteDisk);
   }
-    tempBS->freeMovesList();
+  tempBS->freeMovesList();
   delete flip;
   delete tempBS;
 }

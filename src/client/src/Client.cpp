@@ -86,7 +86,7 @@ Point Client::readSocket() {
   }
 
   ConvertString convert;
-  Point p=convert.convertInput(buffer);
+  Point p = convert.convertInput(buffer);
 
   memset(buffer, '\0', sizeof(buffer));
   return p;

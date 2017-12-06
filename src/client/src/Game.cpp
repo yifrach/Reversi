@@ -10,30 +10,34 @@ void Game::initialize() {
   menuGame();
   //Creating our players
   switch (mode) {
-    case 1:player1 = new Human();
+    case 1:
+      player1 = new Human();
       player1->setColor(white);
       player2 = new Human();
       player2->setColor(black);
       break;
-    case 2:player1 = new AI();
+    case 2:
+      player1 = new AI();
       player1->setColor(white);
       player2 = new Human();
       player2->setColor(black);
       break;
-    case 3:readFile();
+    case 3:
+      readFile();
       try {
-        player1->setColor(((Client*)player1)->connectToServer());
+        player1->setColor(((Client *) player1)->connectToServer());
       } catch (const char *msg) {
         cout << "Failed to connect to server. Reason:" << msg << endl;
         exit(-1);
       }
       player2 = new Human();
-      if(player1->getColor()==black) {
+      if (player1->getColor() == black) {
         player2->setColor(white);
       } else {
         player2->setColor(black);
       }
-    default:cout << "wrong input!! try again" << endl;
+    default:
+      cout << "wrong input!! try again" << endl;
       cin >> mode;
       break;
   }
@@ -48,12 +52,11 @@ void Game::initialize() {
 
 //The method print the menu of the game and get the mode that the player want to play
 void Game::menuGame() {
-  cout << "WELCOME TO REVERSI!" << endl<<endl;
-  cout << "choose an opponent type:"<<endl;
-  cout<<"1. a human local player\n2. an AI player\n3. a remote player\n";
+  cout << "WELCOME TO REVERSI!" << endl << endl;
+  cout << "choose an opponent type:" << endl;
+  cout << "1. a human local player\n2. an AI player\n3. a remote player\n";
   cin >> mode;
 }
-
 
 //The method play the game by the mode that the user had chosen
 void Game::playGame() {
@@ -123,7 +126,6 @@ void Game::playAI() {
   }
 }
 
-
 //************************************//
 void Game::playClient() {
   bool blackPlayed = false;
@@ -141,7 +143,6 @@ void Game::playClient() {
   }
 }
 
-
 void Game::readFile() {
   char *IP;
   int port;
@@ -150,11 +151,11 @@ void Game::readFile() {
   //**********************//
   inFile.open("user.txt");
 
-  inFile>>IP;
-  inFile>>port;
+  inFile >> IP;
+  inFile >> port;
 
   inFile.close();
-  player1=new Client(IP,port);
+  player1 = new Client("127.0.0.1", 8000);
 }
 
 //The destructor of the class

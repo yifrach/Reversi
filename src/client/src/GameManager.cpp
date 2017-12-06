@@ -116,16 +116,16 @@ void GameManager::playOneTurnClient(int color, Player *playerClient) {
 }
 
 void GameManager::playOneTurnClientFake(Player *playerClient, Player *playerFake) {
-  Point point=((Client*)playerClient)->readSocket();
-  if(point.getX()!=-1) {
+  Point point = ((Client *) playerClient)->readSocket();
+  if (point.getX() != -1) {
     board->addCell(point.getX(), point.getY(), playerFake->getColor());
     cout << endl;
     flip->flipBoard(point.getY(), point.getY(), playerFake->getColor());
-    cout<<"Player played: ";
+    cout << "Player played: ";
     point.print();
-    cout<<endl;
+    cout << endl;
   } else {
-    cout<<"Player has no moves, it's your turn: ";
+    cout << "Player has no moves, it's your turn: ";
   }
 }
 

@@ -6,115 +6,115 @@
 
 #IncludeRegexTransform: 
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/AI.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/AI.h
 iostream
 -
 Player.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Player.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Player.h
 Board.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Board.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Board.h
 vector
 -
 Point.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Point.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Point.h
 GameManager.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/GameManager.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/GameManager.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Board.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Board.h
 iostream
 -
 Cell.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Cell.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Cell.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/BoardScanner.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/BoardScanner.h
 iostream
 -
 vector
 -
 Board.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Board.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Board.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Cell.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Cell.h
 iostream
 -
 Point.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Point.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Point.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Client.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Client.h
 Player.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Player.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Player.h
 Point.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Point.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Point.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/ConvertString.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ConvertString.h
 Point.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Point.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Point.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Flip.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Flip.h
 Board.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Board.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Board.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Game.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Game.h
 iostream
 -
 GameManager.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/GameManager.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/GameManager.h
 Player.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Player.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Player.h
 AI.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/AI.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/AI.h
 Human.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Human.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Human.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/GameManager.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/GameManager.h
 BoardScanner.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/BoardScanner.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/BoardScanner.h
 Flip.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Flip.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Flip.h
 AI.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/AI.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/AI.h
 Client.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Client.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Client.h
 iostream
 -
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Human.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Human.h
 iostream
 -
 Player.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Player.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Player.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Player.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Player.h
 iostream
 -
 Board.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Board.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Board.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Point.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Point.h
 iostream
 -
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/AI.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/AI.cpp
 ../include/AI.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/AI.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/AI.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/Board.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/Board.cpp
 ../include/Board.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Board.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Board.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/BoardScanner.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/BoardScanner.cpp
 ../include/BoardScanner.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/BoardScanner.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/BoardScanner.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/Cell.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/Cell.cpp
 ../include/Cell.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Cell.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Cell.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/Client.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/Client.cpp
 ../include/Client.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Client.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Client.h
 ../include/ConvertString.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/ConvertString.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ConvertString.h
 sys/socket.h
 -
 netinet/in.h
@@ -128,47 +128,47 @@ string.h
 unistd.h
 -
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/ConvertString.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/ConvertString.cpp
 ../include/ConvertString.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/ConvertString.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ConvertString.h
 sstream
 -
 cstring
 -
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/Flip.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/Flip.cpp
 ../include/Flip.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Flip.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Flip.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/Game.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/Game.cpp
 fstream
 -
 ../include/Game.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Game.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Game.h
 stdlib.h
 -
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/GameManager.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/GameManager.cpp
 limits
 -
 ../include/GameManager.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/GameManager.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/GameManager.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/Human.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/Human.cpp
 ../include/Human.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Human.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Human.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/Player.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/Player.cpp
 ../include/Player.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Player.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Player.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/Point.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/Point.cpp
 ../include/Point.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Point.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Point.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/src/main.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/main.cpp
 iostream
 -
 ../include/Game.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/include/Game.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/Game.h
 

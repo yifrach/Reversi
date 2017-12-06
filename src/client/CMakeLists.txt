@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 98)
 add_subdirectory(lib/googletest-master)
 include_directories(lib/googletest-master/googletest/include)
 include_directories(lib/googletest-master/googlemock/include)
+
 set(SOURCE_FILES
         src/Board.cpp
         include/Board.h
@@ -63,8 +64,7 @@ set(TEST_FILES
         tests/TestMain.cpp
         tests/FlipTest.cpp
         tests/HumanTest.cpp
-        tests/AI_Test.cpp
-        )
+        tests/AI_Test.cpp)
 
 add_executable(Reversi ${SOURCE_FILES} src/main.cpp)
 add_executable(ReversiTest ${TEST_FILES} ${SOURCE_FILES})

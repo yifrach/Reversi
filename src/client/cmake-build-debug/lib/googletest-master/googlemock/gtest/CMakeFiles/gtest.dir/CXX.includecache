@@ -540,21 +540,21 @@ sys/types.h
 src/gtest-internal-inl.h
 ../lib/googletest-master/googletest/src/src/gtest-internal-inl.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/gtest-all.cc
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/gtest-all.cc
 gtest/gtest.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/gtest/gtest.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/gtest/gtest.h
 src/gtest.cc
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest.cc
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest.cc
 src/gtest-death-test.cc
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-death-test.cc
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-death-test.cc
 src/gtest-filepath.cc
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-filepath.cc
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-filepath.cc
 src/gtest-port.cc
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-port.cc
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-port.cc
 src/gtest-printers.cc
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-printers.cc
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-printers.cc
 src/gtest-test-part.cc
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-test-part.cc
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-test-part.cc
 src/gtest-typed-test.cc
-/home/yarin/CLionProjects/reversiProject/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-typed-test.cc
+/home/uri/CLionProjects/cpp/Reversi/src/client/lib/googletest-master/googletest/src/src/gtest-typed-test.cc
 

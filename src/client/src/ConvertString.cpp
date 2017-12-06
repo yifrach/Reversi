@@ -10,7 +10,7 @@ using namespace std;
 
 ConvertString::ConvertString() {}
 
-char* ConvertString::endGame() {
+char *ConvertString::endGame() {
 
 }
 
@@ -32,6 +32,6 @@ Point ConvertString::convertInput(char *str) {
   } else {
     int x, y;
     std::istringstream(str) >> x >> y;
-    return Point(x,y);
+    return Point(x, y);
   }
 }
