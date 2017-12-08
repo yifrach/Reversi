@@ -101,6 +101,7 @@ CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/BoardScanner.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Cell.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Client.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/ColorEnum.h
+CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/FileReader.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Flip.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/Game.h
 CMakeFiles/Reversi.dir/src/main.cpp.o: ../include/GameManager.h

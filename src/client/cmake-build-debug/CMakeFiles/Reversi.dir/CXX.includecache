@@ -159,6 +159,12 @@ iostream
 -
 fstream
 -
+sstream
+-
+cstring
+-
+stdlib.h
+-
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/Flip.cpp
 ../include/Flip.h
@@ -203,4 +209,6 @@ iostream
 -
 ../include/Game.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Game.h
+../include/FileReader.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/FileReader.h
 

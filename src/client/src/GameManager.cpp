@@ -59,7 +59,7 @@ Point GameManager::playOneTurnAI(Player *playerAI) {
     cout << "No possible moves for player O! Play passes back to the other player." << endl;
     // Lastly returning a fake point letting the game know the AI has no moves
     scanner->freeMovesList();
-    return Point(-1, -1);
+    return Point(NO_MOVE, NO_MOVE);
   }
 }
 

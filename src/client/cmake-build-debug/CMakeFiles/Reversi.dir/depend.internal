@@ -102,6 +102,7 @@ CMakeFiles/Reversi.dir/src/main.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/client/include/Cell.h
  /home/uri/CLionProjects/cpp/Reversi/src/client/include/Client.h
  /home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
+ /home/uri/CLionProjects/cpp/Reversi/src/client/include/FileReader.h
  /home/uri/CLionProjects/cpp/Reversi/src/client/include/Flip.h
  /home/uri/CLionProjects/cpp/Reversi/src/client/include/Game.h
  /home/uri/CLionProjects/cpp/Reversi/src/client/include/GameManager.h
