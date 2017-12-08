@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/uri/CLionProjects/cpp/Reversi/src/server/src/FileReader.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/FileReader.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/Server.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/server/src/main.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/main.cpp.o"
   )

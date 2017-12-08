@@ -4,7 +4,9 @@
 class FileReader {
  public:
   FileReader(char* path);
-  void readFile(char* ip, int &port);
+  char* readConfigFile();
+ private:
+  char* path;
 };
 
 #endif //REVERSI_FILEREADER_H

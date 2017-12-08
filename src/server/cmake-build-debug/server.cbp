@@ -84,7 +84,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h">
+			<Option target="server"/>
+		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h">
+			<Option target="server"/>
+		</Unit>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/FileReader.cpp">
 			<Option target="server"/>
 		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp">

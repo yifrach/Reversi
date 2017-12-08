@@ -123,6 +123,33 @@ server/fast:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
 .PHONY : server/fast
 
+src/FileReader.o: src/FileReader.cpp.o
+
+.PHONY : src/FileReader.o
+
+# target to build an object file
+src/FileReader.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/FileReader.cpp.o
+.PHONY : src/FileReader.cpp.o
+
+src/FileReader.i: src/FileReader.cpp.i
+
+.PHONY : src/FileReader.i
+
+# target to preprocess a source file
+src/FileReader.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/FileReader.cpp.i
+.PHONY : src/FileReader.cpp.i
+
+src/FileReader.s: src/FileReader.cpp.s
+
+.PHONY : src/FileReader.s
+
+# target to generate assembly for a file
+src/FileReader.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/FileReader.cpp.s
+.PHONY : src/FileReader.cpp.s
+
 src/Server.o: src/Server.cpp.o
 
 .PHONY : src/Server.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... server"
+	@echo "... src/FileReader.o"
+	@echo "... src/FileReader.i"
+	@echo "... src/FileReader.s"
 	@echo "... src/Server.o"
 	@echo "... src/Server.i"
 	@echo "... src/Server.s"

@@ -6,7 +6,21 @@
 
 #IncludeRegexTransform: 
 
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
+
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+
+/home/uri/CLionProjects/cpp/Reversi/src/server/src/FileReader.cpp
+../include/FileReader.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
+iostream
+-
+fstream
+-
+sstream
+-
+stdlib.h
+-
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp
 ../include/Server.h
@@ -25,6 +39,8 @@ iostream
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/main.cpp
 ../include/Server.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+../include/FileReader.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
 iostream
 -
 stdlib.h
