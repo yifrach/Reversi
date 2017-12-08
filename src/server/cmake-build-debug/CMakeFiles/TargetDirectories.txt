@@ -1,3 +1,3 @@
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir
+/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir

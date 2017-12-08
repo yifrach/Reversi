@@ -1,26 +1,21 @@
 #include "../include/Cell.h"
-enum Color { empty = -1, white, black };
+#include "../include/ColorEnum.h"
 
-/**
- * Our color constructor, initalzing it as an empty cell
- */
+// Initalzing it as an empty cell as default
 Cell::Cell() : color(empty) {
 }
 
+// Copy constructor for our cell
 Cell::Cell(const Cell &oldCell) {
   color = oldCell.color;
 }
-/**
- * Getter for our cells color
- * @return - the cells color
- */
+
+// Getter for our cells color
 int Cell::getColor() {
   return color;
 }
 
-/**
- * Print the cells color
- */
+// Print our cells color
 void Cell::print() {
   if (color == black) {
     cout << "X";
@@ -31,17 +26,12 @@ void Cell::print() {
   }
 }
 
-/**
- * Change the cells color to the desired color
- * @param color - the desired color
- */
+// Change the cells color to color
 void Cell::changeColor(int color) {
   this->color = color;
 }
 
-/**
- * Flip the cells disk based on its color
- */
+// Flip the cells disk changing its color
 void Cell::flip() {
   if (color == black) {
     this->color = white;
@@ -50,10 +40,7 @@ void Cell::flip() {
   }
 }
 
-/**
- * Getter for the cells disk opposite color
- * @return - the disks opposite color
- */
+// Getter for our cells opposite color
 int Cell::getFlip() {
   if (color == black) {
     return white;

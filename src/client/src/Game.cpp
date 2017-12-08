@@ -1,8 +1,8 @@
 #include <fstream>
 #include "../include/Game.h"
 #include <stdlib.h>
+#include "../include/ColorEnum.h"
 
-//The constructor
 Game::Game() {}
 
 //The method initialize- choose a mode and initialize by this mode
@@ -22,14 +22,14 @@ void Game::initialize() {
       break;
     case 3:readFile();
       try {
-        player1->setColor(((Client*)player1)->connectToServer());
-        clientColor=player1->getColor();
+        player1->setColor(((Client *) player1)->connectToServer());
+        clientColor = player1->getColor();
       } catch (const char *msg) {
         cout << "Failed to connect to server. Reason:" << msg << endl;
         exit(-1);
       }
       player2 = new Human();
-      if(player1->getColor()==black) {
+      if (player1->getColor() == black) {
         player2->setColor(white);
       } else {
         player2->setColor(black);
@@ -37,10 +37,10 @@ void Game::initialize() {
       break;
     default:cout << "wrong input!! try again" << endl;
       cin >> mode;
+      cout << endl;
       break;
   }
-  size=4;
-  cout << endl;
+  size = 4;
   board = new Board(size);
   scanner = new BoardScanner(board);
   manager = new GameManager(scanner, board);
@@ -48,12 +48,11 @@ void Game::initialize() {
 
 //The method print the menu of the game and get the mode that the player want to play
 void Game::menuGame() {
-  cout << "WELCOME TO REVERSI!" << endl<<endl;
-  cout << "choose an opponent type:"<<endl;
-  cout<<"1. a human local player\n2. an AI player\n3. a remote player\n";
+  cout << "WELCOME TO REVERSI!" << endl << endl;
+  cout << "choose an opponent type:" << endl;
+  cout << "1. a human local player\n2. an AI player\n3. a remote player\n";
   cin >> mode;
 }
-
 
 //The method play the game by the mode that the user had chosen
 void Game::playGame() {
@@ -123,13 +122,12 @@ void Game::playAI() {
   }
 }
 
-
 void Game::playClient() {
   bool blackPlayed = false;
   while (scanner->hasMoves(black) || scanner->hasMoves(white)) {
     board->print();
     if (blackPlayed) {
-      if(player1->getColor()==white) {
+      if (player1->getColor() == white) {
         cout << "Player O it's your move." << endl;
         manager->playOneTurnClient(white, player1);
         blackPlayed = false;
@@ -138,7 +136,7 @@ void Game::playClient() {
         blackPlayed = false;
       }
     } else {
-      if(player1->getColor()==black) {
+      if (player1->getColor() == black) {
         cout << "Player X it's your move." << endl;
         manager->playOneTurnClient(black, player1);
         blackPlayed = true;
@@ -149,7 +147,6 @@ void Game::playClient() {
     }
   }
 }
-
 
 void Game::readFile() {
 //  char *IP;
@@ -163,7 +160,7 @@ void Game::readFile() {
 //  inFile>>port;
 //
 //  inFile.close();
-  player1=new Client("127.0.0.1",8001);
+  player1 = new Client("127.0.0.1", 8000);
 }
 
 //The destructor of the class

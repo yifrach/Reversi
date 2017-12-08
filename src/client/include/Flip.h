@@ -1,23 +1,16 @@
 #ifndef REVERSI_FLIP_H
 #define REVERSI_FLIP_H
-
 #include "Board.h"
 
 class Flip {
  public:
-  //constructor
   Flip(Board *nBoard);
-
-  //destructor
   ~Flip();
-
-  //flip our board disks based on the new disks location and color
   void flipBoard(int row, int col, int color);
 
  private:
   Board *board;
   int wall;
-
   //flipping the board in all directions
   void flipUp(int row, int col, int color);
   void flipDown(int row, int col, int color);

@@ -1,5 +1,5 @@
 #include "../include/AI.h"
-
+#include "../include/ColorEnum.h"
 AI::AI() {}
 
 /**

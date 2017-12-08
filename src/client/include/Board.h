@@ -7,18 +7,10 @@
 class Board {
  public:
   Board(int size);
-
-  //Boards copy constructor
-  Board(const Board &oldBoard);
+  Board(const Board &oldBoard); // boards copy constructor
   ~Board();
-
-  //Getter for the boards size
   int getSize();
-
-  //Adding a single cell
   void addCell(int row, int coll, int color);
-
-  //Printing out the board
   void print();
   Cell **cellMatrix;
 

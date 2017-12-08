@@ -1,19 +1,8 @@
-//
-// Created by yarin on 11/28/17.
-//
-
 #include "../include/Flip.h"
 
-Flip::Flip(Board *nBoard) : board(nBoard), wall(board->getSize()) {}
+Flip::Flip(Board *newBoard) : board(newBoard), wall(board->getSize()) {}
 
-Flip::~Flip() {}
-
-/**
- * Flipps the boards disks based on the given disk
- * @param row - the disks row
- * @param col - the disks colum
- * @param color - the disks color
- */
+// Flip the board given the disks position and color using 8 sub functions
 void Flip::flipBoard(int row, int col, int color) {
   if (row != 1) {
     flipUp(row - 1, col, color);
@@ -41,25 +30,20 @@ void Flip::flipBoard(int row, int col, int color) {
   }
 }
 
-/**
- * Flipping up all opposite colored disks
- * @param row - the new disks row
- * @param col - the new disks colum
- * @param color - the new disks color
- */
+// Flipping our board up
 void Flip::flipUp(int row, int col, int color) {
-  //reseting our counter and flipped color
+  // Reseting our counter and flipped color
   int counter = 0;
   int flipped = board->cellMatrix[row + 1][col].getFlip();
-  //traveling up while we havent reached a diff colored disk or a wall
+  // Traveling up while we havent reached a diff colored disk or a wall
   while ((board->cellMatrix[row][col].getColor() == flipped) && row > 1) {
-    //counting each move up
+    // Counting each move up
     row--;
     counter++;
   }
-  //lastly checking if the point we reached is of the desired color
+  // Lastly checking if the point we reached is of the desired color
   if (board->cellMatrix[row][col].getColor() == color) {
-    //flipping each cell on the way back to the origin cell
+    // Flipping each cell on the way back to the origin cell
     for (int i = 0; i < counter; i++) {
       row++;
       board->cellMatrix[row][col].flip();
@@ -67,6 +51,7 @@ void Flip::flipUp(int row, int col, int color) {
   }
 }
 
+// Flipping our board down
 void Flip::flipDown(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row - 1][col].getFlip();
@@ -82,6 +67,7 @@ void Flip::flipDown(int row, int col, int color) {
   }
 }
 
+// Flipping our board left
 void Flip::flipLeft(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row][col + 1].getFlip();
@@ -97,6 +83,7 @@ void Flip::flipLeft(int row, int col, int color) {
   }
 }
 
+// Flipping our board right
 void Flip::flipRight(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row][col - 1].getFlip();
@@ -112,6 +99,7 @@ void Flip::flipRight(int row, int col, int color) {
   }
 }
 
+// Flipping our board up and left diagonally
 void Flip::flipUpLeft(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row + 1][col + 1].getFlip();
@@ -129,6 +117,7 @@ void Flip::flipUpLeft(int row, int col, int color) {
   }
 }
 
+// Flipping our board up and right diagonally
 void Flip::flipUpRight(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row + 1][col - 1].getFlip();
@@ -146,6 +135,7 @@ void Flip::flipUpRight(int row, int col, int color) {
   }
 }
 
+// Flipping our board down and left diagonallya
 void Flip::flipDownLeft(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row - 1][col + 1].getFlip();
@@ -163,6 +153,7 @@ void Flip::flipDownLeft(int row, int col, int color) {
   }
 }
 
+// Flipping our board down and right diagonally
 void Flip::flipDownRight(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row - 1][col - 1].getFlip();
@@ -178,4 +169,8 @@ void Flip::flipDownRight(int row, int col, int color) {
       board->cellMatrix[row][col].flip();
     }
   }
+}
+
+// Flips destructor
+Flip::~Flip() {
 }

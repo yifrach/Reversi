@@ -406,8 +406,14 @@
 			<Option target="ReversiTest"/>
 			<Option target="Reversi"/>
 		</Unit>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h">
+			<Option target="ReversiTest"/>
+		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/include/ConvertString.h">
 			<Option target="ReversiTest"/>
+			<Option target="Reversi"/>
+		</Unit>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/include/FileReader.h">
 			<Option target="Reversi"/>
 		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/include/Flip.h">
@@ -473,6 +479,9 @@
 			<Option target="ReversiTest"/>
 			<Option target="Reversi"/>
 		</Unit>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/src/FileReader.cpp">
+			<Option target="Reversi"/>
+		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/src/Flip.cpp">
 			<Option target="ReversiTest"/>
 			<Option target="Reversi"/>
@@ -510,6 +519,9 @@
 			<Option target="ReversiTest"/>
 		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/tests/CellTest.cpp">
+			<Option target="ReversiTest"/>
+		</Unit>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/tests/ConvertStringTest.cpp">
 			<Option target="ReversiTest"/>
 		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/client/tests/FlipTest.cpp">

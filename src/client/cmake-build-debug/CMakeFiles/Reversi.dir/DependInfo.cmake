@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/uri/CLionProjects/cpp/Reversi/src/client/src/Cell.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/Reversi.dir/src/Cell.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/client/src/Client.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/Reversi.dir/src/Client.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/client/src/ConvertString.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/Reversi.dir/src/ConvertString.cpp.o"
+  "/home/uri/CLionProjects/cpp/Reversi/src/client/src/FileReader.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/Reversi.dir/src/FileReader.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/client/src/Flip.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/Reversi.dir/src/Flip.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/client/src/Game.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/Reversi.dir/src/Game.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/client/src/GameManager.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/Reversi.dir/src/GameManager.cpp.o"

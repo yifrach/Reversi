@@ -1,7 +1,3 @@
-//
-// Created by yarin on 11/25/17.
-//
-
 #ifndef REVERSI_AI_H
 #define REVERSI_AI_H
 

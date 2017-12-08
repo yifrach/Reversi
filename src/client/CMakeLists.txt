@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 98)
 add_subdirectory(lib/googletest-master)
 include_directories(lib/googletest-master/googletest/include)
 include_directories(lib/googletest-master/googlemock/include)
-
 set(SOURCE_FILES
         src/Board.cpp
         include/Board.h
@@ -15,8 +14,8 @@ set(SOURCE_FILES
         include/Cell.h
         include/Client.h
         src/Client.cpp
-        include/ConvertString.h
         src/ConvertString.cpp
+        include/ConvertString.h
         src/Game.cpp
         include/Game.h
         src/GameManager.cpp
@@ -41,8 +40,8 @@ set(TEST_FILES
         include/Cell.h
         include/Client.h
         src/Client.cpp
-        include/ConvertString.h
         src/ConvertString.cpp
+        include/ConvertString.h
         src/Game.cpp
         include/Game.h
         src/GameManager.cpp
@@ -64,9 +63,10 @@ set(TEST_FILES
         tests/TestMain.cpp
         tests/FlipTest.cpp
         tests/HumanTest.cpp
-        tests/AI_Test.cpp)
+        tests/AI_Test.cpp
+        tests/ConvertStringTest.cpp include/ColorEnum.h)
 
-add_executable(Reversi ${SOURCE_FILES} src/main.cpp)
+add_executable(Reversi ${SOURCE_FILES} src/main.cpp src/FileReader.cpp include/FileReader.h)
 add_executable(ReversiTest ${TEST_FILES} ${SOURCE_FILES})
 
 target_link_libraries(ReversiTest gtest gtest_main)

@@ -5,11 +5,12 @@ class Server {
  public:
   Server(int port);
   void start();
-  void stop();
+
  private:
   int port;
   int serverSocket; // the socket's file descriptor
-  void handleClient(int activePlayer, int recivePlayer, bool &playGame);
+  bool playGame; // bool for whether or not to continue playing
+  void handleClient(int activePlayer, int recivePlayer);
 };
 
 #endif //SERVER_SERVER_H

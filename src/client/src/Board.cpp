@@ -1,24 +1,20 @@
 #include "../include/Board.h"
-enum Color { empty = -1, white, black };
+#include "../include/ColorEnum.h"
 
-/**
- * Initialzing our board
- *
- * @param size - the desires boards size
- */
 Board::Board(int size) : size(size) {
-  //initialize our cellMatrix
+  // Initialize our cellMatrix
   cellMatrix = new Cell *[size + 1];
   for (int i = 0; i < size + 1; i++) {
     cellMatrix[i] = new Cell[size + 1];
   }
-  //placing our four initials disks
+  // Placing our four initials disks
   cellMatrix[size / 2][size / 2].changeColor(white);
   cellMatrix[(size / 2) + 1][(size / 2) + 1].changeColor(white);
   cellMatrix[(size / 2) + 1][size / 2].changeColor(black);
   cellMatrix[size / 2][(size / 2) + 1].changeColor(black);
 }
 
+// Boards copy constructor
 Board::Board(const Board &oldBoard) {
   size = oldBoard.size;
   cellMatrix = new Cell *[size + 1];
@@ -32,9 +28,7 @@ Board::Board(const Board &oldBoard) {
   }
 }
 
-/**
- * Printing the board at its current state
- */
+// Printing the board at its current state
 void Board::print() {
   string line = "----";
   for (int i = 0; i < size + 1; i++) {
@@ -58,33 +52,23 @@ void Board::print() {
   }
 }
 
-/**
- * Getter for our boards size
- * @return - the boards size
- */
+// Getter for our boards size
 int Board::getSize() {
   return size;
 }
 
-/**
- * Add a single disk to the board
- * @param row - the disks row
- * @param coll - the disks col
- * @param color - the disks color
- */
+// Add a single cell to the board
 void Board::addCell(int row, int col, int color) {
   cellMatrix[row][col].changeColor(color);
 }
 
-/**
- * Our boards destructor
- */
+// Boards destructor
 Board::~Board() {
-  //deleting each cell in the board
+  // Deleting each cell in the board
   for (int i = 0; i < size + 1; i++) {
     delete[] cellMatrix[i];
   }
-  //lastly deleting the cell matrix
+  // Lastly deleting the cell matrix
   delete[] cellMatrix;
 }
 

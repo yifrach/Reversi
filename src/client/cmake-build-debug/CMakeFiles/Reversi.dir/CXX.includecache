@@ -45,10 +45,16 @@ Player.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Player.h
 Point.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Point.h
+../include/ColorEnum.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
+
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/ConvertString.h
 Point.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Point.h
+
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/FileReader.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Flip.h
 Board.h
@@ -97,10 +103,14 @@ iostream
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/AI.cpp
 ../include/AI.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/AI.h
+../include/ColorEnum.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/Board.cpp
 ../include/Board.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Board.h
+../include/ColorEnum.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/BoardScanner.cpp
 ../include/BoardScanner.h
@@ -109,6 +119,8 @@ iostream
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/Cell.cpp
 ../include/Cell.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Cell.h
+../include/ColorEnum.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/Client.cpp
 ../include/Client.h
@@ -127,6 +139,8 @@ string.h
 -
 unistd.h
 -
+../include/ColorEnum.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/ConvertString.cpp
 ../include/ConvertString.h
@@ -134,6 +148,16 @@ unistd.h
 sstream
 -
 cstring
+-
+stdlib.h
+-
+
+/home/uri/CLionProjects/cpp/Reversi/src/client/src/FileReader.cpp
+../include/FileReader.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/FileReader.h
+iostream
+-
+fstream
 -
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/Flip.cpp
@@ -147,6 +171,8 @@ fstream
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Game.h
 stdlib.h
 -
+../include/ColorEnum.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/GameManager.cpp
 limits
@@ -155,6 +181,8 @@ cstdlib
 -
 ../include/GameManager.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/GameManager.h
+../include/ColorEnum.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/Human.cpp
 ../include/Human.h
@@ -163,6 +191,8 @@ cstdlib
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/Player.cpp
 ../include/Player.h
 /home/uri/CLionProjects/cpp/Reversi/src/client/include/Player.h
+../include/ColorEnum.h
+/home/uri/CLionProjects/cpp/Reversi/src/client/include/ColorEnum.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/client/src/Point.cpp
 ../include/Point.h

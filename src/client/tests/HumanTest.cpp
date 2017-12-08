@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "../include/Human.h"
+#include "../include/ColorEnum.h"
 
 TEST(HumanTest, SimpleTest) {
   Human human;

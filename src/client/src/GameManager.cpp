@@ -1,90 +1,76 @@
 #include <limits>
 #include <cstdlib>
 #include "../include/GameManager.h"
+#include "../include/ColorEnum.h"
+#define NO_MOVE -1
+#define END -2
 
-/**
- * Our GameLogic constructor
- * @param scanner - the games board BoarScanner
- * @param board - the games Board
- */
 GameManager::GameManager(BoardScanner *scanner, Board *board) : scanner(scanner), board(board), wall(board->getSize()) {
   flip = new Flip(board);
 }
 
-/**
- * Plays a single turn for the desired color player
- * @param color - the players color
- */
+// Play a single turn of desired color for a local player
 void GameManager::playOneTurn(int color) {
   int row, col;
-  //first freeing our previous turns moves listscanner->freeMovesList();
+  // First freeing our previous turns moves list
   scanner->freeMovesList();
-  //scanning the board again filling the availble moves list
-  scanner->scanBoard(color);
-  //if the player has any moves
+  // If the player has any moves
   if (scanner->hasMoves(color)) {
-    //we'll print them to the screen asking for an input
+    // We'll print them to the screen asking for an input
     scanner->printMoves();
-    cout << "Please enter your move row, col:";
+    cout << "Please enter your move row, col: ";
     cin >> row >> col;
-    //checking the input is indeed correct
+    // Checking the input is indeed correct
     if (!scanner->isValidMove(row, col) || cin.fail()) {
       do {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Bad input, please try again: ";
         cin >> row >> col;
-        //doing so untill the input is correct
       } while (!scanner->isValidMove(row, col) || cin.fail());
     }
-    //adding the cell to the board
+    // Adding the cell to the board
     board->addCell(row, col, color);
     cout << endl;
-    //flipping the board according to the added cell
+    // Flipping the board according to the added cell
     flip->flipBoard(row, col, color);
   } else {
-    //if the player has no moves we'll inform him passing the turn back
+    // If the player has no moves we'll inform him passing the turn back
     cout << "No possible moves! Play passes back to the other player.\n\n";
   }
-  //first freeing our previous turns moves listscanner->freeMovesList();
-  scanner->freeMovesList();
 }
 
-/**
- * The method get a Player and playing his turn.
- * @param pointAI - a variable from type Player that represent the AI player
- * @return - a Point that represent the move that the player done.
- */
+// Play a single turn of an AI controlled white player
 Point GameManager::playOneTurnAI(Player *playerAI) {
-  //first freeing our previous turns moves list
+  // First freeing our previous turns moves list
   scanner->freeMovesList();
-  //since we defined the AI player will always be white
+  // If the AI has any moves
   if (scanner->hasMoves(white)) {
+    // He'll choose his minimax move
     Point p = ((AI *) playerAI)->playTurn(board);
-    //adding the cell to the board
+    // Adding the cell to the board
     board->addCell(p.getX(), p.getY(), white);
     cout << endl;
-    //flipping the board according to the added cell
+    // Flipping the board according to the added cell
     flip->flipBoard(p.getX(), p.getY(), white);
-    scanner->freeMovesList();
     return p;
   } else {
+    // If the AI has no moves we'll inform the player
     cout << "No possible moves for player O! Play passes back to the other player." << endl;
-    //returning a fake point letting the game know AI has no moves
+    // Lastly returning a fake point letting the game know the AI has no moves
     scanner->freeMovesList();
     return Point(-1, -1);
   }
 }
 
+// Play a single turn of an online match for the local player
 void GameManager::playOneTurnClient(int color, Player *playerClient) {
   int row, col;
-  //first freeing our previous turns moves listscanner->freeMovesList();
+  // First freeing our previous turns moves list
   scanner->freeMovesList();
-  //scanning the board again filling the availble moves list
-  scanner->scanBoard(color);
-  //if the player has any moves
+  // If the player has any moves
   if (scanner->hasMoves(color)) {
-    //we'll print them to the screen asking for an input
+    // We'll print them to the screen asking for an input
     scanner->printMoves();
     cout << "Please enter your move row, col:";
     cin >> row >> col;
@@ -95,61 +81,50 @@ void GameManager::playOneTurnClient(int color, Player *playerClient) {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Bad input, please try again: ";
         cin >> row >> col;
-        //doing so untill the input is correct
       } while (!scanner->isValidMove(row, col) || cin.fail());
     }
     //************try and catch************//
     try {
-      ((Client *) playerClient)->sendSocketPoint(row, col);
+      ((Client *) playerClient)->sendSocket(row, col);
     } catch (const char *msg) {
       cout << "Failed to connect to server. Reason:" << msg << endl;
       exit(-1);
     }
-    //adding the cell to the board
+    // Adding the cell to the board
     board->addCell(row, col, color);
     cout << endl;
-    //flipping the board according to the added cell
+    // Flipping the board according to the added cell
     flip->flipBoard(row, col, color);
   } else {
-    //if the player has no moves we'll inform him passing the turn back
-    if(scanner->hasMoves(playerClient->getColor())) {
-      cout << "No possible moves! Play passes back to the other player.\n\n";
-      try {
-        ((Client *) playerClient)->sendSocketNoMove("NoMove");
-      } catch (const char *msg) {
-        cout << "Failed to connect to server. Reason:" << msg << endl;
-        exit(-1);
-      }
-    } else {
-      try {
-        ((Client *) playerClient)->sendSocketNoMove("End");
-      } catch (const char *msg) {
-        cout << "Failed to connect to server. Reason:" << msg << endl;
-        exit(-1);
-      }
+    // If the player has no moves we'll inform him passing the turn back
+    cout << "No possible moves! Play passes back to the other player.\n\n";
+    try {
+      ((Client *) playerClient)->sendSocket(NO_MOVE, NO_MOVE);
+    } catch (const char *msg) {
+      cout << "Failed to connect to server. Reason:" << msg << endl;
+      exit(-1);
     }
   }
-  //first freeing our previous turns moves listscanner->freeMovesList();
-  scanner->freeMovesList();
 }
 
+// Play a single turn of an online match NON local player
 void GameManager::playOneTurnClientFake(Player *playerClient, Player *playerFake) {
-  Point point(0,0);
+  Point point(0, 0);
   try {
-    point=((Client*)playerClient)->readSocket();
+    point = ((Client *) playerClient)->readSocket();
   } catch (const char *msg) {
     cout << "Failed to connect to server. Reason:" << msg << endl;
     exit(-1);
   }
-  if(point.getX()!=-1) {
+  if (point.getX() != -1) {
     board->addCell(point.getX(), point.getY(), playerFake->getColor());
     cout << endl;
     flip->flipBoard(point.getX(), point.getY(), playerFake->getColor());
-    cout<<"Player played: ";
+    cout << "Player played: ";
     point.print();
-    cout<<endl;
+    cout << endl;
   } else {
-    cout<<"Player has no moves, it's your turn: "<<endl;
+    cout << "Player has no moves, it's your turn: " << endl;
   }
 }
 

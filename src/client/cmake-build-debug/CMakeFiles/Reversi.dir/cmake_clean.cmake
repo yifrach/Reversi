@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Reversi.dir/src/Human.cpp.o"
   "CMakeFiles/Reversi.dir/src/Flip.cpp.o"
   "CMakeFiles/Reversi.dir/src/main.cpp.o"
+  "CMakeFiles/Reversi.dir/src/FileReader.cpp.o"
   "Reversi.pdb"
   "Reversi"
 )
