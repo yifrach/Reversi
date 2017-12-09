@@ -17,6 +17,8 @@ class AI : public Player {
   //the method get a board and play a turn ob this board.
   Point playTurn(Board *board);
 
+  Point passTurn();
+
  private:
   //this method is private because just the playTurn method use it.
   void checkPoint(Board *tempBoard, int i, BoardScanner *scanner);

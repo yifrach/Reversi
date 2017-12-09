@@ -10,11 +10,7 @@ class GameManager {
  public:
   GameManager(BoardScanner *scanner, Board *board);
   ~GameManager();
-  void playOneTurn(int color);
-  Point playOneTurnAI(Player *playerAI);
-  void playOneTurnClient(int color, Player *playerClient);
-  void playOneTurnClientFake(Player *playerClient, Player *playerFake);
-
+  Point playOneTurn(Player* player);
  private:
   int wall;
   BoardScanner *scanner;

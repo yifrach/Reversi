@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Reversi.dir/src/ConvertString.cpp.o"
   "CMakeFiles/Reversi.dir/src/Game.cpp.o"
   "CMakeFiles/Reversi.dir/src/GameManager.cpp.o"
+  "CMakeFiles/Reversi.dir/src/OnlineOpponent.cpp.o"
   "CMakeFiles/Reversi.dir/src/Player.cpp.o"
   "CMakeFiles/Reversi.dir/src/Point.cpp.o"
   "CMakeFiles/Reversi.dir/src/AI.cpp.o"

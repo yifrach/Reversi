@@ -6,8 +6,13 @@
 #include<netdb.h>
 #include<string.h>
 #include<unistd.h>
-#include "../include/ColorEnum.h"
+#include <limits>
+#include <cstdlib>
+#include "../include/BoardScanner.h"
 #define BUFFER_SIZE 4096
+#define NO_MOVE -1
+
+
 
 Client::Client(const char *serverIP, int serverPort) : serverIP(serverIP), serverPort(serverPort), clientSocket(0) {}
 
@@ -50,6 +55,7 @@ Color Client::connectToServer() {
   }
   // If the player is the first player
   if (value == '1') {
+    cout << "You are player X" << endl;
     cout << "Waiting for other player to join..." << endl;
     // We'll wait for another server message the other player is ready
     int n = read(clientSocket, &value, sizeof(value));
@@ -59,6 +65,7 @@ Color Client::connectToServer() {
     // Lastly returning the players color
     return black;
   } else {
+    cout << "You are player O" << endl;
     return white;
   }
 }
@@ -91,4 +98,43 @@ Point Client::readSocket() {
   // Lastly flushing our buffer
   memset(buffer, '\0', sizeof(buffer));
   return p;
+}
+
+Point Client::playTurn(Board *board) {
+  int row, col;
+  BoardScanner* scanner=new BoardScanner(board);
+  scanner->scanBoard(getColor());
+  // We'll print them to the screen asking for an input
+  scanner->printMoves();
+  cout << "Please enter your move row, col:";
+  cin >> row >> col;
+  //checking the input is indeed correct
+  if (!scanner->isValidMove(row, col) || cin.fail()) {
+    do {
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cout << "Bad input, please try again: ";
+      cin >> row >> col;
+    } while (!scanner->isValidMove(row, col) || cin.fail());
+  }
+  //************try and catch************//
+  try {
+    sendSocket(row, col);
+  } catch (const char *msg) {
+    cout << "Failed to connect to server. Reason:" << msg << endl;
+    exit(-1);
+  }
+  scanner->freeMovesList();
+  return Point(row,col);
+}
+
+Point Client::passTurn() {
+  // If the player has no moves we'll inform him passing the turn back
+  cout << "No possible moves! Play passes back to the other player.\n\n";
+  try {
+    sendSocket(NO_MOVE, NO_MOVE);
+  } catch (const char *msg) {
+    cout << "Failed to connect to server. Reason:" << msg << endl;
+    exit(-1);
+  }
 }

@@ -1,45 +1,14 @@
 #include <fstream>
 #include "../include/Game.h"
 #include <stdlib.h>
-#include "../include/ColorEnum.h"
+#define END -2
 
 Game::Game() {}
 
 //The method initialize- choose a mode and initialize by this mode
 void Game::initialize() {
   menuGame();
-  //Creating our players
-  switch (mode) {
-    case 1:player1 = new Human();
-      player1->setColor(white);
-      player2 = new Human();
-      player2->setColor(black);
-      break;
-    case 2:player1 = new AI();
-      player1->setColor(white);
-      player2 = new Human();
-      player2->setColor(black);
-      break;
-    case 3:readFile();
-      try {
-        player1->setColor(((Client *) player1)->connectToServer());
-        clientColor = player1->getColor();
-      } catch (const char *msg) {
-        cout << "Failed to connect to server. Reason:" << msg << endl;
-        exit(-1);
-      }
-      player2 = new Human();
-      if (player1->getColor() == black) {
-        player2->setColor(white);
-      } else {
-        player2->setColor(black);
-      }
-      break;
-    default:cout << "wrong input!! try again" << endl;
-      cin >> mode;
-      cout << endl;
-      break;
-  }
+  initializePlayers();
   size = 4;
   board = new Board(size);
   scanner = new BoardScanner(board);
@@ -52,6 +21,45 @@ void Game::menuGame() {
   cout << "choose an opponent type:" << endl;
   cout << "1. a human local player\n2. an AI player\n3. a remote player\n";
   cin >> mode;
+}
+
+void Game::initializePlayers() {
+  bool modeCoorect=false;
+  while(!modeCoorect) {
+    //Creating our players
+    switch (mode) {
+      case 1:player1 = new Human();
+        player1->setColor(white);
+        player2 = new Human();
+        player2->setColor(black);
+        modeCoorect=true;
+        break;
+      case 2:player1 = new AI();
+        player1->setColor(white);
+        player2 = new Human();
+        player2->setColor(black);
+        modeCoorect=true;
+        break;
+      case 3:readFile();
+        try {
+          player1->setColor(((Client *) player1)->connectToServer());
+        } catch (const char *msg) {
+          cout << "Failed to connect to server. Reason:" << msg << endl;
+          exit(-1);
+        }
+        player2 = new OnlineOpponent((Client *) player1);
+        if (player1->getColor() == black) {
+          player2->setColor(white);
+        } else {
+          player2->setColor(black);
+        }
+        modeCoorect=true;
+        break;
+      default:cout << "wrong input!! try again" << endl;
+        cin >> mode;
+        break;
+    }
+  }
 }
 
 //The method play the game by the mode that the user had chosen
@@ -90,11 +98,11 @@ void Game::playHuman() {
     board->print();
     if (blackPlayed) {
       cout << "Player O it's your move." << endl;
-      manager->playOneTurn(white);
+      manager->playOneTurn(player1);
       blackPlayed = false;
     } else {
       cout << "Player X it's your move." << endl;
-      manager->playOneTurn(black);
+      manager->playOneTurn(player2);
       blackPlayed = true;
     }
   }
@@ -106,7 +114,7 @@ void Game::playAI() {
   while (scanner->hasMoves(black) || scanner->hasMoves(white)) {
     board->print();
     if (blackPlayed) {
-      Point point = manager->playOneTurnAI(player1);
+      Point point = manager->playOneTurn(player1);
       //checking it is a correct move
       if (point.getX() != -1) {
         cout << "Player O made a move: ";
@@ -116,7 +124,7 @@ void Game::playAI() {
       blackPlayed = false;
     } else {
       cout << "Player X it's your move." << endl;
-      manager->playOneTurn(black);
+      manager->playOneTurn(player2);
       blackPlayed = true;
     }
   }
@@ -129,22 +137,28 @@ void Game::playClient() {
     if (blackPlayed) {
       if (player1->getColor() == white) {
         cout << "Player O it's your move." << endl;
-        manager->playOneTurnClient(white, player1);
+        manager->playOneTurn(player1);
         blackPlayed = false;
       } else {
-        manager->playOneTurnClientFake(player1, player2);
+        manager->playOneTurn(player2);
         blackPlayed = false;
       }
     } else {
       if (player1->getColor() == black) {
         cout << "Player X it's your move." << endl;
-        manager->playOneTurnClient(black, player1);
+        manager->playOneTurn(player1);
         blackPlayed = true;
       } else {
-        manager->playOneTurnClientFake(player1, player2);
+        manager->playOneTurn(player2);;
         blackPlayed = true;
       }
     }
+  }
+  try {
+    ((Client*)player1)->sendSocket(END, END);
+  } catch (const char *msg) {
+    cout << "Failed to connect to server. Reason:" << msg << endl;
+    exit(-1);
   }
 }
 
@@ -160,7 +174,7 @@ void Game::readFile() {
 //  inFile>>port;
 //
 //  inFile.close();
-  player1 = new Client("127.0.0.1", 8000);
+  player1 = new Client("127.0.0.1", 8001);
 }
 
 //The destructor of the class

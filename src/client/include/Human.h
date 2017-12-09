@@ -8,6 +8,8 @@ class Human : public Player {
  public:
   Human();
   ~Human();
+  Point playTurn(Board *board);
+  Point passTurn();
 };
 
 #endif //REVERSI_HUMAN_H

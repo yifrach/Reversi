@@ -5,9 +5,9 @@
 using namespace std;
 
 int main() {
-  FileReader fileReader;
-  int port = fileReader.readConfigFile("/home/uri/CLionProjects/cpp/Reversi/src/server/server_config.txt");
-  Server server(port);
+//  FileReader fileReader;
+//  int port = fileReader.readConfigFile("/home/uri/CLionProjects/cpp/Reversi/src/server/server_config.txt");
+  Server server(8001);
   try {
     server.start();
   } catch (const char *msg) {

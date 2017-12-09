@@ -82,3 +82,9 @@ void AI::checkPoint(Board *tempBoard, int i, BoardScanner *scanner) {
   delete flip;
   delete tempBS;
 }
+
+Point AI::passTurn() {
+  // If the player has no moves we'll inform him passing the turn back
+  cout << "No possible moves! Play passes back to the other player.\n\n";
+  return Point(-1,-1);
+}

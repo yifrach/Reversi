@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "AI.h"
 #include "Human.h"
+#include "OnlineOpponent.h"
 
 class Game {
  public:
@@ -14,7 +15,6 @@ class Game {
   void playGame();
   void playHuman();
   void playAI();
-  void menuGame(); // show the player the main menu
   void playClient();
   void readFile();
 
@@ -26,7 +26,8 @@ class Game {
   Player *player1;
   Player *player2;
   int mode;
-  int clientColor;
+  void menuGame(); // show the player the main menu
+  void initializePlayers();
 };
 
 #endif //EX2_GAMEMANAGER_H

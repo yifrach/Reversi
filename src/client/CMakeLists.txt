@@ -20,6 +20,8 @@ set(SOURCE_FILES
         include/Game.h
         src/GameManager.cpp
         include/GameManager.h
+        include/OnlineOpponent.h
+        src/OnlineOpponent.cpp
         include/Player.h
         src/Player.cpp
         src/Point.cpp
@@ -46,6 +48,8 @@ set(TEST_FILES
         include/Game.h
         src/GameManager.cpp
         include/GameManager.h
+        include/OnlineOpponent.h
+        src/OnlineOpponent.cpp
         include/Player.h
         src/Player.cpp
         src/Point.cpp

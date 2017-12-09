@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Point.h"
 #include "../include/ColorEnum.h"
+#include "BoardScanner.h"
 using namespace std;
 
 class Client: public Player{
@@ -11,7 +12,8 @@ class Client: public Player{
   Color connectToServer(); // returns the players color
   void sendSocket(int xPos, int yPos);
   Point readSocket();
-
+  Point playTurn(Board *board);
+  Point passTurn();
  private:
   const char *serverIP;
   int serverPort;
