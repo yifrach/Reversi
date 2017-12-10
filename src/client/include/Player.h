@@ -12,7 +12,6 @@ class Player {
   virtual void updateScore(int updatedScore);
   virtual int getColor();
   virtual int getScore();
-  virtual int getOpponentColor();
   virtual Point playTurn(Board *board)=0;
   virtual Point passTurn()=0;
 

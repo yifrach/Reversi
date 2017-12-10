@@ -5,9 +5,11 @@
 using namespace std;
 
 int main() {
-//  FileReader fileReader;
-//  int port = fileReader.readConfigFile("/home/uri/CLionProjects/cpp/Reversi/src/server/server_config.txt");
-  Server server(8001);
+  // Reading our servers port number
+  FileReader fileReader;
+  int port = fileReader.readConfigFile("server_config.txt");
+  // Creating our server
+  Server server(port);
   try {
     server.start();
   } catch (const char *msg) {

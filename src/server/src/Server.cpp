@@ -9,7 +9,7 @@ using namespace std;
 #define BUFFER_SIZE 4096
 
 Server::Server(int port) : port(port), serverSocket(0), playGame(true) {
-  cout << "Server" << endl;
+  cout << "Server Port: " << port << endl;
 }
 
 void Server::start() {
@@ -111,6 +111,7 @@ void Server::handleClient(int activePlayer, int recivePlayer) {
     cout << "Error writing to socket" << endl;
     return;
   }
+  cout << "Sent string: " << buffer << endl;
   // Lastly flushing our buffer
   memset(buffer, '\0', sizeof(buffer));
 }

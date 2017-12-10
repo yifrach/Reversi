@@ -3,10 +3,10 @@
 
 class FileReader {
  public:
-  FileReader(char* path);
-  char* readConfigFile();
+  FileReader(const char* path);
+  const char* readConfigFile(int *port);
  private:
-  char* path;
+  const char* path;
 };
 
 #endif //REVERSI_FILEREADER_H

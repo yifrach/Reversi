@@ -53,6 +53,7 @@ Color Client::connectToServer() {
   if (n < 0) {
     throw "Error reading player number";
   }
+  delete serverIP;
   // If the player is the first player
   if (value == '1') {
     cout << "You are player X" << endl;
@@ -81,8 +82,7 @@ void Client::sendSocket(int xPos, int yPos) {
   if (n < 0) {
     throw "Error writing to socket";
   }
-  //REMEMBER YOURE DELETING BECAUSE ITS A NEW STR
-  delete str;
+  delete[] str;
 }
 
 // Reading a message from the server
@@ -91,6 +91,9 @@ Point Client::readSocket() {
   int n = read(clientSocket, buffer, sizeof(buffer));
   if (n < 0) {
     throw "Error reading from socket";
+  }
+  if(strcmp(buffer, "NoMove")==0) {
+    n = read(clientSocket, buffer, sizeof(buffer));
   }
   // Converting our message
   ConvertString convert;
@@ -102,7 +105,8 @@ Point Client::readSocket() {
 
 Point Client::playTurn(Board *board) {
   int row, col;
-  BoardScanner* scanner=new BoardScanner(board);
+  Board *tempBoard = new Board(*board);
+  BoardScanner *scanner = new BoardScanner(tempBoard);
   scanner->scanBoard(getColor());
   // We'll print them to the screen asking for an input
   scanner->printMoves();
@@ -117,14 +121,13 @@ Point Client::playTurn(Board *board) {
       cin >> row >> col;
     } while (!scanner->isValidMove(row, col) || cin.fail());
   }
-  //************try and catch************//
   try {
     sendSocket(row, col);
   } catch (const char *msg) {
     cout << "Failed to connect to server. Reason:" << msg << endl;
     exit(-1);
   }
-  scanner->freeMovesList();
+  delete scanner;
   return Point(row,col);
 }
 
@@ -138,3 +141,4 @@ Point Client::passTurn() {
     exit(-1);
   }
 }
+

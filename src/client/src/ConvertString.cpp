@@ -3,6 +3,7 @@
 #include <cstring>
 #include <stdlib.h>
 #define NO_MOVE -1
+#define END -2
 using namespace std;
 
 ConvertString::ConvertString() {}
@@ -12,9 +13,14 @@ ConvertString::ConvertString() {}
 char *ConvertString::convertInt(int xPos, int yPos) {
   // If the point is a fake one
   if (xPos == NO_MOVE) {
-    char *str = new char[strlen("NoMove")];
-    strcpy(str, "NoMove");
-    return str;
+    char *strNoMove = new char[strlen("NoMove")];
+    strcpy(strNoMove, "NoMove");
+    return strNoMove;
+    // If the point it to mark the games end
+  } else if ( xPos == END) {
+    char *strEnd = new char[strlen("End")];
+    strcpy(strEnd, "End");
+    return strEnd;
   } else {
     // Otherwise converting the it to the format
     string str;

@@ -6,10 +6,10 @@
 #include <stdlib.h>
 using namespace std;
 
-FileReader::FileReader(char *path) : path(path) {}
+FileReader::FileReader(const char *path) : path(path) {}
 
 // Reading our clients config file
-char* FileReader::readConfigFile() {
+const char* FileReader::readConfigFile(int* port) {
   string str[2];
   ifstream inFile;
   // Opening our file
@@ -17,10 +17,12 @@ char* FileReader::readConfigFile() {
   if (!inFile.is_open()) {
     cout << "Error opening file" << endl;
   }
+  // First reading our ip
   inFile >> str[0];
+  // Then our port number
   inFile >> str[1];
   inFile.close();
-  // Seperating our string by ":"
+  // Separating our strings by ":"
   for (int i = 0 ; i < 2 ; i++) {
     istringstream ss(str[i]);
     string dummy;
@@ -29,7 +31,7 @@ char* FileReader::readConfigFile() {
     getline(ss, res);
     str[i] = res;
   }
-  int port = atoi(str[1].c_str());
+  *port = atoi(str[1].c_str());
   char *ip = new char[str[0].length() + 1];
   strcpy(ip, str[0].c_str());
   return ip;

@@ -18,11 +18,11 @@ int FileReader::readConfigFile(const char *path) {
   }
   inFile >> str;
   inFile.close();
-  // Seperating our string by ":"
+  // Separating our string by ":"
   istringstream ss(str);
   string dummy;
   string res;
   getline(ss, dummy, ':');
   getline(ss, res);
-  return atoi(res.c_str());;
+  return atoi(res.c_str());
 }

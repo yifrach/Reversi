@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/FileReader.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/Server.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/src/FileReader.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/server/src/FileReader.cpp
 ../include/FileReader.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/FileReader.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
 iostream
 -
 fstream
@@ -22,9 +22,9 @@ sstream
 stdlib.h
 -
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/src/Server.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp
 ../include/Server.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/Server.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
 sys/socket.h
 -
 netinet/in.h
@@ -36,11 +36,11 @@ string.h
 iostream
 -
 
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/src/main.cpp
+/home/uri/CLionProjects/cpp/Reversi/src/server/src/main.cpp
 ../include/Server.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/Server.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
 ../include/FileReader.h
-/home/yarin/CLionProjects/reversiProject/Reversi/src/server/include/FileReader.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
 iostream
 -
 stdlib.h

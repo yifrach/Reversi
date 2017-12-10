@@ -3,6 +3,6 @@ a.out: compileAll
 	rm -f *.o
 
 compileAll: include/*.h src/*.cpp
-	g++ -Isrc/ -c src/*.cpp
+	g++ -Iinclude/ -c src/*.cpp
 run:
 	./a.out

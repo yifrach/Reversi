@@ -31,11 +31,3 @@ int Player::getColor() {
 void Player::setColor(int newColor) {
   color = newColor;
 }
-
-int Player::getOpponentColor() {
-  if (color == white) {
-    return black;
-  } else {
-    return white;
-  }
-}

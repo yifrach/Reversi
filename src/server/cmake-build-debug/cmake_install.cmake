@@ -1,4 +1,4 @@
-# Install script for directory: /home/yarin/CLionProjects/reversiProject/Reversi/src/server
+# Install script for directory: /home/uri/CLionProjects/cpp/Reversi/src/server
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/yarin/CLionProjects/reversiProject/Reversi/src/server/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

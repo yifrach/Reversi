@@ -1,5 +1,6 @@
 #include <fstream>
 #include "../include/Game.h"
+#include "../include/FileReader.h"
 #include <stdlib.h>
 #define END -2
 
@@ -24,21 +25,21 @@ void Game::menuGame() {
 }
 
 void Game::initializePlayers() {
-  bool modeCoorect=false;
-  while(!modeCoorect) {
+  bool modeCoorect = false;
+  while (!modeCoorect) {
     //Creating our players
     switch (mode) {
       case 1:player1 = new Human();
         player1->setColor(white);
         player2 = new Human();
         player2->setColor(black);
-        modeCoorect=true;
+        modeCoorect = true;
         break;
       case 2:player1 = new AI();
         player1->setColor(white);
         player2 = new Human();
         player2->setColor(black);
-        modeCoorect=true;
+        modeCoorect = true;
         break;
       case 3:readFile();
         try {
@@ -53,7 +54,7 @@ void Game::initializePlayers() {
         } else {
           player2->setColor(black);
         }
-        modeCoorect=true;
+        modeCoorect = true;
         break;
       default:cout << "wrong input!! try again" << endl;
         cin >> mode;
@@ -138,24 +139,22 @@ void Game::playClient() {
       if (player1->getColor() == white) {
         cout << "Player O it's your move." << endl;
         manager->playOneTurn(player1);
-        blackPlayed = false;
       } else {
         manager->playOneTurn(player2);
-        blackPlayed = false;
       }
+      blackPlayed = false;
     } else {
       if (player1->getColor() == black) {
         cout << "Player X it's your move." << endl;
         manager->playOneTurn(player1);
-        blackPlayed = true;
       } else {
         manager->playOneTurn(player2);;
-        blackPlayed = true;
       }
+      blackPlayed = true;
     }
   }
   try {
-    ((Client*)player1)->sendSocket(END, END);
+    ((Client *) player1)->sendSocket(END, END);
   } catch (const char *msg) {
     cout << "Failed to connect to server. Reason:" << msg << endl;
     exit(-1);
@@ -163,18 +162,10 @@ void Game::playClient() {
 }
 
 void Game::readFile() {
-//  char *IP;
-//  int port;
-//  ifstream inFile;
-//
-//  //**********************//
-//  inFile.open("user.txt");
-//
-//  inFile>>IP;
-//  inFile>>port;
-//
-//  inFile.close();
-  player1 = new Client("127.0.0.1", 8001);
+  FileReader fileReader("client_config.txt");
+  int port;
+  const char *ip = fileReader.readConfigFile(&port);
+  player1 = new Client(ip, port);
 }
 
 //The destructor of the class

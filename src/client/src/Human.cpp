@@ -8,7 +8,8 @@ Human::~Human() {}
 
 Point Human::playTurn(Board *board) {
   int row, col;
-  BoardScanner* scanner=new BoardScanner(board);
+  Board *tempBoard = new Board(*board);
+  BoardScanner *scanner = new BoardScanner(tempBoard);
   scanner->scanBoard(getColor());
   // We'll print them to the screen asking for an input
   scanner->printMoves();
@@ -23,7 +24,7 @@ Point Human::playTurn(Board *board) {
       cin >> row >> col;
     } while (!scanner->isValidMove(row, col) || cin.fail());
   }
-  scanner->freeMovesList();
+  delete scanner;
   return Point(row, col);
 }
 
