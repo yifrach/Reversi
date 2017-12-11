@@ -1,8 +1,17 @@
 #include "../include/Flip.h"
 
+/**
+ * The constructor of the class
+ * @param newBoard - a Board
+ */
 Flip::Flip(Board *newBoard) : board(newBoard), wall(board->getSize()) {}
 
-// Flip the board given the disks position and color using 8 sub functions
+/**
+ * Flip the board given the disks position and color using 8 sub functions
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */
 void Flip::flipBoard(int row, int col, int color) {
   if (row != 1) {
     flipUp(row - 1, col, color);
@@ -30,7 +39,12 @@ void Flip::flipBoard(int row, int col, int color) {
   }
 }
 
-// Flipping our board up
+/**
+ * Flipping our board up
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */
 void Flip::flipUp(int row, int col, int color) {
   // Reseting our counter and flipped color
   int counter = 0;
@@ -51,7 +65,12 @@ void Flip::flipUp(int row, int col, int color) {
   }
 }
 
-// Flipping our board down
+/**
+ * Flipping our board down
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */
 void Flip::flipDown(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row - 1][col].getFlip();
@@ -67,7 +86,12 @@ void Flip::flipDown(int row, int col, int color) {
   }
 }
 
-// Flipping our board left
+/**
+ * Flipping our board left
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */
 void Flip::flipLeft(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row][col + 1].getFlip();
@@ -83,8 +107,12 @@ void Flip::flipLeft(int row, int col, int color) {
   }
 }
 
-// Flipping our board right
-void Flip::flipRight(int row, int col, int color) {
+/**
+ * Flipping our board right
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */void Flip::flipRight(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row][col - 1].getFlip();
   while ((board->cellMatrix[row][col].getColor() == flipped) && col < wall) {
@@ -99,7 +127,12 @@ void Flip::flipRight(int row, int col, int color) {
   }
 }
 
-// Flipping our board up and left diagonally
+/**
+ * Flipping our board up and left diagonally
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */
 void Flip::flipUpLeft(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row + 1][col + 1].getFlip();
@@ -117,7 +150,12 @@ void Flip::flipUpLeft(int row, int col, int color) {
   }
 }
 
-// Flipping our board up and right diagonally
+/**
+ * Flipping our board up and right diagonally
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */
 void Flip::flipUpRight(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row + 1][col - 1].getFlip();
@@ -135,7 +173,12 @@ void Flip::flipUpRight(int row, int col, int color) {
   }
 }
 
-// Flipping our board down and left diagonallya
+/**
+ * Flipping our board down and left diagonally
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */
 void Flip::flipDownLeft(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row - 1][col + 1].getFlip();
@@ -153,7 +196,12 @@ void Flip::flipDownLeft(int row, int col, int color) {
   }
 }
 
-// Flipping our board down and right diagonally
+/**
+ * Flipping our board down and right diagonally
+ * @param row - an Integer that represent the row
+ * @param col - an Integer that represent the col
+ * @param color - an Integer that represent the color
+ */
 void Flip::flipDownRight(int row, int col, int color) {
   int counter = 0;
   int flipped = board->cellMatrix[row - 1][col - 1].getFlip();
@@ -171,6 +219,8 @@ void Flip::flipDownRight(int row, int col, int color) {
   }
 }
 
-// Flips destructor
+/**
+ * The destructor of the class
+ */
 Flip::~Flip() {
 }

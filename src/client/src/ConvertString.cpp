@@ -6,10 +6,18 @@
 #define END -2
 using namespace std;
 
+/**
+ * The constructor of the class
+ */
 ConvertString::ConvertString() {}
 
-// Convert 2 integers to "X, Y" format char array
-// Or return NoMove if the point is fake
+//
+/**
+ * Convert 2 integers to "X, Y" format char array Or return NoMove if the point is
+ * @param xPos - an Integer that represent the X
+ * @param yPos - an Integer that represent the Y
+ * @return - "X, Y" format char array Or return NoMove if the point is
+ */
 char *ConvertString::convertInt(int xPos, int yPos) {
   // If the point is a fake one
   if (xPos == NO_MOVE) {
@@ -34,7 +42,11 @@ char *ConvertString::convertInt(int xPos, int yPos) {
   }
 }
 
-// Convert a char array to the corresponding point
+/**
+ * Convert a char array to the corresponding point
+ * @param str -a char array that we read from the server
+ * @return - a Point that represent the move
+ */
 Point ConvertString::convertInput(char *str) {
   // Return a fake point if there are no moves
   if (strcmp(str, "NoMove") == 0) {

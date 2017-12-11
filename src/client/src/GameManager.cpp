@@ -1,10 +1,19 @@
 #include "../include/GameManager.h"
 
+/**
+ * The constructor of the class
+ * @param scanner - a BoardScanner
+ * @param board - a Board
+ */
 GameManager::GameManager(BoardScanner *scanner, Board *board) : scanner(scanner), board(board), wall(board->getSize()) {
   flip = new Flip(board);
 }
 
-// Play a single turn of desired color for a local player
+/**
+ * Play a single turn of desired color for a player that it got
+ * @param player - a Player that we want to play a turn with
+ * @return - a Point that represent of we played a turn or not
+ */
 Point GameManager::playOneTurn(Player *player) {
   // First freeing our previous turns moves list
   scanner->freeMovesList();
@@ -25,6 +34,9 @@ Point GameManager::playOneTurn(Player *player) {
   }
 }
 
+/**
+ * The destructor of the class
+ */
 GameManager::~GameManager() {
   delete scanner;
   delete flip;

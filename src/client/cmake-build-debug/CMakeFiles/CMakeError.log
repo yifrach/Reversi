@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_326d2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_326d2.dir/build.make CMakeFiles/cmTC_326d2.dir/build
-make[1]: Entering directory '/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_326d2.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_326d2.dir/CheckSymbolExists.c.o   -c /home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_326d2
-/home/uri/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_326d2.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_326d2.dir/CheckSymbolExists.c.o  -o cmTC_326d2 
-CMakeFiles/cmTC_326d2.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_d0d5a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d0d5a.dir/build.make CMakeFiles/cmTC_d0d5a.dir/build
+make[1]: Entering directory '/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0d5a.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_d0d5a.dir/CheckSymbolExists.c.o   -c /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d0d5a
+/home/yarin/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0d5a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d0d5a.dir/CheckSymbolExists.c.o  -o cmTC_d0d5a 
+CMakeFiles/cmTC_d0d5a.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_326d2.dir/build.make:97: recipe for target 'cmTC_326d2' failed
-make[1]: *** [cmTC_326d2] Error 1
-make[1]: Leaving directory '/home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_326d2/fast' failed
-make: *** [cmTC_326d2/fast] Error 2
+CMakeFiles/cmTC_d0d5a.dir/build.make:97: recipe for target 'cmTC_d0d5a' failed
+make[1]: *** [cmTC_d0d5a] Error 1
+make[1]: Leaving directory '/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d0d5a/fast' failed
+make: *** [cmTC_d0d5a/fast] Error 2
 
-File /home/uri/CLionProjects/cpp/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 

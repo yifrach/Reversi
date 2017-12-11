@@ -3,8 +3,11 @@
 
 class FileReader {
  public:
+  //constructor
   FileReader(const char* path);
-  const char* readConfigFile(int *port);
+  // Reading our clients config file
+  const char* readConfigFile(int *port)
+
  private:
   const char* path;
 };

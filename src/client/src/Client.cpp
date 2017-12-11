@@ -13,9 +13,17 @@
 #define NO_MOVE -1
 
 
-
+/**
+ * The constructor of the Client
+ * @param serverIP - a string that represent the IP of the server
+ * @param serverPort - an Integer that represent the port of the server
+ */
 Client::Client(const char *serverIP, int serverPort) : serverIP(serverIP), serverPort(serverPort), clientSocket(0) {}
 
+/**
+ * The method connect to the server and determent the color of the player
+ * @return - a Color of the player
+ */
 Color Client::connectToServer() {
   // Create a socket point
   clientSocket = socket(AF_INET, SOCK_STREAM, 0);
@@ -71,7 +79,11 @@ Color Client::connectToServer() {
   }
 }
 
-// Sending the server the players move
+/**
+ * Sending the server the players move
+ * @param xPos - an Integer that represent the row of the move
+ * @param yPos - an Integer that represent the cal of the move
+ */
 void Client::sendSocket(int xPos, int yPos) {
   // First converting out point to a char array o
   // If the point is a fake point conversion will take care it
@@ -85,7 +97,10 @@ void Client::sendSocket(int xPos, int yPos) {
   delete[] str;
 }
 
-// Reading a message from the server
+/**
+ * Reading a message from the server
+ * @return - the message that we read inside a point.
+ */
 Point Client::readSocket() {
   char buffer[BUFFER_SIZE];
   int n = read(clientSocket, buffer, sizeof(buffer));
@@ -103,7 +118,13 @@ Point Client::readSocket() {
   return p;
 }
 
+/**
+ * The method get a Board, get a move from the user and send it to the socket
+ * @param board - a variable from type Board
+ * @return - a Point that represent the player move
+ */
 Point Client::playTurn(Board *board) {
+  //get a move from the player
   int row, col;
   Board *tempBoard = new Board(*board);
   BoardScanner *scanner = new BoardScanner(tempBoard);
@@ -121,6 +142,7 @@ Point Client::playTurn(Board *board) {
       cin >> row >> col;
     } while (!scanner->isValidMove(row, col) || cin.fail());
   }
+  //send the move to the socket
   try {
     sendSocket(row, col);
   } catch (const char *msg) {
@@ -131,6 +153,10 @@ Point Client::playTurn(Board *board) {
   return Point(row,col);
 }
 
+/**
+ * The method pass the turn of the player
+ * @return - a Point that represent that the user had no move.
+ */
 Point Client::passTurn() {
   // If the player has no moves we'll inform him passing the turn back
   cout << "No possible moves! Play passes back to the other player.\n\n";

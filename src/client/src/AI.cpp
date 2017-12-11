@@ -1,5 +1,8 @@
 #include "../include/AI.h"
-#include "../include/ColorEnum.h"
+
+/**
+ * The constructor of the class.
+ */
 AI::AI() {}
 
 /**
@@ -83,6 +86,10 @@ void AI::checkPoint(Board *tempBoard, int i, BoardScanner *scanner) {
   delete tempBS;
 }
 
+/**
+ * The method pass the turn of the player
+ * @return - a Point that represent that the user had no move.
+ */
 Point AI::passTurn() {
   // If the player has no moves we'll inform him passing the turn back
   cout << "No possible moves! Play passes back to the other player.\n\n";

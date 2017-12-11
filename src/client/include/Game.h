@@ -9,13 +9,22 @@
 
 class Game {
  public:
+  //constructor
   Game();
+  //destructor
   ~Game();
-  void initialize();  // initalzing our games elements
+  // initalzing our games elements
+  void initialize();
+  // The method play the game by the mode that the user had chosen
   void playGame();
+  //The method play the game by the mode of human against human
   void playHuman();
+  //The method play the game by the mode - human against the computer
   void playAI();
+  //The method play the game by the mode -client against other client
   void playClient();
+  // The method read a file and initialize the Client player
+  // by the parameters from the file
   void readFile();
 
  private:
@@ -26,7 +35,9 @@ class Game {
   Player *player1;
   Player *player2;
   int mode;
-  void menuGame(); // show the player the main menu
+  // show the player the main menu
+  void menuGame();
+  // initialize the players by the mode
   void initializePlayers();
 };
 

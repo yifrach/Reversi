@@ -8,9 +8,13 @@
 
 class GameManager {
  public:
+  //constructor
   GameManager(BoardScanner *scanner, Board *board);
+  //destructor
   ~GameManager();
-  Point playOneTurn(Player* player);
+  //Play a single turn of desired color for a player that it got
+  Point playOneTurn(Player *player);
+
  private:
   int wall;
   BoardScanner *scanner;

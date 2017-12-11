@@ -6,9 +6,17 @@
 #include <stdlib.h>
 using namespace std;
 
+/**
+ * The constructor of the class
+ * @param path
+ */
 FileReader::FileReader(const char *path) : path(path) {}
 
-// Reading our clients config file
+/**
+ * Reading our clients config file
+ * @param port - an Integer pointer to the port of the server
+ * @return - a char array that represent the IP
+ */
 const char* FileReader::readConfigFile(int* port) {
   string str[2];
   ifstream inFile;

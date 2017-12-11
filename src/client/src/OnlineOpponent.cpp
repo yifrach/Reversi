@@ -5,12 +5,26 @@
 #include <cstdlib>
 #include "../include/OnlineOpponent.h"
 
+/**
+ * The constructor of the class
+ * @param playerClient - a Client pointer
+ */
 OnlineOpponent::OnlineOpponent(Client* playerClient): playerClient(playerClient) {}
 
+/**
+ * The method pass the turn of the player
+ * @return - a Point that represent that the user had no move.
+ */
 Point OnlineOpponent::passTurn() {
   cout << "\nPlayer has no moves, it's your turn: \n" << endl;
+  return Point(-1,-1);
 }
 
+/**
+ * The method get a Board, read a move from the socket and return it
+ * @param board - a variable from type Board
+ * @return - a Point that represent the player move
+ */
 Point OnlineOpponent::playTurn(Board *board) {
   Point point(0, 0);
   try {

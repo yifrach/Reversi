@@ -3,20 +3,29 @@
 #include "../include/FileReader.h"
 #include <stdlib.h>
 #define END -2
+#define BOARD_SIZE 8;
 
+/**
+ * The constructor of the class
+ */
 Game::Game() {}
 
-//The method initialize- choose a mode and initialize by this mode
+/**
+ * The method initialize- choose a mode and initialize by this mode
+ */
 void Game::initialize() {
   menuGame();
   initializePlayers();
-  size = 4;
+  // the size of the board
+  size = BOARD_SIZE;
   board = new Board(size);
   scanner = new BoardScanner(board);
   manager = new GameManager(scanner, board);
 }
 
-//The method print the menu of the game and get the mode that the player want to play
+/**
+ * The method print the menu of the game and get the mode that the player want to play
+ */
 void Game::menuGame() {
   cout << "WELCOME TO REVERSI!" << endl << endl;
   cout << "choose an opponent type:" << endl;
@@ -24,6 +33,9 @@ void Game::menuGame() {
   cin >> mode;
 }
 
+/**
+ * The method initialize the players by the mode that the user want
+ */
 void Game::initializePlayers() {
   bool modeCoorect = false;
   while (!modeCoorect) {
@@ -63,7 +75,9 @@ void Game::initializePlayers() {
   }
 }
 
-//The method play the game by the mode that the user had chosen
+/**
+ * The method play the game by the mode that the user had chosen
+ */
 void Game::playGame() {
   //the black player will always start
   cout << "Please enter your input in the format row column" << endl;
@@ -92,7 +106,9 @@ void Game::playGame() {
   cout << "Congratulations!" << endl;
 }
 
-//The method play the game by the mode of human against human
+/**
+ * The method play the game by the mode of human against human
+ */
 void Game::playHuman() {
   bool blackPlayed = false;
   while (scanner->hasMoves(black) || scanner->hasMoves(white)) {
@@ -109,7 +125,9 @@ void Game::playHuman() {
   }
 }
 
-//The method play the game by the mode if human against the computer
+/**
+ * The method play the game by the mode - human against the computer
+ */
 void Game::playAI() {
   bool blackPlayed = false;
   while (scanner->hasMoves(black) || scanner->hasMoves(white)) {
@@ -131,6 +149,9 @@ void Game::playAI() {
   }
 }
 
+/**
+ * The method play the game by the mode -client against other client
+ */
 void Game::playClient() {
   bool blackPlayed = false;
   while (scanner->hasMoves(black) || scanner->hasMoves(white)) {
@@ -161,6 +182,10 @@ void Game::playClient() {
   }
 }
 
+/**
+ * The method read a file and initialize the Client player
+ * by the parameters from the file
+ */
 void Game::readFile() {
   FileReader fileReader("client_config.txt");
   int port;
