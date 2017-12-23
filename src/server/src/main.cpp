@@ -11,7 +11,7 @@ int main() {
   // Creating our server
   Server server(port);
   try {
-    server.start();
+    server.initialize();
   } catch (const char *msg) {
     cout << "Cannot start server. Reason: " << msg << endl;
     exit(-1);
