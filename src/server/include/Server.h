@@ -8,13 +8,21 @@ using namespace std;
 struct lobbyRoom {
   int clientSocket1;
   int clientSocket2;
-  bool readyToPlayer = false;
+};
+
+struct roomInfo {
+  map<string, lobbyRoom>* lobbyMap;
+  int socket;
+  string roomName;
 };
 
 class Server {
  public:
   Server(int port);
   void initialize();
+
+  friend class JoinCommand;
+  friend class StartCommand;
 
  private:
   int port;

@@ -7,13 +7,14 @@
 
 #include <map>
 #include "Command.h"
+#include "Server.h"
 
 class CommandsManager
 {
 public:
   CommandsManager();
   ~CommandsManager();
-  void executeCommand(string command, vector<string> args);
+  void executeCommand(string command, string args, roomInfo* info);
 private:
   map<string, Command *> commandsMap;
 };

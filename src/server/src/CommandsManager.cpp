@@ -5,17 +5,17 @@
 #include "../include/CommandsManager.h"
 #include "../include/JoinCommand.h"
 #include "../include/StartCommand.h"
-#include "../include/PlayCommand.h"
+#include "../include/ListCommand.h"
 
 CommandsManager::CommandsManager() {
   commandsMap["start"] = new StartCommand();
   commandsMap["join"] = new JoinCommand();
-  commandsMap["play"] = new PlayCommand();
-
+  commandsMap["list"] = new ListCommand();
 }
-void CommandsManager::executeCommand(string command, vector<string> args) {
+
+void CommandsManager::executeCommand(string command, string args, roomInfo* info) {
   Command *commandObj = commandsMap[command];
-  commandObj -> execute(args);
+  commandObj -> execute(args, info);
 }
 
 CommandsManager::~CommandsManager() {
