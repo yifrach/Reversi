@@ -8,17 +8,17 @@
 #include<sys/socket.h>
 #include<unistd.h>
 
-pthread_mutex_t count_mutex;
+pthread_mutex_t count_mutexJoin;
 
 JoinCommand::JoinCommand() {}
 
 void JoinCommand::execute(string args, roomInfo* info) {
   map<string, lobbyRoom>::iterator it;
-  for (it = info->lobbyMap->begin(); it != info->lobbyMap->end(); it++) {
+  for (it = info->lobbyMap.begin(); it != info->lobbyMap.end(); it++) {
     if(strcmp(args.c_str(), it->first.c_str())==0) {
-      pthread_mutex_lock(&count_mutex);
-      it->second.clientSocket2 = info->socket;
-      pthread_mutex_unlock(&count_mutex);
+      pthread_mutex_lock(&count_mutexJoin);
+      it->second.clientSocket2 = info->clientSocket;
+      pthread_mutex_unlock(&count_mutexJoin);
       return;
     }
   }
@@ -27,7 +27,7 @@ void JoinCommand::execute(string args, roomInfo* info) {
   char *str;
   strcpy(str, strConst);
   // Writing the move or NoMove to the server
-  int n = write(info->socket, str, strlen(str));
+  int n = write(info->clientSocket, str, strlen(str));
   if (n < 0) {
     throw "Error writing to socket";
   }

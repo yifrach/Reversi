@@ -3,6 +3,7 @@
 
 #include <map>
 #include <string>
+#include <vector>
 using namespace std;
 
 struct lobbyRoom {
@@ -11,26 +12,20 @@ struct lobbyRoom {
 };
 
 struct roomInfo {
-  map<string, lobbyRoom>* lobbyMap;
-  int socket;
+  int clientSocket;
   string roomName;
+  map<string, lobbyRoom> lobbyMap;
+  vector<pthread_t> threadVector;
 };
 
 class Server {
  public:
   Server(int port);
   void initialize();
-
-  friend class JoinCommand;
-  friend class StartCommand;
-
- private:
   int port;
   int serverSocket; // the socket's file descriptor
   map<string, lobbyRoom> lobbyMap;
-  void *handleClient(void *clientSocket);
-  void *acceptClient();
+  vector<pthread_t> threadVector;
 
 };
-
 #endif //SERVER_SERVER_H

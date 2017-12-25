@@ -84,10 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ClientHandler.h">
+			<Option target="server"/>
+		</Unit>
 		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Command.h">
 			<Option target="server"/>
 		</Unit>
 		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/CommandsManager.h">
+			<Option target="server"/>
+		</Unit>
+		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ConverString.h">
 			<Option target="server"/>
 		</Unit>
 		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/FileReader.h">
@@ -105,7 +111,13 @@
 		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/StartCommand.h">
 			<Option target="server"/>
 		</Unit>
+		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/ClientHandler.cpp">
+			<Option target="server"/>
+		</Unit>
 		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/CommandsManager.cpp">
+			<Option target="server"/>
+		</Unit>
+		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/ConverString.cpp">
 			<Option target="server"/>
 		</Unit>
 		<Unit filename="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/FileReader.cpp">

@@ -1,16 +1,21 @@
 #include "../include/Server.h"
+#include "../include/ClientHandler.h"
+#include "../include/ConverString.h"
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
 #include <string.h>
-#include <pthread.h>
+#include <cstdlib>
 #include <iostream>
+#include <limits>
 using namespace std;
-#define MAX_CONNECTED_CLIENTS 10
-#define BUFFER_SIZE 4096
-bool serverWorks = true;
 
-Server::Server(int port) : port(port), serverSocket(0)  {
+#define MAX_CONNECTED_CLIENTS 10
+bool stopServer = false;
+void *acceptClient(void *obj);
+void *handleClient(void *information);
+
+Server::Server(int port) : port(port), serverSocket(0) {
   cout << "Server Port: " << port << endl;
 }
 
@@ -20,15 +25,36 @@ void Server::initialize() {
   if (serverSocket == -1) {
     throw "Error opening socket";
   }
-  pthread_t acceptThread;
-  int n = pthread_create(&acceptThread, NULL, acceptClient, NULL);
+  // Create our main thread for accepting clients
+  pthread_t mainThread;
+  int n = pthread_create(&mainThread, NULL, acceptClient, this);
   if (n) {
     throw "Error creating client accept thread";
   }
-  // WAIT FOR AN EXIT MESSAGE HERE AND UPDATE ALL THREADS APPROPRIATLY
+  // Wait for the users exit command
+  string exitCommand;
+  cin >> exitCommand;
+  do {
+    // Stop the server if told so
+    if (strcmp(exitCommand.c_str(), "exit") == 0) {
+      stopServer = true;
+    } else {
+      // Else flushing our buffer
+      cout << "Sorry im only familiar with the command \"exit\"" << endl;
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+  } while (!stopServer);
+  // Wait for all threads to finish
+  pthread_exit(NULL);
 }
 
-void *Server::acceptClient() {
+// Our main thread for accepting clients and passing them to a new thread to handle
+void *acceptClient(void *obj) {
+  cout << "Created the accept thread!" << endl;
+  Server *server = (Server *) obj;
+  int port = server->port;
+  int serverSocket = server->serverSocket;
   // Assign a local address to the socket
   struct sockaddr_in serverAddress;
   bzero((void *) &serverAddress, sizeof(serverAddress));
@@ -43,18 +69,30 @@ void *Server::acceptClient() {
   // Define the client socket's structures
   struct sockaddr_in clientAddress;
   socklen_t clientAddressLen = sizeof((struct sockaddr *) &clientAddress);
-  // Start accepting clients and handling them
-  while (serverWorks) {
-    cout << "Waiting for client connections..." << endl;
+
+  // Start accepting clients and handling them while server is running
+  while (!stopServer) {
+    cout << "From acceptThread: Waiting for client connections..." << endl;
     // Accept a new clients connection
     int clientSocket = accept(serverSocket, (struct sockaddr *) &clientAddress, &clientAddressLen);
     if (clientSocket < 0) {
       throw "Error on accept";
     }
-    cout << "Client is connected" << endl;
-    // Sending him to our new thread to handle
+    int i = 0;
+    cout << "Client " << i << " is connected" << endl;
+    // Creating a new thread to handle our client
     pthread_t handleThread;
-    int n = pthread_create(&handleThread, NULL, handleClient, (void *) clientSocket);
+    server->threadVector.push_back(handleThread);
+    cout << "Created handle thread number " << i << endl;
+    i++;
+    // initalzing our clients lobby room information
+    roomInfo info;
+    info.lobbyMap = server->lobbyMap;
+    info.clientSocket = clientSocket;
+    info.threadVector = server->threadVector;
+
+    // Lastly opening the thread with the clients room information
+    int n = pthread_create(&handleThread, NULL, handleClient, &info);
     if (n) {
       throw "Error creating handling thread";
     }
@@ -63,21 +101,9 @@ void *Server::acceptClient() {
   }
 }
 
-// Handle requests from a specific client
-void *Server::handleClient(void *socket) {
-  int clientSocket = (int) socket;
-  char buffer[BUFFER_SIZE];
-  // Read players message
-  int readBytes = read(clientSocket, buffer, sizeof(buffer));
-  if (readBytes < 0) {
-    cout << "Error reading string" << endl;
-  }
-  // In case of disconnection
-  if (readBytes == 0) {
-    cout << "Client disconnected" << endl;
-  }
-  //CREATE A COMMAND MANAGER
-  //EXECUTE THE COMMAND JOIN OR START APPROPRIATLY
-
-  memset(buffer, '\0', sizeof(buffer));
+// Our thread for handling each incoming client
+void *handleClient(void *information) {
+  ClientHandler *handler = new ClientHandler((roomInfo*) information);
+  handler->handle();
+  delete handler;
 }

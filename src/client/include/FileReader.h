@@ -6,7 +6,7 @@ class FileReader {
   //constructor
   FileReader(const char* path);
   // Reading our clients config file
-  const char* readConfigFile(int *port)
+  const char* readConfigFile(int *port);
 
  private:
   const char* path;

@@ -123,6 +123,33 @@ server/fast:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
 .PHONY : server/fast
 
+src/ClientHandler.o: src/ClientHandler.cpp.o
+
+.PHONY : src/ClientHandler.o
+
+# target to build an object file
+src/ClientHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ClientHandler.cpp.o
+.PHONY : src/ClientHandler.cpp.o
+
+src/ClientHandler.i: src/ClientHandler.cpp.i
+
+.PHONY : src/ClientHandler.i
+
+# target to preprocess a source file
+src/ClientHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ClientHandler.cpp.i
+.PHONY : src/ClientHandler.cpp.i
+
+src/ClientHandler.s: src/ClientHandler.cpp.s
+
+.PHONY : src/ClientHandler.s
+
+# target to generate assembly for a file
+src/ClientHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ClientHandler.cpp.s
+.PHONY : src/ClientHandler.cpp.s
+
 src/CommandsManager.o: src/CommandsManager.cpp.o
 
 .PHONY : src/CommandsManager.o
@@ -149,6 +176,33 @@ src/CommandsManager.s: src/CommandsManager.cpp.s
 src/CommandsManager.cpp.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/CommandsManager.cpp.s
 .PHONY : src/CommandsManager.cpp.s
+
+src/ConverString.o: src/ConverString.cpp.o
+
+.PHONY : src/ConverString.o
+
+# target to build an object file
+src/ConverString.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ConverString.cpp.o
+.PHONY : src/ConverString.cpp.o
+
+src/ConverString.i: src/ConverString.cpp.i
+
+.PHONY : src/ConverString.i
+
+# target to preprocess a source file
+src/ConverString.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ConverString.cpp.i
+.PHONY : src/ConverString.cpp.i
+
+src/ConverString.s: src/ConverString.cpp.s
+
+.PHONY : src/ConverString.s
+
+# target to generate assembly for a file
+src/ConverString.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ConverString.cpp.s
+.PHONY : src/ConverString.cpp.s
 
 src/FileReader.o: src/FileReader.cpp.o
 
@@ -321,9 +375,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... server"
+	@echo "... src/ClientHandler.o"
+	@echo "... src/ClientHandler.i"
+	@echo "... src/ClientHandler.s"
 	@echo "... src/CommandsManager.o"
 	@echo "... src/CommandsManager.i"
 	@echo "... src/CommandsManager.s"
+	@echo "... src/ConverString.o"
+	@echo "... src/ConverString.i"
+	@echo "... src/ConverString.s"
 	@echo "... src/FileReader.o"
 	@echo "... src/FileReader.i"
 	@echo "... src/FileReader.s"

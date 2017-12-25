@@ -39,6 +39,8 @@ class Game {
   void menuGame();
   // initialize the players by the mode
   void initializePlayers();
+  // show the player the menu for client- to staet a new game or join
+  void ClientMenu();
 };
 
 #endif //EX2_GAMEMANAGER_H

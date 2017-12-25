@@ -54,10 +54,10 @@ RM = /home/yarin/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yarin/CLionProjects/reversiProject/Reversi/src/client
+CMAKE_SOURCE_DIR = "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug"
 
 #=============================================================================
 # Target rules for target CMakeFiles/ReversiTest.dir
@@ -67,7 +67,7 @@ CMakeFiles/ReversiTest.dir/all: lib/googletest-master/googlemock/gtest/CMakeFile
 CMakeFiles/ReversiTest.dir/all: lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f CMakeFiles/ReversiTest.dir/build.make CMakeFiles/ReversiTest.dir/depend
 	$(MAKE) -f CMakeFiles/ReversiTest.dir/build.make CMakeFiles/ReversiTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles --progress-num=17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39 "Built target ReversiTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" --progress-num=17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39 "Built target ReversiTest"
 .PHONY : CMakeFiles/ReversiTest.dir/all
 
 # Include target in all.
@@ -77,9 +77,9 @@ all: CMakeFiles/ReversiTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ReversiTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 27
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ReversiTest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/ReversiTest.dir/rule
 
 # Convenience name for target.
@@ -104,7 +104,7 @@ clean: CMakeFiles/ReversiTest.dir/clean
 CMakeFiles/Reversi.dir/all:
 	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/depend
 	$(MAKE) -f CMakeFiles/Reversi.dir/build.make CMakeFiles/Reversi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target Reversi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target Reversi"
 .PHONY : CMakeFiles/Reversi.dir/all
 
 # Include target in all.
@@ -114,9 +114,9 @@ all: CMakeFiles/Reversi.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Reversi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 16
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 16
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Reversi.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/Reversi.dir/rule
 
 # Convenience name for target.
@@ -181,7 +181,7 @@ lib/googletest-master/googlemock/preinstall: lib/googletest-master/googlemock/gt
 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all:
 	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles --progress-num=43,44,45,46 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" --progress-num=43,44,45,46 "Built target gmock_main"
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Include target in all.
@@ -191,9 +191,9 @@ all: lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 4
 	$(MAKE) -f CMakeFiles/Makefile2 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 0
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # Convenience name for target.
@@ -218,7 +218,7 @@ clean: lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/clean
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/all:
 	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles --progress-num=40,41,42 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" --progress-num=40,41,42 "Built target gmock"
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/all
 
 # Include target in all.
@@ -228,9 +228,9 @@ all: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 3
 	$(MAKE) -f CMakeFiles/Makefile2 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 0
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/rule
 
 # Convenience name for target.
@@ -275,7 +275,7 @@ lib/googletest-master/googlemock/gtest/preinstall:
 lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/all: lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles --progress-num=49,50 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" --progress-num=49,50 "Built target gtest_main"
 .PHONY : lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 
 # Include target in all.
@@ -285,9 +285,9 @@ all: lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 4
 	$(MAKE) -f CMakeFiles/Makefile2 lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 0
 .PHONY : lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.
@@ -312,7 +312,7 @@ clean: lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/clean
 lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles --progress-num=47,48 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" --progress-num=47,48 "Built target gtest"
 .PHONY : lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/all
 
 # Include target in all.
@@ -322,9 +322,9 @@ all: lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 2
 	$(MAKE) -f CMakeFiles/Makefile2 lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles" 0
 .PHONY : lib/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.

@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d0d5a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d0d5a.dir/build.make CMakeFiles/cmTC_d0d5a.dir/build
-make[1]: Entering directory '/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_d0d5a.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_d0d5a.dir/CheckSymbolExists.c.o   -c /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_d0d5a
-/home/yarin/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0d5a.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d0d5a.dir/CheckSymbolExists.c.o  -o cmTC_d0d5a 
-CMakeFiles/cmTC_d0d5a.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_2106c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2106c.dir/build.make CMakeFiles/cmTC_2106c.dir/build
+make[1]: Entering directory '/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2106c.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_2106c.dir/CheckSymbolExists.c.o   -c "/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c"
+Linking C executable cmTC_2106c
+/home/yarin/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2106c.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_2106c.dir/CheckSymbolExists.c.o  -o cmTC_2106c 
+CMakeFiles/cmTC_2106c.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_d0d5a.dir/build.make:97: recipe for target 'cmTC_d0d5a' failed
-make[1]: *** [cmTC_d0d5a] Error 1
-make[1]: Leaving directory '/home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_d0d5a/fast' failed
-make: *** [cmTC_d0d5a/fast] Error 2
+CMakeFiles/cmTC_2106c.dir/build.make:97: recipe for target 'cmTC_2106c' failed
+make[1]: *** [cmTC_2106c] Error 1
+make[1]: Leaving directory '/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_2106c/fast' failed
+make: *** [cmTC_2106c/fast] Error 2
 
-File /home/yarin/CLionProjects/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 

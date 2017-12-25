@@ -6,13 +6,99 @@
 
 #IncludeRegexTransform: 
 
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ClientHandler.h
+Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
 
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Command.h
+string
+-
+Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
 
-/home/uri/CLionProjects/cpp/Reversi/src/server/src/FileReader.cpp
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/CommandsManager.h
+map
+-
+Command.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Command.h
+Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ConverString.h
+string
+-
+sstream
+-
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/FileReader.h
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/JoinCommand.h
+map
+-
+Command.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Command.h
+Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ListCommand.h
+map
+-
+Command.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Command.h
+Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
+map
+-
+string
+-
+vector
+-
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/StartCommand.h
+map
+-
+Command.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Command.h
+Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/ClientHandler.cpp
+../include/ClientHandler.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ClientHandler.h
+../include/ConverString.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ConverString.h
+../include/CommandsManager.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/CommandsManager.h
+sys/socket.h
+-
+unistd.h
+-
+string.h
+-
+iostream
+-
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/CommandsManager.cpp
+../include/CommandsManager.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/CommandsManager.h
+../include/JoinCommand.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/JoinCommand.h
+../include/StartCommand.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/StartCommand.h
+../include/ListCommand.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ListCommand.h
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/ConverString.cpp
+../include/ConverString.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ConverString.h
+sstream
+-
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/FileReader.cpp
 ../include/FileReader.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/FileReader.h
 iostream
 -
 fstream
@@ -22,9 +108,37 @@ sstream
 stdlib.h
 -
 
-/home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/JoinCommand.cpp
+cstring
+-
+iostream
+-
+../include/JoinCommand.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/JoinCommand.h
+sys/socket.h
+-
+unistd.h
+-
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/ListCommand.cpp
+cstring
+-
+iostream
+-
+../include/ListCommand.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ListCommand.h
+sys/socket.h
+-
+unistd.h
+-
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/Server.cpp
 ../include/Server.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
+../include/ClientHandler.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ClientHandler.h
+../include/ConverString.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/ConverString.h
 sys/socket.h
 -
 netinet/in.h
@@ -33,14 +147,30 @@ unistd.h
 -
 string.h
 -
+cstdlib
+-
 iostream
 -
+limits
+-
 
-/home/uri/CLionProjects/cpp/Reversi/src/server/src/main.cpp
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/StartCommand.cpp
+cstring
+-
+iostream
+-
+../include/StartCommand.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/StartCommand.h
+sys/socket.h
+-
+unistd.h
+-
+
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/src/main.cpp
 ../include/Server.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/Server.h
 ../include/FileReader.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
+/home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/server/include/FileReader.h
 iostream
 -
 stdlib.h
