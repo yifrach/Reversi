@@ -14,7 +14,7 @@ struct lobbyRoom {
 struct roomInfo {
   int clientSocket;
   string roomName;
-  map<string, lobbyRoom> lobbyMap;
+  map<string, lobbyRoom>* lobbyMap;
   vector<pthread_t> threadVector;
 };
 
