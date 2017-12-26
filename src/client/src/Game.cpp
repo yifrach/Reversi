@@ -61,12 +61,15 @@ void Game::initializePlayers() {
           exit(-1);
         }
         player2 = new OnlineOpponent((Client *) player1);
-        if (player1->getColor() == black) {
+        if(player1->getColor()== empty) {
+          modeCoorect=false;
+        } else if (player1->getColor() == black) {
           player2->setColor(white);
+          modeCoorect = true;
         } else {
           player2->setColor(black);
+          modeCoorect = true;
         }
-        modeCoorect = true;
         break;
       default:cout << "wrong input!! try again" << endl;
         cin >> mode;
@@ -153,7 +156,6 @@ void Game::playAI() {
  * The method play the game by the mode -client against other client
  */
 void Game::playClient() {
-  ClientMenu();
   bool blackPlayed = false;
   while (scanner->hasMoves(black) || scanner->hasMoves(white)) {
     board->print();
@@ -180,21 +182,6 @@ void Game::playClient() {
   } catch (const char *msg) {
     cout << "Failed to connect to server. Reason:" << msg << endl;
     exit(-1);
-  }
-}
-
-/**
- * Show the player the menu for client- to staet a new game or join
- */
-void Game::ClientMenu() {
-  int gameChoose;
-  cout << "choose an opponent type:" << endl;
-  cout << "1. start a new game\n2. join to an exist game\n";
-  cin >> gameChoose;
-  if(gameChoose==1) {
-
-  } else {
-
   }
 }
 

@@ -26,5 +26,11 @@ class Client: public Player{
   const char *serverIP;
   int serverPort;
   int clientSocket;
+  // show the player the menu for client- to staet a new game or join
+  Color ClientMenu();
+  //Sending to the server the player command
+  void sendSocketCommand(char* str);
+  //Reading if the command successed
+  bool readSocketCommand();
 };
 #endif //REVERSI_CLIENT_H

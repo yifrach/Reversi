@@ -62,23 +62,87 @@ Color Client::connectToServer() {
     throw "Error reading player number";
   }
   delete serverIP;
-  // If the player is the first player
-  if (value == '1') {
-    cout << "You are player X" << endl;
-    cout << "Waiting for other player to join..." << endl;
-    // We'll wait for another server message the other player is ready
-    int n = read(clientSocket, &value, sizeof(value));
-    if (n < 0) {
-      throw "Error reading player number";
+  return ClientMenu();
+}
+
+/**
+ * Show the player the menu for client- to staet a new game or join
+ */
+Color Client::ClientMenu() {
+  bool optionExist=false;
+  int gameChoose;
+  string roomName;
+  char buffer[BUFFER_SIZE];
+  cout << "choose an opponent type:" << endl;
+  cout << "1. start a new game\n2. join to an exist game\n3. View the list of games\n";
+  cin >> gameChoose;
+  while(!optionExist) {
+    switch (gameChoose) {
+      case 1:
+        cout << "What is the room name: " << endl;
+        cin >> roomName;
+        roomName="start "+roomName;
+        cout<<roomName<<endl;
+        strcpy(buffer, roomName.c_str());
+        sendSocketCommand(buffer);
+        if(readSocketCommand()) {
+          cout << "The name of the room is already exist" << endl;
+          return black;
+        } else {
+          return empty;
+        }
+      case 2:
+        cout << "What is the room name: " << endl;
+        cin >> roomName;
+        roomName="join "+roomName;
+        cout<<roomName<<endl;
+        strcpy(buffer, roomName.c_str());
+        sendSocketCommand(buffer);
+        if(readSocketCommand()) {
+          cout << "The name of the room is not exist" << endl;
+          return white;
+        } else {
+          return empty;
+        }
+      case 3:
+        roomName="list 0";
+        cout<<roomName<<endl;
+        strcpy(buffer, roomName.c_str());
+        sendSocketCommand(buffer);
+        return empty;
+      default:
+        cout << "Invalid option!" << endl;
+        cout << "1. start a new game\n2. join to an exist game\n3. View the list of games\n";
+        cin >> gameChoose;
+        break;
     }
-    // Lastly returning the players color
-    return black;
-  } else {
-    cout << "You are player O" << endl;
-    return white;
   }
 }
 
+/**
+ * Sending the server the players move
+ * @param str - a string that represent the command
+ */
+void Client::sendSocketCommand(char* str) {
+  // Writing the command to the server
+  int n = write(clientSocket, str, strlen(str));
+  if (n < 0) {
+    throw "Error writing to socket";
+  }
+}
+
+bool Client::readSocketCommand() {
+  char buffer[BUFFER_SIZE];
+  int n = read(clientSocket, buffer, sizeof(buffer));
+  if (n < 0) {
+    throw "Error reading from socket";
+  }
+  if(strcmp(buffer, "NoRoom")==0) {
+    return false;
+  } else {
+    return true;
+  }
+}
 /**
  * Sending the server the players move
  * @param xPos - an Integer that represent the row of the move
