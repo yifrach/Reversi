@@ -10,6 +10,7 @@
 ClientHandler::ClientHandler(roomInfo *info) : info(info) {}
 
 void ClientHandler::handle() {
+  cout << "Now Handling socket number " << info->clientSocket << endl;
   char buffer[BUFFER_SIZE];
   // Read players message
   int readBytes = read(info->clientSocket, buffer, sizeof(buffer));
@@ -27,5 +28,7 @@ void ClientHandler::handle() {
   // Creating a commands manager
   CommandsManager manager;
   // Sending him our command, args and room information
-  //manager.executeCommand(command, args, &info);
+  cout<< "COMMAND IS: " << command;
+  cout<< "ARGS ARE: " << args;
+  manager.executeCommand(command, args, info);
 }

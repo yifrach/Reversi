@@ -9,7 +9,6 @@
 #include <iostream>
 #include <limits>
 using namespace std;
-
 #define MAX_CONNECTED_CLIENTS 10
 bool stopServer = false;
 void *acceptClient(void *obj);
@@ -36,11 +35,11 @@ void Server::initialize() {
   cin >> exitCommand;
   do {
     // Stop the server if told so
-    if (strcmp(exitCommand.c_str(), "exit") == 0) {
+    if (strcmp(exitCommand.c_str(), "Exit") == 0) {
       stopServer = true;
     } else {
       // Else flushing our buffer
-      cout << "Sorry im only familiar with the command \"exit\"" << endl;
+      cout << "Sorry, im only familiar with the command \"Exit\"" << endl;
       cin.clear();
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
@@ -69,7 +68,6 @@ void *acceptClient(void *obj) {
   // Define the client socket's structures
   struct sockaddr_in clientAddress;
   socklen_t clientAddressLen = sizeof((struct sockaddr *) &clientAddress);
-
   // Start accepting clients and handling them while server is running
   while (!stopServer) {
     cout << "From acceptThread: Waiting for client connections..." << endl;
@@ -78,7 +76,7 @@ void *acceptClient(void *obj) {
     if (clientSocket < 0) {
       throw "Error on accept";
     }
-    int i = 0;
+    int i = 1;
     cout << "Client " << i << " is connected" << endl;
     // Creating a new thread to handle our client
     pthread_t handleThread;
@@ -87,7 +85,7 @@ void *acceptClient(void *obj) {
     i++;
     // initalzing our clients lobby room information
     roomInfo info;
-    info.lobbyMap = server->lobbyMap;
+    info.lobbyMap = &(server->lobbyMap);
     info.clientSocket = clientSocket;
     info.threadVector = server->threadVector;
 
@@ -96,14 +94,12 @@ void *acceptClient(void *obj) {
     if (n) {
       throw "Error creating handling thread";
     }
-    // Lastly closing his socket
-    close(clientSocket);
   }
 }
 
 // Our thread for handling each incoming client
 void *handleClient(void *information) {
-  ClientHandler *handler = new ClientHandler((roomInfo*) information);
+  ClientHandler *handler = new ClientHandler((roomInfo *) information);
   handler->handle();
   delete handler;
 }

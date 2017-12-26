@@ -21,7 +21,7 @@ set(SOURCE_FILES
         include/ClientHandler.h
         src/ClientHandler.cpp
         include/ConverString.h
-        src/ConverString.cpp)
+        src/ConverString.cpp src/PlayGame.cpp include/PlayGame.h)
 
 add_executable(server ${SOURCE_FILES})
 

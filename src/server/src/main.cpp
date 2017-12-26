@@ -7,7 +7,7 @@ using namespace std;
 int main() {
   // Reading our servers port number
   FileReader fileReader;
-  int port = fileReader.readConfigFile("server_config.txt");
+  int port = fileReader.readConfigFile("./server_config.txt");
   // Creating our server
   Server server(port);
   try {
