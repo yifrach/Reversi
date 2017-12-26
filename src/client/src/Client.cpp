@@ -54,13 +54,6 @@ Color Client::connectToServer() {
   if (connect(clientSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) < 0) {
     throw "Error connecting to server";
   }
-  cout << "Connected to server... " << endl;
-  // Getting our players color from the server
-  char value;
-  int n = read(clientSocket, &value, sizeof(value));
-  if (n < 0) {
-    throw "Error reading player number";
-  }
   delete serverIP;
   return ClientMenu();
 }
@@ -86,9 +79,9 @@ Color Client::ClientMenu() {
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
         if(readSocketCommand()) {
-          cout << "The name of the room is already exist" << endl;
           return black;
         } else {
+          cout << "The name of the room is already exist" << endl;
           return empty;
         }
       case 2:
@@ -99,9 +92,9 @@ Color Client::ClientMenu() {
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
         if(readSocketCommand()) {
-          cout << "The name of the room is not exist" << endl;
           return white;
         } else {
+          cout << "The name of the room is not exist" << endl;
           return empty;
         }
       case 3:
@@ -109,6 +102,7 @@ Color Client::ClientMenu() {
         cout<<roomName<<endl;
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
+        readSocketCommand();
         return empty;
       default:
         cout << "Invalid option!" << endl;
@@ -139,8 +133,16 @@ bool Client::readSocketCommand() {
   }
   if(strcmp(buffer, "NoRoom")==0) {
     return false;
-  } else {
+  } else if(strcmp(buffer, "1")==0){
+    int n = read(clientSocket, buffer, sizeof(buffer));
+    if (n < 0) {
+      throw "Error reading from socket";
+    }
     return true;
+  } else if(strcmp(buffer, "2")==0){
+    return true;
+  } else {
+    cout<<buffer;
   }
 }
 /**
