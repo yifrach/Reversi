@@ -50,6 +50,7 @@ void Server::initialize() {
 
 // Our main thread for accepting clients and passing them to a new thread to handle
 void *acceptClient(void *obj) {
+  int i = 1;
   cout << "Created the accept thread!" << endl;
   Server *server = (Server *) obj;
   int port = server->port;
@@ -76,12 +77,10 @@ void *acceptClient(void *obj) {
     if (clientSocket < 0) {
       throw "Error on accept";
     }
-    int i = 1;
     cout << "Client " << i << " is connected" << endl;
     // Creating a new thread to handle our client
     pthread_t handleThread;
     server->threadVector.push_back(handleThread);
-    cout << "Created handle thread number " << i << endl;
     i++;
     // initalzing our clients lobby room information
     roomInfo info;

@@ -21,14 +21,15 @@ void ClientHandler::handle() {
   if (readBytes == 0) {
     cout << "Client disconnected" << endl;
   }
+
+  cout << "Got command " << buffer << endl;
+
   // Split our buffer with space
   ConvertString bufferConverter;
   string args;
-  string command = bufferConverter.convertInput(buffer, args);
+  string command = bufferConverter.convertInput(buffer, &args);
   // Creating a commands manager
   CommandsManager manager;
   // Sending him our command, args and room information
-  cout<< "COMMAND IS: " << command;
-  cout<< "ARGS ARE: " << args;
   manager.executeCommand(command, args, info);
 }

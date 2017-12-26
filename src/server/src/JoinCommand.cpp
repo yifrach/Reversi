@@ -10,6 +10,7 @@ pthread_mutex_t count_mutexJoin;
 JoinCommand::JoinCommand() {}
 
 void JoinCommand::execute(string args, roomInfo *info) {
+  cout << "Inside Join command\n";
   // Going over our lobby rooms
   map<string, lobbyRoom>::iterator it;
   for (it = info->lobbyMap->begin(); it != info->lobbyMap->end(); it++) {
@@ -19,17 +20,23 @@ void JoinCommand::execute(string args, roomInfo *info) {
       pthread_mutex_lock(&count_mutexJoin);
       it->second.clientSocket2 = info->clientSocket;
       pthread_mutex_unlock(&count_mutexJoin);
-
+      // Notifying the user the game is about to start and he is player 2
+      char str = '2';
+      int n = write(info->clientSocket, &str, 1);
+      if (n < 0) {
+        throw "Error writing to socket";
+      }
       // Creating a new thread to play the game in
       pthread_t playGameThread;
-      int n = pthread_create(&playGameThread, NULL, playGame, &info);
+      n = pthread_create(&playGameThread, NULL, playGame, &info);
       if (n) {
         throw "Error creating client accept thread";
       }
+      // Exiting this thread
       return;
     }
   }
-  // Otherwise informin the user the room does not exist
+  // Otherwise informing the user the room does not exist
   string message("NoRoom");
   char *str;
   strcpy(str, message.c_str());
