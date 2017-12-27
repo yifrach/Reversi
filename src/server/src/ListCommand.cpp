@@ -10,15 +10,18 @@ void ListCommand::execute(string args, roomInfo *info) {
   cout << "Inside List command\n";
   string lobbyRoomList("List of rooms that are availble:\n");
   char error = '0';
-  // If the lobbyMap is not empty'
-  if (!info->lobbyMap->empty()) {
-    // We'll go over our lobby rooms
-    map<string, lobbyRoom>::iterator it;
-    for (it = info->lobbyMap->begin(); it != info->lobbyMap->end(); it++) {
-      // Chaining together a string of the rooms names
-      lobbyRoomList += "\nRoom name: " + it->first + "\n";
+  int counter = 0;
+  // We'll go over our lobby rooms
+  map<string, lobbyRoom>::iterator it;
+  for (it = info->lobbyMap->begin(); it != info->lobbyMap->end(); it++) {
+    // Chaining together a string of the rooms names if theyre not playing
+    if (!it->second.gameInProgress) {
+      lobbyRoomList += "Room name: " + it->first + "\n";
+      // Updating our counter
+      counter++;
     }
-    lobbyRoomList += "\n";
+  }
+  if (counter != 0) {
     // Sending the room names strings to the user
     char *str = new char[lobbyRoomList.size()];
     strcpy(str, lobbyRoomList.c_str());
@@ -26,7 +29,7 @@ void ListCommand::execute(string args, roomInfo *info) {
     if (n < 0) {
       throw "Error writing to socket";
     }
-    // Otherwise notifying the user the list is empty
+    delete str;
   } else {
     int n = write(info->clientSocket, &error, 1);
     if (n < 0) {
@@ -34,6 +37,6 @@ void ListCommand::execute(string args, roomInfo *info) {
     }
   }
   // Lastly closing the users socket forcing him to reconnect
-  //close(info->clientSocket);
+  close(info->clientSocket);
   pthread_exit(NULL);
 }

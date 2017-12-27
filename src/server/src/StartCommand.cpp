@@ -23,12 +23,14 @@ void StartCommand::execute(string args, roomInfo *info) {
         throw "Error writing to socket";
       }
       // Lastly closing the users socket killing our thread
+      close(info->clientSocket);
       pthread_exit(NULL);
     }
   }
   // Otherwise opening a new room
   lobbyRoom newRoom;
   newRoom.clientSocket1 = info->clientSocket;
+  newRoom.gameInProgress = false;
   pthread_mutex_lock(&count_mutexStart);
   (*info->lobbyMap)[args] = newRoom;
   pthread_mutex_unlock(&count_mutexStart);

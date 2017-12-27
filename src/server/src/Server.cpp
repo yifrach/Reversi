@@ -42,11 +42,32 @@ void Server::initialize() {
       cout << "Sorry, im only familiar with the command \"Exit\"" << endl;
       cin.clear();
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cin >> exitCommand;
     }
   } while (!stopServer);
-  // Waiting for all of our threads to finish
-  for (int i = 0 ; i < threadVector.size() ; i++) {
-    pthread_join(threadVector[i], NULL);
+  this->shutDown();
+}
+
+// Shutting down our server notifying all clients
+void Server::shutDown() {
+  int n;
+  char exit = '-3';
+  // Notifying all clients the server is shutting down
+  map<string, lobbyRoom>::iterator it;
+  for (it = lobbyMap.begin(); it != lobbyMap.end(); it++) {
+    n = write(it->second.clientSocket1, &exit, 1);
+    if (n < 0) {
+      cout << "Error writing to socket";
+    } if (it->second.gameInProgress) {
+      n = write(it->second.clientSocket2, &exit, 1);
+      if (n < 0) {
+        cout << "Error writing to socket";
+      }
+    }
+  }
+  // Lastly closing all of our pthreads
+  for (int i = 0 ; i < threadVector.size() ; i ++) {
+    pthread_cancel(threadVector[i]);
   }
 }
 
@@ -85,17 +106,18 @@ void *acceptClient(void *obj) {
     server->threadVector.push_back(handleThread);
     i++;
     // initalzing our clients lobby room information
-    roomInfo info;
-    info.lobbyMap = &(server->lobbyMap);
-    info.clientSocket = clientSocket;
-    info.threadVector = server->threadVector;
+    roomInfo *info = new roomInfo;
+    info->lobbyMap = &(server->lobbyMap);
+    info->clientSocket = clientSocket;
+    info->threadVector = server->threadVector;
 
     // Lastly opening the thread with the clients room information
-    int n = pthread_create(&handleThread, NULL, handleClient, &info);
+    int n = pthread_create(&handleThread, NULL, handleClient, info);
     if (n) {
       throw "Error creating handling thread";
     }
   }
+  pthread_exit(NULL);
 }
 
 // Our thread for handling each incoming client

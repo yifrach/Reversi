@@ -15,10 +15,11 @@ void JoinCommand::execute(string args, roomInfo *info) {
   map<string, lobbyRoom>::iterator it;
   for (it = info->lobbyMap->begin(); it != info->lobbyMap->end(); it++) {
     // If the room exists
-    if (strcmp(args.c_str(), it->first.c_str()) == 0) {
+    if ((strcmp(args.c_str(), it->first.c_str()) == 0) && (!it->second.gameInProgress)) {
       // We'll put the players socket in the room information
       pthread_mutex_lock(&count_mutexJoin);
       it->second.clientSocket2 = info->clientSocket;
+      it->second.gameInProgress = true;
       pthread_mutex_unlock(&count_mutexJoin);
       // Updating our users information room name
       info->roomName = args;
@@ -40,7 +41,7 @@ void JoinCommand::execute(string args, roomInfo *info) {
     throw "Error writing to socket";
   }
   // Lastly closing his socket forcing him to reconnect
-  //close(info->clientSocket);
+  close(info->clientSocket);
   pthread_exit(NULL);
 
 }

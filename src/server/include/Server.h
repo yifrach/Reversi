@@ -9,6 +9,7 @@ using namespace std;
 struct lobbyRoom {
   int clientSocket1;
   int clientSocket2;
+  bool gameInProgress;
 };
 
 struct roomInfo {
@@ -22,6 +23,7 @@ class Server {
  public:
   Server(int port);
   void initialize();
+  void shutDown();
   int port;
   int serverSocket; // the socket's file descriptor
   map<string, lobbyRoom> lobbyMap;
