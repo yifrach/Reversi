@@ -11,6 +11,7 @@
 #include "../include/BoardScanner.h"
 #define BUFFER_SIZE 4096
 #define NO_MOVE -1
+#define CLOSE_SERVER "-3"
 
 
 /**
@@ -75,7 +76,6 @@ Color Client::ClientMenu() {
         cout << "What is the room name: " << endl;
         cin >> roomName;
         roomName="start "+roomName;
-        cout<<roomName<<endl;
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
         if(readSocketCommand()) {
@@ -93,7 +93,6 @@ Color Client::ClientMenu() {
         cout << "What is the room name: " << endl;
         cin >> roomName;
         roomName="join "+roomName;
-        cout<<roomName<<endl;
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
         if(readSocketCommand()) {
@@ -104,15 +103,20 @@ Color Client::ClientMenu() {
         }
       case 3:
         roomName="list 0";
-        cout<<roomName<<endl;
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
-        readSocketCommand();
+        if(!readSocketCommand()) {
+          cout<<"The list is empty"<<endl;
+        }
         return empty;
       default:
-        cout << "Invalid option!" << endl;
-        cout << "1. start a new game\n2. join to an exist game\n3. View the list of games\n";
-        cin >> gameChoose;
+        do {
+          cin.clear();
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          cout << "Invalid option!" << endl;
+          cout << "1. start a new game\n2. join to an exist game\n3. View the list of games\n";
+          cin >> gameChoose;
+        } while (cin.fail());
         break;
     }
   }
@@ -140,10 +144,13 @@ bool Client::readSocketCommand() {
     return false;
   } else if(strcmp(buffer, "1")==0){
     return true;
-  }else if(strcmp(buffer, "2")==0){
+  } else if(strcmp(buffer, "2")==0){
     return true;
+  } else if(strcmp(buffer, CLOSE_SERVER)==0){
+    exit(0);
   } else {
     cout<<buffer;
+    return true;
   }
   memset(buffer, '\0', sizeof(buffer));
 }

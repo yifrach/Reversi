@@ -191,6 +191,8 @@ fstream
 /home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/include/FileReader.h
 stdlib.h
 -
+limits
+-
 
 /home/yarin/CLionProjects/program adventure/reversiProject/Reversi/src/client/src/GameManager.cpp
 ../include/GameManager.h

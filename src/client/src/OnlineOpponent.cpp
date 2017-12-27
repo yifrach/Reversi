@@ -4,6 +4,7 @@
 
 #include <cstdlib>
 #include "../include/OnlineOpponent.h"
+#define CLOSE_SERVER_INT -3
 
 /**
  * The constructor of the class
@@ -37,6 +38,9 @@ Point OnlineOpponent::playTurn(Board *board) {
     cout << "\nPlayer played: ";
     point.print();
     cout <<endl;
+  } else if(point.getX()==CLOSE_SERVER_INT) {
+    cout<<"The server is now close, sorry for closing your game.\nBye Bye :)";
+    exit(0);
   }
   return point;
 }

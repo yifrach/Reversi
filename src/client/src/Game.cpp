@@ -2,8 +2,9 @@
 #include "../include/Game.h"
 #include "../include/FileReader.h"
 #include <stdlib.h>
+#include <limits>
 #define END -2
-#define BOARD_SIZE 8;
+#define BOARD_SIZE 4;
 
 /**
  * The constructor of the class
@@ -71,8 +72,13 @@ void Game::initializePlayers() {
           modeCoorect = true;
         }
         break;
-      default:cout << "wrong input!! try again" << endl;
-        cin >> mode;
+      default:
+        do {
+          cin.clear();
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          cout << "Bad input, please try again: \n";
+          cin >> mode;
+        } while (cin.fail());
         break;
     }
   }
