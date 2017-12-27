@@ -79,7 +79,12 @@ Color Client::ClientMenu() {
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
         if(readSocketCommand()) {
-          return black;
+          cout << "Waiting for second player join to the room..." << endl;
+          if(readSocketCommand()) {
+            return black;
+          } else {
+            return empty;
+          }
         } else {
           cout << "The name of the room is already exist" << endl;
           return empty;
@@ -131,19 +136,16 @@ bool Client::readSocketCommand() {
   if (n < 0) {
     throw "Error reading from socket";
   }
-  if(strcmp(buffer, "NoRoom")==0) {
+  if(strcmp(buffer, "0")==0) {
     return false;
   } else if(strcmp(buffer, "1")==0){
-    int n = read(clientSocket, buffer, sizeof(buffer));
-    if (n < 0) {
-      throw "Error reading from socket";
-    }
     return true;
-  } else if(strcmp(buffer, "2")==0){
+  }else if(strcmp(buffer, "2")==0){
     return true;
   } else {
     cout<<buffer;
   }
+  memset(buffer, '\0', sizeof(buffer));
 }
 /**
  * Sending the server the players move
