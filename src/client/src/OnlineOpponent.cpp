@@ -10,7 +10,7 @@
  * The constructor of the class
  * @param playerClient - a Client pointer
  */
-OnlineOpponent::OnlineOpponent(Client* playerClient): playerClient(playerClient) {}
+OnlineOpponent::OnlineOpponent(Client *playerClient) : playerClient(playerClient) {}
 
 /**
  * The method pass the turn of the player
@@ -18,7 +18,7 @@ OnlineOpponent::OnlineOpponent(Client* playerClient): playerClient(playerClient)
  */
 Point OnlineOpponent::passTurn() {
   cout << "\nPlayer has no moves, it's your turn: \n" << endl;
-  return Point(-1,-1);
+  return Point(-1, -1);
 }
 
 /**
@@ -37,9 +37,9 @@ Point OnlineOpponent::playTurn(Board *board) {
   if (point.getX() > 0) {
     cout << "\nPlayer played: ";
     point.print();
-    cout <<endl;
-  } else if(point.getX()==CLOSE_SERVER_INT) {
-    cout<<"The server is now close, sorry for closing your game.\nBye Bye :)";
+    cout << endl;
+  } else if (point.getX() == CLOSE_SERVER_INT) {
+    cout << "The server is now close, sorry for closing your game.\nBye Bye :)";
     exit(0);
   }
   return point;

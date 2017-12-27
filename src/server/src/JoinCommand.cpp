@@ -25,6 +25,7 @@ void JoinCommand::execute(string args, roomInfo *info) {
       info->roomName = args;
       // Creating a new thread to play the game in
       pthread_t playGameThread;
+      info->threadVector.push_back(playGameThread);
       int n = pthread_create(&playGameThread, NULL, playGame, info);
       if (n) {
         throw "Error creating client accept thread";

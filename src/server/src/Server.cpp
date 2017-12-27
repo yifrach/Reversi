@@ -51,22 +51,25 @@ void Server::initialize() {
 // Shutting down our server notifying all clients
 void Server::shutDown() {
   int n;
-  char exit = '-3';
+  char exit[10];
+  strcpy(exit, "Exit");
   // Notifying all clients the server is shutting down
   map<string, lobbyRoom>::iterator it;
   for (it = lobbyMap.begin(); it != lobbyMap.end(); it++) {
-    n = write(it->second.clientSocket1, &exit, 1);
+    n = write(it->second.clientSocket1, exit, sizeof(exit));
     if (n < 0) {
       cout << "Error writing to socket";
-    } if (it->second.gameInProgress) {
-      n = write(it->second.clientSocket2, &exit, 1);
+      // If the room is full we'll notify the second player too
+    }
+    if (it->second.gameInProgress) {
+      n = write(it->second.clientSocket2, exit, sizeof(exit));
       if (n < 0) {
         cout << "Error writing to socket";
       }
     }
   }
   // Lastly closing all of our pthreads
-  for (int i = 0 ; i < threadVector.size() ; i ++) {
+  for (int i = 0; threadVector.size() > i; i++) {
     pthread_cancel(threadVector[i]);
   }
 }

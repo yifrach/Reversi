@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #define NO_MOVE -1
 #define END -2
-#define CLOSE_SERVER "-3"
 #define CLOSE_SERVER_INT -3
 using namespace std;
 
@@ -53,7 +52,7 @@ Point ConvertString::convertInput(char *str) {
   // Return a fake point if there are no moves
   if (strcmp(str, "NoMove") == 0) {
     return Point(NO_MOVE, NO_MOVE);
-  } else if(strcmp(str, CLOSE_SERVER)) {
+  } else if (strcmp(str, "Exit") == 0) {
     return Point(CLOSE_SERVER_INT, CLOSE_SERVER_INT);
   } else {
     // Separate the string by comma

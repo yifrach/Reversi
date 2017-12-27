@@ -8,11 +8,9 @@
 #include<unistd.h>
 #include <limits>
 #include <cstdlib>
-#include "../include/BoardScanner.h"
 #define BUFFER_SIZE 4096
 #define NO_MOVE -1
 #define CLOSE_SERVER "-3"
-
 
 /**
  * The constructor of the Client
@@ -63,24 +61,23 @@ Color Client::connectToServer() {
  * Show the player the menu for client- to staet a new game or join
  */
 Color Client::ClientMenu() {
-  bool optionExist=false;
+  bool optionExist = false;
   int gameChoose;
   string roomName;
   char buffer[BUFFER_SIZE];
   cout << "choose an opponent type:" << endl;
   cout << "1. start a new game\n2. join to an exist game\n3. View the list of games\n";
   cin >> gameChoose;
-  while(!optionExist) {
+  while (!optionExist) {
     switch (gameChoose) {
-      case 1:
-        cout << "What is the room name: " << endl;
+      case 1:cout << "What is the room name: " << endl;
         cin >> roomName;
-        roomName="start "+roomName;
+        roomName = "start " + roomName;
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
-        if(readSocketCommand()) {
+        if (readSocketCommand()) {
           cout << "Waiting for second player join to the room..." << endl;
-          if(readSocketCommand()) {
+          if (readSocketCommand()) {
             return black;
           } else {
             return empty;
@@ -89,24 +86,22 @@ Color Client::ClientMenu() {
           cout << "The name of the room is already exist" << endl;
           return empty;
         }
-      case 2:
-        cout << "What is the room name: " << endl;
+      case 2:cout << "What is the room name: " << endl;
         cin >> roomName;
-        roomName="join "+roomName;
+        roomName = "join " + roomName;
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
-        if(readSocketCommand()) {
+        if (readSocketCommand()) {
           return white;
         } else {
           cout << "The name of the room is not exist" << endl;
           return empty;
         }
-      case 3:
-        roomName="list 0";
+      case 3:roomName = "list 0";
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
-        if(!readSocketCommand()) {
-          cout<<"The list is empty"<<endl;
+        if (!readSocketCommand()) {
+          cout << "The list is empty" << endl;
         }
         return empty;
       default:
@@ -126,7 +121,7 @@ Color Client::ClientMenu() {
  * Sending the server the players move
  * @param str - a string that represent the command
  */
-void Client::sendSocketCommand(char* str) {
+void Client::sendSocketCommand(char *str) {
   // Writing the command to the server
   int n = write(clientSocket, str, strlen(str));
   if (n < 0) {
@@ -140,16 +135,16 @@ bool Client::readSocketCommand() {
   if (n < 0) {
     throw "Error reading from socket";
   }
-  if(strcmp(buffer, "0")==0) {
+  if (strcmp(buffer, "0") == 0) {
     return false;
-  } else if(strcmp(buffer, "1")==0){
+  } else if (strcmp(buffer, "1") == 0) {
     return true;
-  } else if(strcmp(buffer, "2")==0){
+  } else if (strcmp(buffer, "2") == 0) {
     return true;
-  } else if(strcmp(buffer, CLOSE_SERVER)==0){
+  } else if (strcmp(buffer, CLOSE_SERVER) == 0) {
     exit(0);
   } else {
-    cout<<buffer;
+    cout << buffer;
     return true;
   }
   memset(buffer, '\0', sizeof(buffer));
@@ -163,7 +158,7 @@ void Client::sendSocket(int xPos, int yPos) {
   // First converting out point to a char array o
   // If the point is a fake point conversion will take care it
   ConvertString convert;
-  char* str = convert.convertInt(xPos, yPos);
+  char *str = convert.convertInt(xPos, yPos);
   // Writing the move or NoMove to the server
   int n = write(clientSocket, str, strlen(str));
   if (n < 0) {
@@ -182,7 +177,7 @@ Point Client::readSocket() {
   if (n < 0) {
     throw "Error reading from socket";
   }
-  if(strcmp(buffer, "NoMove")==0) {
+  if (strcmp(buffer, "NoMove") == 0) {
     n = read(clientSocket, buffer, sizeof(buffer));
   }
   // Converting our message
@@ -225,7 +220,7 @@ Point Client::playTurn(Board *board) {
     exit(-1);
   }
   delete scanner;
-  return Point(row,col);
+  return Point(row, col);
 }
 
 /**

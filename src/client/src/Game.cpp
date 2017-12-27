@@ -62,8 +62,8 @@ void Game::initializePlayers() {
           exit(-1);
         }
         player2 = new OnlineOpponent((Client *) player1);
-        if(player1->getColor()== empty) {
-          modeCoorect=false;
+        if (player1->getColor() == empty) {
+          modeCoorect = false;
         } else if (player1->getColor() == black) {
           player2->setColor(white);
           modeCoorect = true;
