@@ -16,18 +16,14 @@ void StartCommand::execute(string args, roomInfo *info) {
     // If the room already exists
     if (strcmp(it->first.c_str(), args.c_str()) == 0) {
       // We'll inform the user
-      string message("NoRoom");
-      char *str;
-      strcpy(str, message.c_str());
+      char error = '0';
       // Sending the user the message
-      int n = write(info->clientSocket, str, strlen(str));
+      int n = write(info->clientSocket, &error, 1);
       if (n < 0) {
         throw "Error writing to socket";
       }
-      delete[] str;
-      // Lastly closing the users socket
-      close(info->clientSocket);
-      return;
+      // Lastly closing the users socket killing our thread
+      pthread_exit(NULL);
     }
   }
   // Otherwise opening a new room
@@ -42,4 +38,5 @@ void StartCommand::execute(string args, roomInfo *info) {
   if (n < 0) {
     throw "Error writing to socket";
   }
+  pthread_exit(NULL);
 }

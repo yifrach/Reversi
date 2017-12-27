@@ -8,16 +8,33 @@
 #include <iostream>
 #include <pthread.h>
 #define BUFFER_SIZE 4096
+pthread_mutex_t count_mutexPlay;
 
-PlayGame::PlayGame(roomInfo* info) : info(info) {
+
+PlayGame::PlayGame(roomInfo info) : info(info) {
   playGame = true;
 }
 
 void PlayGame::play() {
-  cout << "Starting game: " << info->roomName << endl;
+  cout << "Starting game: " << info.roomName << endl;
   // Get each players socket
-  int socket1 = info->lobbyMap->at(info->roomName).clientSocket1;
-  int socket2 = info->lobbyMap->at(info->roomName).clientSocket2;
+  int socket1 = info.lobbyMap->at(info.roomName).clientSocket1;
+  int socket2 = info.lobbyMap->at(info.roomName).clientSocket2;
+
+  // FIND DIFFERENT WAY TO DELETE ROOM SO WE CAN SEND IT EXIT!
+
+
+  // Notify both players the game is starting
+  char start = '2';
+  int sendBytes = write(socket1, &start, 1);
+  if (sendBytes < 0) {
+    cout << "Error writing to socket" << endl;
+    return;
+  }
+  int n = write(socket2, &start, 1);
+  if (n < 0) {
+    throw "Error writing to socket";
+  }
   while (playGame) {
     // Passing messages from player 1 to player 2
     passMessage(socket1, socket2);
@@ -29,6 +46,11 @@ void PlayGame::play() {
   // Lastly closing their socket
   close(socket1);
   close(socket2);
+  // Erasing the games lobby room
+  pthread_mutex_lock(&count_mutexPlay);
+  info.lobbyMap->erase(info.roomName);
+  pthread_mutex_unlock(&count_mutexPlay);
+  pthread_exit(NULL);
 }
 
 void PlayGame::passMessage(int activePlayer, int recivePlayer) {
@@ -37,6 +59,7 @@ void PlayGame::passMessage(int activePlayer, int recivePlayer) {
   int readBytes = read(activePlayer, buffer, sizeof(buffer));
   if (readBytes < 0) {
     cout << "Error reading string" << endl;
+    playGame = false;
     return;
   }
   // Incase of disconnection
@@ -46,7 +69,7 @@ void PlayGame::passMessage(int activePlayer, int recivePlayer) {
     playGame = false;
     return;
   }
-  cout << "Got string: " << buffer << endl;
+  cout << "In Room: " << info.roomName << ", Got string: " << buffer << endl;
   // If the game has ended we'll inform the server handling loop
   if (strcmp(buffer, "End") == 0) {
     playGame = false;
@@ -58,7 +81,6 @@ void PlayGame::passMessage(int activePlayer, int recivePlayer) {
     cout << "Error writing to socket" << endl;
     return;
   }
-  cout << "Sent string: " << buffer << endl;
   // Lastly flushing our buffer
   memset(buffer, '\0', sizeof(buffer));
 }

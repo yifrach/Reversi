@@ -118,6 +118,18 @@ sstream
 stdlib.h
 -
 
+/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.cpp
+GameData.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.h
+
+/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.h
+map
+-
+string
+-
+vector
+-
+
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/JoinCommand.cpp
 cstring
 -

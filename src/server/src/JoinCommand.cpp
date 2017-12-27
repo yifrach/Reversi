@@ -20,38 +20,33 @@ void JoinCommand::execute(string args, roomInfo *info) {
       pthread_mutex_lock(&count_mutexJoin);
       it->second.clientSocket2 = info->clientSocket;
       pthread_mutex_unlock(&count_mutexJoin);
-      // Notifying the user the game is about to start and he is player 2
-      char str = '2';
-      int n = write(info->clientSocket, &str, 1);
-      if (n < 0) {
-        throw "Error writing to socket";
-      }
+      // Updating our users information room name
+      info->roomName = args;
       // Creating a new thread to play the game in
       pthread_t playGameThread;
-      n = pthread_create(&playGameThread, NULL, playGame, &info);
+      int n = pthread_create(&playGameThread, NULL, playGame, info);
       if (n) {
         throw "Error creating client accept thread";
       }
-      // Exiting this thread
-      return;
+      // Killing our thread
+      pthread_exit(NULL);
     }
   }
   // Otherwise informing the user the room does not exist
-  string message("NoRoom");
-  char *str;
-  strcpy(str, message.c_str());
+  char error = '0';
   // Writing the move or NoMove to the server
-  int n = write(info->clientSocket, str, strlen(str));
+  int n = write(info->clientSocket, &error, 1);
   if (n < 0) {
     throw "Error writing to socket";
   }
   // Lastly closing his socket forcing him to reconnect
-  close(info->clientSocket);
-  delete[] str;
+  //close(info->clientSocket);
+  pthread_exit(NULL);
+
 }
 
 void *playGame(void *information) {
-  PlayGame *game = new PlayGame((roomInfo *) information);
+  PlayGame *game = new PlayGame(*(roomInfo *) information);
   game->play();
   delete game;
 }
