@@ -22,6 +22,9 @@ CMakeFiles/server.dir/src/ConverString.cpp.o: ../src/ConverString.cpp
 CMakeFiles/server.dir/src/FileReader.cpp.o: ../include/FileReader.h
 CMakeFiles/server.dir/src/FileReader.cpp.o: ../src/FileReader.cpp
 
+CMakeFiles/server.dir/src/GameData.cpp.o: ../src/GameData.cpp
+CMakeFiles/server.dir/src/GameData.cpp.o: ../src/GameData.h
+
 CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/Command.h
 CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/JoinCommand.h
 CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/PlayGame.h

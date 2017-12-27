@@ -9,7 +9,7 @@
 #include <iostream>
 #include <limits>
 using namespace std;
-#define MAX_CONNECTED_CLIENTS 10
+#define MAX_CONNECTED_CLIENTS 100
 bool stopServer = false;
 void *acceptClient(void *obj);
 void *handleClient(void *information);
@@ -44,8 +44,10 @@ void Server::initialize() {
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
   } while (!stopServer);
-  // Wait for all threads to finish
-  pthread_exit(NULL);
+  // Waiting for all of our threads to finish
+  for (int i = 0 ; i < threadVector.size() ; i++) {
+    pthread_join(threadVector[i], NULL);
+  }
 }
 
 // Our main thread for accepting clients and passing them to a new thread to handle

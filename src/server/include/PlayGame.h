@@ -8,11 +8,11 @@ using namespace std;
 
 class PlayGame {
  public:
-  PlayGame(roomInfo* info);
+  PlayGame(roomInfo info);
   void play();
 
  private:
-  roomInfo* info;
+  roomInfo info;
   bool playGame;
   void passMessage(int clientSocket1, int clientSocket2);
 };

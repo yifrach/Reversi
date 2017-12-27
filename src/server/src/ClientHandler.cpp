@@ -15,15 +15,13 @@ void ClientHandler::handle() {
   // Read players message
   int readBytes = read(info->clientSocket, buffer, sizeof(buffer));
   if (readBytes < 0) {
-    cout << "Error reading string" << endl;
+    cout << "Error reading string!!!" << endl;
   }
   // In case of disconnection
   if (readBytes == 0) {
     cout << "Client disconnected" << endl;
   }
-
   cout << "Got command " << buffer << endl;
-
   // Split our buffer with space
   ConvertString bufferConverter;
   string args;
@@ -32,4 +30,6 @@ void ClientHandler::handle() {
   CommandsManager manager;
   // Sending him our command, args and room information
   manager.executeCommand(command, args, info);
+  // Lastly killing our thread
+  pthread_exit(NULL);
 }

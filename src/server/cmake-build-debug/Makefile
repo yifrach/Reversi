@@ -231,6 +231,33 @@ src/FileReader.cpp.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/FileReader.cpp.s
 .PHONY : src/FileReader.cpp.s
 
+src/GameData.o: src/GameData.cpp.o
+
+.PHONY : src/GameData.o
+
+# target to build an object file
+src/GameData.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/GameData.cpp.o
+.PHONY : src/GameData.cpp.o
+
+src/GameData.i: src/GameData.cpp.i
+
+.PHONY : src/GameData.i
+
+# target to preprocess a source file
+src/GameData.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/GameData.cpp.i
+.PHONY : src/GameData.cpp.i
+
+src/GameData.s: src/GameData.cpp.s
+
+.PHONY : src/GameData.s
+
+# target to generate assembly for a file
+src/GameData.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/GameData.cpp.s
+.PHONY : src/GameData.cpp.s
+
 src/JoinCommand.o: src/JoinCommand.cpp.o
 
 .PHONY : src/JoinCommand.o
@@ -414,6 +441,9 @@ help:
 	@echo "... src/FileReader.o"
 	@echo "... src/FileReader.i"
 	@echo "... src/FileReader.s"
+	@echo "... src/GameData.o"
+	@echo "... src/GameData.i"
+	@echo "... src/GameData.s"
 	@echo "... src/JoinCommand.o"
 	@echo "... src/JoinCommand.i"
 	@echo "... src/JoinCommand.s"

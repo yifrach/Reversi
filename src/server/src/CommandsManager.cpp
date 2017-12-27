@@ -1,7 +1,3 @@
-//
-// Created by yarin on 12/22/17.
-//
-
 #include "../include/CommandsManager.h"
 #include "../include/JoinCommand.h"
 #include "../include/StartCommand.h"
