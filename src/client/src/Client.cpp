@@ -53,7 +53,7 @@ Color Client::connectToServer() {
   if (connect(clientSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) < 0) {
     throw "Error connecting to server";
   }
-  delete serverIP;
+  delete[] serverIP;
   return ClientMenu();
 }
 
@@ -142,12 +142,13 @@ bool Client::readSocketCommand() {
   } else if (strcmp(buffer, "2") == 0) {
     return true;
   } else if (strcmp(buffer, CLOSE_SERVER) == 0) {
+    memset(buffer, '\0', sizeof(buffer));
     exit(0);
   } else {
     cout << buffer;
+    memset(buffer, '\0', sizeof(buffer));
     return true;
   }
-  memset(buffer, '\0', sizeof(buffer));
 }
 /**
  * Sending the server the players move
