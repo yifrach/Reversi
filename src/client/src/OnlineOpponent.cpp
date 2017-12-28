@@ -40,6 +40,8 @@ Point OnlineOpponent::playTurn(Board *board) {
     cout << endl;
   } else if (point.getX() == CLOSE_SERVER_INT) {
     cout << "The server is now close, sorry for closing your game.\nBye Bye :)";
+    delete playerClient;
+    delete this;
     exit(0);
   }
   return point;
