@@ -47,6 +47,7 @@ void JoinCommand::execute(string args, roomInfo *info) {
 
 }
 
+
 void *playGame(void *information) {
   PlayGame *game = new PlayGame(*(roomInfo *) information);
   game->play();

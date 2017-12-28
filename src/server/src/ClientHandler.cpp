@@ -32,8 +32,10 @@ void ClientHandler::handle() {
   CommandsManager manager;
   // Sending him our command, args and room information
   manager.executeCommand(command, args, info);
-  // Not forgetting to delete our room information we've created
-  delete info;
   // Lastly killing our thread
   pthread_exit(NULL);
+}
+
+ClientHandler::~ClientHandler() {
+  delete info;
 }

@@ -24,6 +24,7 @@ void StartCommand::execute(string args, roomInfo *info) {
       }
       // Lastly closing the users socket killing our thread
       close(info->clientSocket);
+      //pthread_t tid =  pthread_self(void);
       pthread_exit(NULL);
     }
   }

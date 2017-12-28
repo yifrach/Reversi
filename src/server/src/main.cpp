@@ -12,7 +12,7 @@ int main() {
   Server server(port);
   try {
     server.initialize();
-  } catch (const char *msg) {
+  } catch (char *msg) {
     cout << "Cannot start server. Reason: " << msg << endl;
     exit(-1);
   }

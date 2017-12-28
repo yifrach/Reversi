@@ -5,6 +5,7 @@
 class ClientHandler {
  public:
   ClientHandler(roomInfo* info);
+  ~ClientHandler();
   void handle();
 
  private:

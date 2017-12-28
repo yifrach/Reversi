@@ -22,6 +22,7 @@ struct roomInfo {
 class Server {
  public:
   Server(int port);
+  ~Server();
   void initialize();
   void shutDown();
   int port;

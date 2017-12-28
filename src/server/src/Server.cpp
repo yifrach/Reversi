@@ -76,49 +76,56 @@ void Server::shutDown() {
 
 // Our main thread for accepting clients and passing them to a new thread to handle
 void *acceptClient(void *obj) {
-  int i = 1;
-  cout << "Created the accept thread!" << endl;
-  Server *server = (Server *) obj;
-  int port = server->port;
-  int serverSocket = server->serverSocket;
-  // Assign a local address to the socket
-  struct sockaddr_in serverAddress;
-  bzero((void *) &serverAddress, sizeof(serverAddress));
-  serverAddress.sin_family = AF_INET;
-  serverAddress.sin_addr.s_addr = INADDR_ANY;
-  serverAddress.sin_port = htons(port);
-  if (bind(serverSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) < 0) {
-    throw "Error on binding";
-  }
-  // Start listening to incoming connections
-  listen(serverSocket, MAX_CONNECTED_CLIENTS);
-  // Define the client socket's structures
-  struct sockaddr_in clientAddress;
-  socklen_t clientAddressLen = sizeof((struct sockaddr *) &clientAddress);
-  // Start accepting clients and handling them while server is running
-  while (!stopServer) {
-    cout << "From acceptThread: Waiting for client connections..." << endl;
-    // Accept a new clients connection
-    int clientSocket = accept(serverSocket, (struct sockaddr *) &clientAddress, &clientAddressLen);
-    if (clientSocket < 0) {
-      throw "Error on accept";
+  try {
+    ///////////////////////////////////////////////////////////
+    int i = 1;
+    cout << "Created the accept thread!" << endl;
+    Server *server = (Server *) obj;
+    int port = server->port;
+    int serverSocket = server->serverSocket;
+    // Assign a local address to the socket
+    struct sockaddr_in serverAddress;
+    bzero((void *) &serverAddress, sizeof(serverAddress));
+    serverAddress.sin_family = AF_INET;
+    serverAddress.sin_addr.s_addr = INADDR_ANY;
+    serverAddress.sin_port = htons(port);
+    if (bind(serverSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) < 0) {
+      throw "Error on binding";
     }
-    cout << "Client " << i << " is connected" << endl;
-    // Creating a new thread to handle our client
-    pthread_t handleThread;
-    server->threadVector.push_back(handleThread);
-    i++;
-    // initalzing our clients lobby room information
-    roomInfo *info = new roomInfo;
-    info->lobbyMap = &(server->lobbyMap);
-    info->clientSocket = clientSocket;
-    info->threadVector = server->threadVector;
+    // Start listening to incoming connections
+    listen(serverSocket, MAX_CONNECTED_CLIENTS);
+    // Define the client socket's structures
+    struct sockaddr_in clientAddress;
+    socklen_t clientAddressLen = sizeof((struct sockaddr *) &clientAddress);
+    // Start accepting clients and handling them while server is running
+    while (!stopServer) {
+      cout << "From acceptThread: Waiting for client connections..." << endl;
+      // Accept a new clients connection
+      int clientSocket = accept(serverSocket, (struct sockaddr *) &clientAddress, &clientAddressLen);
+      if (clientSocket < 0) {
+        throw "Error on accept";
+      }
+      cout << "Client " << i << " is connected" << endl;
+      // Creating a new thread to handle our client
+      pthread_t handleThread;
+      server->threadVector.push_back(handleThread);
+      i++;
+      // initalzing our clients lobby room information
+      roomInfo *info = new roomInfo;
+      info->lobbyMap = &(server->lobbyMap);
+      info->clientSocket = clientSocket;
+      info->threadVector = server->threadVector;
 
-    // Lastly opening the thread with the clients room information
-    int n = pthread_create(&handleThread, NULL, handleClient, info);
-    if (n) {
-      throw "Error creating handling thread";
+      // Lastly opening the thread with the clients room information
+      int n = pthread_create(&handleThread, NULL, handleClient, info);
+      if (n) {
+        throw "Error creating handling thread";
+      }
     }
+    ////////////////////////////////////////////////////////////
+  } catch (const char* msg) {
+    cout << "Cannot continue with server. Reason: " << msg << endl;
+    exit(0);
   }
   pthread_exit(NULL);
 }
@@ -128,4 +135,10 @@ void *handleClient(void *information) {
   ClientHandler *handler = new ClientHandler((roomInfo *) information);
   handler->handle();
   delete handler;
+}
+
+Server::~Server() {
+  lobbyMap.clear();
+   threadVector.clear();
+
 }
