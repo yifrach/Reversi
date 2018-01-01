@@ -27,8 +27,6 @@ Server.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/ConverString.h
 string
 -
-sstream
--
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
 
@@ -50,8 +48,6 @@ Server.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/PlayGame.h
 string
--
-map
 -
 Command.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
@@ -85,8 +81,6 @@ sys/socket.h
 -
 unistd.h
 -
-string.h
--
 iostream
 -
 
@@ -116,18 +110,6 @@ fstream
 sstream
 -
 stdlib.h
--
-
-/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.cpp
-GameData.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.h
-
-/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.h
-map
--
-string
--
-vector
 -
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/JoinCommand.cpp
@@ -161,8 +143,6 @@ unistd.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/PlayGame.h
 ../include/Server.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
-../include/ConverString.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/ConverString.h
 sys/socket.h
 -
 netinet/in.h
@@ -173,16 +153,12 @@ string.h
 -
 iostream
 -
-pthread.h
--
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp
 ../include/Server.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
 ../include/ClientHandler.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/ClientHandler.h
-../include/ConverString.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/ConverString.h
 sys/socket.h
 -
 netinet/in.h

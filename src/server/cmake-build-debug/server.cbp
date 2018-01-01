@@ -126,12 +126,6 @@
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/FileReader.cpp">
 			<Option target="server"/>
 		</Unit>
-		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.cpp">
-			<Option target="server"/>
-		</Unit>
-		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.h">
-			<Option target="server"/>
-		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/JoinCommand.cpp">
 			<Option target="server"/>
 		</Unit>

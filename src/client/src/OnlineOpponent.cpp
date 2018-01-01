@@ -39,9 +39,10 @@ Point OnlineOpponent::playTurn(Board *board) {
     point.print();
     cout << endl;
   } else if (point.getX() == CLOSE_SERVER_INT) {
-    cout << "The server is now close, sorry for closing your game.\nBye Bye :)";
+    cout << "The server is now closed, sorry for closing your game.\nBye Bye :)";
     delete playerClient;
     delete this;
+    // PROBLEM WITH EXIT0 NEED TO EXIT CORRECTLY THROUGH TO MAIN
     exit(0);
   }
   return point;

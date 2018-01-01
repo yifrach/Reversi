@@ -29,8 +29,8 @@ void Game::initialize() {
  */
 void Game::menuGame() {
   cout << "WELCOME TO REVERSI!" << endl << endl;
-  cout << "choose an opponent type:" << endl;
-  cout << "1. a human local player\n2. an AI player\n3. a remote player\n";
+  cout << "Choose an opponent type:" << endl;
+  cout << "1. A human local player\n2. An AI player\n3. A remote player\n";
   cin >> mode;
 }
 
@@ -63,6 +63,8 @@ void Game::initializePlayers() {
         }
         player2 = new OnlineOpponent((Client *) player1);
         if (player1->getColor() == empty) {
+          delete player1;
+          delete player2;
           modeCoorect = false;
         } else if (player1->getColor() == black) {
           player2->setColor(white);
@@ -123,11 +125,11 @@ void Game::playHuman() {
   while (scanner->hasMoves(black) || scanner->hasMoves(white)) {
     board->print();
     if (blackPlayed) {
-      cout << "Player O it's your move." << endl;
+      cout << "Player O, it's your move." << endl;
       manager->playOneTurn(player1);
       blackPlayed = false;
     } else {
-      cout << "Player X it's your move." << endl;
+      cout << "Player X, it's your move." << endl;
       manager->playOneTurn(player2);
       blackPlayed = true;
     }
@@ -167,7 +169,7 @@ void Game::playClient() {
     board->print();
     if (blackPlayed) {
       if (player1->getColor() == white) {
-        cout << "Player O it's your move." << endl;
+        cout << "Player O, it's your move." << endl;
         manager->playOneTurn(player1);
       } else {
         manager->playOneTurn(player2);
@@ -175,7 +177,7 @@ void Game::playClient() {
       blackPlayed = false;
     } else {
       if (player1->getColor() == black) {
-        cout << "Player X it's your move." << endl;
+        cout << "Player X, it's your move." << endl;
         manager->playOneTurn(player1);
       } else {
         manager->playOneTurn(player2);;

@@ -4,10 +4,12 @@
 #include<sys/socket.h>
 #include "../include/PlayGame.h"
 #include<unistd.h>
-void *playGame(void *roomName);
+void *playGame(void *information);
 pthread_mutex_t count_mutexJoin;
 
-JoinCommand::JoinCommand() {}
+JoinCommand::JoinCommand() {
+  pthread_mutex_init(&count_mutexJoin,  NULL);
+}
 
 void JoinCommand::execute(string args, roomInfo *info) {
   cout << "Inside Join command\n";
@@ -25,26 +27,24 @@ void JoinCommand::execute(string args, roomInfo *info) {
       info->roomName = args;
       // Creating a new thread to play the game in
       pthread_t playGameThread;
+      int n = pthread_create(&playGameThread, NULL, playGame, (void*)info);
       info->threadVector.push_back(playGameThread);
-      int n = pthread_create(&playGameThread, NULL, playGame, info);
       if (n) {
         throw "Error creating client accept thread";
       }
-      // Killing our thread
-      pthread_exit(NULL);
+      // Ending our current thread
+      return;
     }
   }
   // Otherwise informing the user the room does not exist
   char error = '0';
   // Writing the move or NoMove to the server
-  int n = write(info->clientSocket, &error, 1);
+  long n = write(info->clientSocket, &error, sizeof(error));
   if (n < 0) {
     throw "Error writing to socket";
   }
   // Lastly closing his socket forcing him to reconnect
   close(info->clientSocket);
-  pthread_exit(NULL);
-
 }
 
 

@@ -1,6 +1,5 @@
 #include "../include/Server.h"
 #include "../include/ClientHandler.h"
-#include "../include/ConverString.h"
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
@@ -9,13 +8,13 @@
 #include <iostream>
 #include <limits>
 using namespace std;
-#define MAX_CONNECTED_CLIENTS 100
-bool stopServer = false;
+#define MAX_CONNECTED_CLIENTS 50
 void *acceptClient(void *obj);
 void *handleClient(void *information);
 
 Server::Server(int port) : port(port), serverSocket(0) {
-  cout << "Server Port: " << port << endl;
+  cout << "Opened the server with port: " << port << "!\n";
+  stopServer = false;
 }
 
 void Server::initialize() {
@@ -27,6 +26,8 @@ void Server::initialize() {
   // Create our main thread for accepting clients
   pthread_t mainThread;
   int n = pthread_create(&mainThread, NULL, acceptClient, this);
+  // The main thread will be our first pthread in the vector
+  threadVector.push_back(mainThread);
   if (n) {
     throw "Error creating client accept thread";
   }
@@ -50,7 +51,7 @@ void Server::initialize() {
 
 // Shutting down our server notifying all clients
 void Server::shutDown() {
-  int n;
+  long n;
   char exit[10];
   strcpy(exit, "Exit");
   // Notifying all clients the server is shutting down
@@ -59,8 +60,8 @@ void Server::shutDown() {
     n = write(it->second.clientSocket1, exit, sizeof(exit));
     if (n < 0) {
       cout << "Error writing to socket";
-      // If the room is full we'll notify the second player too
     }
+    // If the room is full we'll notify the second player too
     if (it->second.gameInProgress) {
       n = write(it->second.clientSocket2, exit, sizeof(exit));
       if (n < 0) {
@@ -69,15 +70,18 @@ void Server::shutDown() {
     }
   }
   // Lastly closing all of our pthreads
-  for (int i = 0; threadVector.size() > i; i++) {
+  // Our main thread will be the first to get canceled - that way we wont accept any more clients
+  for (int i = 0; i < threadVector.size(); i++) {
     pthread_cancel(threadVector[i]);
+    pthread_join(threadVector[i], NULL);
+
   }
 }
 
 // Our main thread for accepting clients and passing them to a new thread to handle
 void *acceptClient(void *obj) {
   try {
-    ///////////////////////////////////////////////////////////
+
     int i = 1;
     cout << "Created the accept thread!" << endl;
     Server *server = (Server *) obj;
@@ -98,7 +102,7 @@ void *acceptClient(void *obj) {
     struct sockaddr_in clientAddress;
     socklen_t clientAddressLen = sizeof((struct sockaddr *) &clientAddress);
     // Start accepting clients and handling them while server is running
-    while (!stopServer) {
+    while (true) {
       cout << "From acceptThread: Waiting for client connections..." << endl;
       // Accept a new clients connection
       int clientSocket = accept(serverSocket, (struct sockaddr *) &clientAddress, &clientAddressLen);
@@ -108,7 +112,6 @@ void *acceptClient(void *obj) {
       cout << "Client " << i << " is connected" << endl;
       // Creating a new thread to handle our client
       pthread_t handleThread;
-      server->threadVector.push_back(handleThread);
       i++;
       // initalzing our clients lobby room information
       roomInfo *info = new roomInfo;
@@ -118,16 +121,15 @@ void *acceptClient(void *obj) {
 
       // Lastly opening the thread with the clients room information
       int n = pthread_create(&handleThread, NULL, handleClient, info);
+      server->threadVector.push_back(handleThread);
       if (n) {
         throw "Error creating handling thread";
       }
     }
-    ////////////////////////////////////////////////////////////
+    // Catching our bind, listen, accept throws within the thread
   } catch (const char* msg) {
     cout << "Cannot continue with server. Reason: " << msg << endl;
-    exit(0);
   }
-  pthread_exit(NULL);
 }
 
 // Our thread for handling each incoming client
@@ -139,6 +141,6 @@ void *handleClient(void *information) {
 
 Server::~Server() {
   lobbyMap.clear();
-   threadVector.clear();
+  threadVector.clear();
 
 }

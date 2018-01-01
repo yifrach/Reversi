@@ -1,7 +1,3 @@
-//
-// Created by yarin on 12/24/17.
-//
-
 #ifndef SERVER_LISTCOMMAND_H
 #define SERVER_LISTCOMMAND_H
 

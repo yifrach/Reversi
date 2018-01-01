@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
-  "CMakeFiles/3.9.4/CMakeCCompiler.cmake"
-  "CMakeFiles/3.9.4/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.9.4/CMakeSystem.cmake"
+  "CMakeFiles/3.9.6/CMakeCCompiler.cmake"
+  "CMakeFiles/3.9.6/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.9.6/CMakeSystem.cmake"
   "/home/uri/Downloads/clion-2017.2.3/bin/cmake/share/cmake-3.9/Modules/CMakeCInformation.cmake"
   "/home/uri/Downloads/clion-2017.2.3/bin/cmake/share/cmake-3.9/Modules/CMakeCXXInformation.cmake"
   "/home/uri/Downloads/clion-2017.2.3/bin/cmake/share/cmake-3.9/Modules/CMakeCommonLanguageInclude.cmake"

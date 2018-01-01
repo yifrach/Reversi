@@ -22,9 +22,6 @@ CMakeFiles/server.dir/src/ConverString.cpp.o
 CMakeFiles/server.dir/src/FileReader.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/FileReader.cpp
-CMakeFiles/server.dir/src/GameData.cpp.o
- /home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.cpp
- /home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.h
 CMakeFiles/server.dir/src/JoinCommand.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/JoinCommand.h
@@ -38,13 +35,11 @@ CMakeFiles/server.dir/src/ListCommand.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/ListCommand.cpp
 CMakeFiles/server.dir/src/PlayGame.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
- /home/uri/CLionProjects/cpp/Reversi/src/server/include/ConverString.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/PlayGame.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/PlayGame.cpp
 CMakeFiles/server.dir/src/Server.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/ClientHandler.h
- /home/uri/CLionProjects/cpp/Reversi/src/server/include/ConverString.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp
 CMakeFiles/server.dir/src/StartCommand.cpp.o

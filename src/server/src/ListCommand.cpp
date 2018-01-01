@@ -25,18 +25,17 @@ void ListCommand::execute(string args, roomInfo *info) {
     // Sending the room names strings to the user
     char *str = new char[lobbyRoomList.size()];
     strcpy(str, lobbyRoomList.c_str());
-    int n = write(info->clientSocket, str, strlen(str));
+    long n = write(info->clientSocket, str, strlen(str));
     if (n < 0) {
       throw "Error writing to socket";
     }
     delete str;
   } else {
-    int n = write(info->clientSocket, &error, 1);
+    long n = write(info->clientSocket, &error, sizeof(error));
     if (n < 0) {
       throw "Error writing to socket";
     }
   }
   // Lastly closing the users socket forcing him to reconnect
   close(info->clientSocket);
-  pthread_exit(NULL);
 }

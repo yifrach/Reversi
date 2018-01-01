@@ -9,7 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/src/ClientHandler.cpp.o"
   "CMakeFiles/server.dir/src/ConverString.cpp.o"
   "CMakeFiles/server.dir/src/PlayGame.cpp.o"
-  "CMakeFiles/server.dir/src/GameData.cpp.o"
   "server.pdb"
   "server"
 )

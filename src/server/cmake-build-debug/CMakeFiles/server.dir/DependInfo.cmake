@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/uri/CLionProjects/cpp/Reversi/src/server/src/CommandsManager.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/CommandsManager.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/server/src/ConverString.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/ConverString.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/server/src/FileReader.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/FileReader.cpp.o"
-  "/home/uri/CLionProjects/cpp/Reversi/src/server/src/GameData.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/GameData.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/server/src/JoinCommand.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/JoinCommand.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/server/src/ListCommand.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/ListCommand.cpp.o"
   "/home/uri/CLionProjects/cpp/Reversi/src/server/src/PlayGame.cpp" "/home/uri/CLionProjects/cpp/Reversi/src/server/cmake-build-debug/CMakeFiles/server.dir/src/PlayGame.cpp.o"

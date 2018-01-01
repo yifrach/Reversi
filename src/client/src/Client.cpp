@@ -10,7 +10,7 @@
 #include <cstdlib>
 #define BUFFER_SIZE 4096
 #define NO_MOVE -1
-#define CLOSE_SERVER "-3"
+#define CLOSE_SERVER "Exit"
 
 /**
  * The constructor of the Client
@@ -58,35 +58,35 @@ Color Client::connectToServer() {
 }
 
 /**
- * Show the player the menu for client- to staet a new game or join
+ * Show the player the menu for client- to start a new game or join
  */
 Color Client::ClientMenu() {
   bool optionExist = false;
   int gameChoose;
   string roomName;
   char buffer[BUFFER_SIZE];
-  cout << "choose an opponent type:" << endl;
-  cout << "1. start a new game\n2. join to an exist game\n3. View the list of games\n";
+  cout << "Choose an option:" << endl;
+  cout << "1. Start a new game\n2. Join an existing game\n3. View the current list of games\n";
   cin >> gameChoose;
   while (!optionExist) {
     switch (gameChoose) {
-      case 1:cout << "What is the room name: " << endl;
+      case 1:cout << "What is the room name: ";
         cin >> roomName;
         roomName = "start " + roomName;
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
         if (readSocketCommand()) {
-          cout << "Waiting for second player join to the room..." << endl;
+          cout << "Waiting for the second player join to the room..." << endl;
           if (readSocketCommand()) {
             return black;
           } else {
             return empty;
           }
         } else {
-          cout << "The name of the room is already exist" << endl;
+          cout << "The name of the room is either taken or does not exist." << endl;
           return empty;
         }
-      case 2:cout << "What is the room name: " << endl;
+      case 2:cout << "What is the room name? ";
         cin >> roomName;
         roomName = "join " + roomName;
         strcpy(buffer, roomName.c_str());
@@ -94,14 +94,14 @@ Color Client::ClientMenu() {
         if (readSocketCommand()) {
           return white;
         } else {
-          cout << "The name of the room is not exist" << endl;
+          cout << "The room is either full or does not exist." << endl;
           return empty;
         }
       case 3:roomName = "list 0";
         strcpy(buffer, roomName.c_str());
         sendSocketCommand(buffer);
         if (!readSocketCommand()) {
-          cout << "The list is empty" << endl;
+          cout << "Sorry, the list is currently empty." << endl;
         }
         return empty;
       default:
@@ -109,7 +109,7 @@ Color Client::ClientMenu() {
           cin.clear();
           cin.ignore(numeric_limits<streamsize>::max(), '\n');
           cout << "Invalid option!" << endl;
-          cout << "1. start a new game\n2. join to an exist game\n3. View the list of games\n";
+          cout << "1. Start a new game\n2. Join an existing game\n3. View the list of current games\n";
           cin >> gameChoose;
         } while (cin.fail());
         break;
@@ -123,7 +123,7 @@ Color Client::ClientMenu() {
  */
 void Client::sendSocketCommand(char *str) {
   // Writing the command to the server
-  int n = write(clientSocket, str, strlen(str));
+  long n = write(clientSocket, str, strlen(str));
   if (n < 0) {
     throw "Error writing to socket";
   }
@@ -131,7 +131,7 @@ void Client::sendSocketCommand(char *str) {
 
 bool Client::readSocketCommand() {
   char buffer[BUFFER_SIZE];
-  int n = read(clientSocket, buffer, sizeof(buffer));
+  long n = read(clientSocket, buffer, sizeof(buffer));
   if (n < 0) {
     throw "Error reading from socket";
   }
@@ -161,7 +161,7 @@ void Client::sendSocket(int xPos, int yPos) {
   ConvertString convert;
   char *str = convert.convertInt(xPos, yPos);
   // Writing the move or NoMove to the server
-  int n = write(clientSocket, str, strlen(str));
+  long n = write(clientSocket, str, strlen(str));
   if (n < 0) {
     throw "Error writing to socket";
   }
@@ -174,7 +174,7 @@ void Client::sendSocket(int xPos, int yPos) {
  */
 Point Client::readSocket() {
   char buffer[BUFFER_SIZE];
-  int n = read(clientSocket, buffer, sizeof(buffer));
+  long n = read(clientSocket, buffer, sizeof(buffer));
   if (n < 0) {
     throw "Error reading from socket";
   }

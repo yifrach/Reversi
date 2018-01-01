@@ -1,6 +1,5 @@
 #include "../include/ConverString.h"
 #include <sstream>
-using namespace std;
 
 /**
  * The constructor of the class

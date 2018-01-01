@@ -1,7 +1,7 @@
 #ifndef SERVER_PLAYGAME_H
 #define SERVER_PLAYGAME_H
+
 #include <string>
-#include <map>
 #include "Command.h"
 #include "Server.h"
 using namespace std;
