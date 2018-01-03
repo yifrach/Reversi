@@ -40,6 +40,7 @@ CMakeFiles/server.dir/src/PlayGame.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/PlayGame.cpp
 CMakeFiles/server.dir/src/Server.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/ClientHandler.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp
 CMakeFiles/server.dir/src/StartCommand.cpp.o

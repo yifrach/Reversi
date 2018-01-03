@@ -4,6 +4,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <iostream>
+#include <cstring>
 using namespace std;
 #define BUFFER_SIZE 4096
 
@@ -11,6 +12,7 @@ ClientHandler::ClientHandler(roomInfo *info) : info(info) {}
 
 void ClientHandler::handle() {
   char buffer[BUFFER_SIZE];
+  memset(buffer, '\0', sizeof(buffer));
   cout << "Now Handling socket number " << info->clientSocket << endl;
   // Read players message
   long readBytes = read(info->clientSocket, buffer, sizeof(buffer));

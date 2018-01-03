@@ -1,5 +1,6 @@
 #include "../include/Server.h"
 #include "../include/ClientHandler.h"
+#include "../include/Command.h"
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
@@ -18,6 +19,7 @@ Server::Server(int port) : port(port), serverSocket(0) {
 }
 
 void Server::initialize() {
+  cout << "Type \"Exit\" at any time to close the server!\n\n";
   // Create a socket point
   serverSocket = socket(AF_INET, SOCK_STREAM, 0);
   if (serverSocket == -1) {
@@ -26,8 +28,8 @@ void Server::initialize() {
   // Create our main thread for accepting clients
   pthread_t mainThread;
   int n = pthread_create(&mainThread, NULL, acceptClient, this);
-  // The main thread will be our first pthread in the vector
-  threadVector.push_back(mainThread);
+  // Saving our main thread so we'll close it first later
+  this->mainThread = mainThread;
   if (n) {
     throw "Error creating client accept thread";
   }
@@ -53,6 +55,7 @@ void Server::initialize() {
 void Server::shutDown() {
   long n;
   char exit[10];
+  memset(exit, '\0', sizeof(exit));
   strcpy(exit, "Exit");
   // Notifying all clients the server is shutting down
   map<string, lobbyRoom>::iterator it;
@@ -68,9 +71,14 @@ void Server::shutDown() {
         cout << "Error writing to socket";
       }
     }
+    // Lastly closing both sockets
+    close(it->second.clientSocket1);
+    close(it->second.clientSocket2);
   }
+  // Closing our main thread so we wont accept clients
+  pthread_cancel(mainThread);
+  pthread_join(mainThread, NULL);
   // Lastly closing all of our pthreads
-  // Our main thread will be the first to get canceled - that way we wont accept any more clients
   for (int i = 0; i < threadVector.size(); i++) {
     pthread_cancel(threadVector[i]);
     pthread_join(threadVector[i], NULL);
@@ -121,7 +129,10 @@ void *acceptClient(void *obj) {
 
       // Lastly opening the thread with the clients room information
       int n = pthread_create(&handleThread, NULL, handleClient, info);
+      pthread_mutex_lock(&count_mutex_vector);
       server->threadVector.push_back(handleThread);
+      pthread_mutex_unlock(&count_mutex_vector);
+
       if (n) {
         throw "Error creating handling thread";
       }
@@ -134,9 +145,9 @@ void *acceptClient(void *obj) {
 
 // Our thread for handling each incoming client
 void *handleClient(void *information) {
-  ClientHandler *handler = new ClientHandler((roomInfo *) information);
-  handler->handle();
-  delete handler;
+  // Our handler will be deleted in the stack
+  ClientHandler handler((roomInfo *) information);
+  handler.handle();
 }
 
 Server::~Server() {

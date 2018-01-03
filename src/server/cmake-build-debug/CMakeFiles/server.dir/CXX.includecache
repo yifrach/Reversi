@@ -83,6 +83,8 @@ unistd.h
 -
 iostream
 -
+cstring
+-
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/CommandsManager.cpp
 ../include/CommandsManager.h
@@ -159,6 +161,8 @@ iostream
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
 ../include/ClientHandler.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/ClientHandler.h
+../include/Command.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
 sys/socket.h
 -
 netinet/in.h

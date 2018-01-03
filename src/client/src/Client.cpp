@@ -51,6 +51,9 @@ Color Client::connectToServer() {
 
   // Establish a connection with the TCP server
   if (connect(clientSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) < 0) {
+    close(clientSocket);
+    delete this;
+    delete[] serverIP;
     throw "Error connecting to server";
   }
   delete[] serverIP;
@@ -70,7 +73,7 @@ Color Client::ClientMenu() {
   cin >> gameChoose;
   while (!optionExist) {
     switch (gameChoose) {
-      case 1:cout << "What is the room name: ";
+      case 1:cout << "What is the room name? ";
         cin >> roomName;
         roomName = "start " + roomName;
         strcpy(buffer, roomName.c_str());
@@ -131,10 +134,12 @@ void Client::sendSocketCommand(char *str) {
 
 bool Client::readSocketCommand() {
   char buffer[BUFFER_SIZE];
+  memset(buffer, '\0', sizeof(buffer));
   long n = read(clientSocket, buffer, sizeof(buffer));
   if (n < 0) {
     throw "Error reading from socket";
   }
+  // VALGRIND WARNINGS HERE
   if (strcmp(buffer, "0") == 0) {
     return false;
   } else if (strcmp(buffer, "1") == 0) {
@@ -142,11 +147,11 @@ bool Client::readSocketCommand() {
   } else if (strcmp(buffer, "2") == 0) {
     return true;
   } else if (strcmp(buffer, CLOSE_SERVER) == 0) {
+    cout << "The server is now closed, sorry for closing your game.\nBye Bye :)\n";
     memset(buffer, '\0', sizeof(buffer));
     exit(0);
   } else {
     cout << buffer;
-    memset(buffer, '\0', sizeof(buffer));
     return true;
   }
 }
@@ -163,6 +168,7 @@ void Client::sendSocket(int xPos, int yPos) {
   // Writing the move or NoMove to the server
   long n = write(clientSocket, str, strlen(str));
   if (n < 0) {
+    delete[] str;
     throw "Error writing to socket";
   }
   delete[] str;

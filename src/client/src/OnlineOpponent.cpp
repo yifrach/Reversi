@@ -1,7 +1,3 @@
-//
-// Created by yarin on 12/8/17.
-//
-
 #include <cstdlib>
 #include "../include/OnlineOpponent.h"
 #define CLOSE_SERVER_INT -3
@@ -39,10 +35,9 @@ Point OnlineOpponent::playTurn(Board *board) {
     point.print();
     cout << endl;
   } else if (point.getX() == CLOSE_SERVER_INT) {
-    cout << "The server is now closed, sorry for closing your game.\nBye Bye :)";
+    cout << "The server is now closed, sorry for closing your game.\nBye Bye :)\n";
     delete playerClient;
     delete this;
-    // PROBLEM WITH EXIT0 NEED TO EXIT CORRECTLY THROUGH TO MAIN
     exit(0);
   }
   return point;

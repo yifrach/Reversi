@@ -2,6 +2,7 @@
 #include <sstream>
 #include <cstring>
 #include <stdlib.h>
+#define BUFFER_SIZE 15
 #define NO_MOVE -1
 #define END -2
 #define CLOSE_SERVER_INT -3

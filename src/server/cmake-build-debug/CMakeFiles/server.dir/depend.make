@@ -39,6 +39,7 @@ CMakeFiles/server.dir/src/PlayGame.cpp.o: ../include/Server.h
 CMakeFiles/server.dir/src/PlayGame.cpp.o: ../src/PlayGame.cpp
 
 CMakeFiles/server.dir/src/Server.cpp.o: ../include/ClientHandler.h
+CMakeFiles/server.dir/src/Server.cpp.o: ../include/Command.h
 CMakeFiles/server.dir/src/Server.cpp.o: ../include/Server.h
 CMakeFiles/server.dir/src/Server.cpp.o: ../src/Server.cpp
 

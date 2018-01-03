@@ -28,6 +28,7 @@ class Server {
   int port;
   int serverSocket; // the socket's file descriptor
   map<string, lobbyRoom> lobbyMap;
+  pthread_t mainThread;
   vector<pthread_t> threadVector;
   bool stopServer;
 

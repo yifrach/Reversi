@@ -5,10 +5,9 @@
 #include "../include/PlayGame.h"
 #include<unistd.h>
 void *playGame(void *information);
-pthread_mutex_t count_mutexJoin;
 
 JoinCommand::JoinCommand() {
-  pthread_mutex_init(&count_mutexJoin,  NULL);
+  pthread_mutex_init(&count_mutex_lobby,  NULL);
 }
 
 void JoinCommand::execute(string args, roomInfo *info) {
@@ -19,16 +18,18 @@ void JoinCommand::execute(string args, roomInfo *info) {
     // If the room exists
     if ((strcmp(args.c_str(), it->first.c_str()) == 0) && (!it->second.gameInProgress)) {
       // We'll put the players socket in the room information
-      pthread_mutex_lock(&count_mutexJoin);
+      pthread_mutex_lock(&count_mutex_lobby);
       it->second.clientSocket2 = info->clientSocket;
       it->second.gameInProgress = true;
-      pthread_mutex_unlock(&count_mutexJoin);
+      pthread_mutex_unlock(&count_mutex_lobby);
       // Updating our users information room name
       info->roomName = args;
       // Creating a new thread to play the game in
       pthread_t playGameThread;
-      int n = pthread_create(&playGameThread, NULL, playGame, (void*)info);
+      int n = pthread_create(&playGameThread, NULL, playGame, info);
+      pthread_mutex_lock(&count_mutex_vector);
       info->threadVector.push_back(playGameThread);
+      pthread_mutex_unlock(&count_mutex_vector);
       if (n) {
         throw "Error creating client accept thread";
       }
@@ -49,7 +50,6 @@ void JoinCommand::execute(string args, roomInfo *info) {
 
 
 void *playGame(void *information) {
-  PlayGame *game = new PlayGame(*(roomInfo *) information);
-  game->play();
-  delete game;
+  PlayGame game((roomInfo *) information);
+  game.play();
 }

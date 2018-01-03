@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <limits>
 #define END -2
-#define BOARD_SIZE 4;
+#define BOARD_SIZE 8;
 
 /**
  * The constructor of the class
@@ -200,7 +200,7 @@ void Game::playClient() {
 void Game::readFile() {
   FileReader fileReader("client_config.txt");
   int port;
-  const char *ip = fileReader.readConfigFile(&port);
+  const char* ip = fileReader.readConfigFile(&port);
   player1 = new Client(ip, port);
 }
 

@@ -24,11 +24,13 @@ void ListCommand::execute(string args, roomInfo *info) {
   if (counter != 0) {
     // Sending the room names strings to the user
     char *str = new char[lobbyRoomList.size()];
+    memset(str, '\0', sizeof(str));
     strcpy(str, lobbyRoomList.c_str());
     long n = write(info->clientSocket, str, strlen(str));
     if (n < 0) {
       throw "Error writing to socket";
     }
+    //MISMATCHED FREE?
     delete str;
   } else {
     long n = write(info->clientSocket, &error, sizeof(error));

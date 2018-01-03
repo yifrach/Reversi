@@ -4,10 +4,9 @@
 #include<sys/socket.h>
 #include<unistd.h>
 
-pthread_mutex_t count_mutexStart;
 
 StartCommand::StartCommand() {
-  pthread_mutex_init(&count_mutexStart, NULL);
+  pthread_mutex_init(&count_mutex_lobby, NULL);
 }
 
 void StartCommand::execute(string args, roomInfo *info) {
@@ -33,9 +32,9 @@ void StartCommand::execute(string args, roomInfo *info) {
   lobbyRoom newRoom = {};
   newRoom.clientSocket1 = info->clientSocket;
   newRoom.gameInProgress = false;
-  pthread_mutex_lock(&count_mutexStart);
+  pthread_mutex_lock(&count_mutex_lobby);
   (*info->lobbyMap)[args] = newRoom;
-  pthread_mutex_unlock(&count_mutexStart);
+  pthread_mutex_unlock(&count_mutex_lobby);
   // Notifying the user we've opened a room for him and that he is player 1
   char str = '1';
   long n = write(info->clientSocket, &str, sizeof(str));
