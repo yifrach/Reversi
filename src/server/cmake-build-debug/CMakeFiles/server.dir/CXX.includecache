@@ -61,6 +61,8 @@ string
 -
 vector
 -
+ThreadPool.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/StartCommand.h
 map
@@ -69,6 +71,16 @@ Command.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
 Server.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
+Task.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+queue
+-
+pthread.h
+-
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/ClientHandler.cpp
 ../include/ClientHandler.h
@@ -143,11 +155,7 @@ unistd.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/PlayGame.cpp
 ../include/PlayGame.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/PlayGame.h
-../include/Server.h
-/home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
 sys/socket.h
--
-netinet/in.h
 -
 unistd.h
 -
@@ -163,6 +171,8 @@ iostream
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/ClientHandler.h
 ../include/Command.h
 /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
+../include/ThreadPool.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
 sys/socket.h
 -
 netinet/in.h
@@ -189,6 +199,12 @@ sys/socket.h
 -
 unistd.h
 -
+
+/home/uri/CLionProjects/cpp/Reversi/src/server/src/ThreadPool.cpp
+unistd.h
+-
+../include/ThreadPool.h
+/home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
 
 /home/uri/CLionProjects/cpp/Reversi/src/server/src/main.cpp
 ../include/Server.h

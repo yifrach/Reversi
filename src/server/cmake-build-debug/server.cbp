@@ -114,6 +114,12 @@
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/include/StartCommand.h">
 			<Option target="server"/>
 		</Unit>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h">
+			<Option target="server"/>
+		</Unit>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h">
+			<Option target="server"/>
+		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/ClientHandler.cpp">
 			<Option target="server"/>
 		</Unit>
@@ -139,6 +145,9 @@
 			<Option target="server"/>
 		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/StartCommand.cpp">
+			<Option target="server"/>
+		</Unit>
+		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/ThreadPool.cpp">
 			<Option target="server"/>
 		</Unit>
 		<Unit filename="/home/uri/CLionProjects/cpp/Reversi/src/server/src/main.cpp">

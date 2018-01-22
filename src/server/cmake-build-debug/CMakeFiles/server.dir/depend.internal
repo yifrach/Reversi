@@ -7,6 +7,8 @@ CMakeFiles/server.dir/src/ClientHandler.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/CommandsManager.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/ConverString.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/ClientHandler.cpp
 CMakeFiles/server.dir/src/CommandsManager.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
@@ -15,6 +17,8 @@ CMakeFiles/server.dir/src/CommandsManager.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/ListCommand.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/StartCommand.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/CommandsManager.cpp
 CMakeFiles/server.dir/src/ConverString.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/ConverString.h
@@ -27,28 +31,44 @@ CMakeFiles/server.dir/src/JoinCommand.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/JoinCommand.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/PlayGame.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/JoinCommand.cpp
 CMakeFiles/server.dir/src/ListCommand.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/ListCommand.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/ListCommand.cpp
 CMakeFiles/server.dir/src/PlayGame.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/PlayGame.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/PlayGame.cpp
 CMakeFiles/server.dir/src/Server.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/ClientHandler.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/Server.cpp
 CMakeFiles/server.dir/src/StartCommand.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Command.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/StartCommand.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/StartCommand.cpp
+CMakeFiles/server.dir/src/ThreadPool.cpp.o
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/src/ThreadPool.cpp
 CMakeFiles/server.dir/src/main.cpp.o
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/FileReader.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/include/Server.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/Task.h
+ /home/uri/CLionProjects/cpp/Reversi/src/server/include/ThreadPool.h
  /home/uri/CLionProjects/cpp/Reversi/src/server/src/main.cpp

@@ -68,7 +68,7 @@ Color Client::ClientMenu() {
   int gameChoose;
   string roomName;
   char buffer[BUFFER_SIZE];
-  cout << "Choose an option:" << endl;
+  cout << "\033[4mChoose an option:\033[0m" << endl;
   cout << "1. Start a new game\n2. Join an existing game\n3. View the current list of games\n";
   cin >> gameChoose;
   while (!optionExist) {

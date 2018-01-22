@@ -28,8 +28,10 @@ void Game::initialize() {
  * The method print the menu of the game and get the mode that the player want to play
  */
 void Game::menuGame() {
-  cout << "WELCOME TO REVERSI!" << endl << endl;
-  cout << "Choose an opponent type:" << endl;
+  cout << "-----------------------\n";
+  cout << "|\e[1m WELCOME TO REVERSI! \e[0m|\n";
+  cout << "-----------------------\n";
+  cout << "\033[4mChoose an opponent type:\033[0m" << endl;
   cout << "1. A human local player\n2. An AI player\n3. A remote player\n";
   cin >> mode;
 }

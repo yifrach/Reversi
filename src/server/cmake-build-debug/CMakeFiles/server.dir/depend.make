@@ -6,6 +6,8 @@ CMakeFiles/server.dir/src/ClientHandler.cpp.o: ../include/Command.h
 CMakeFiles/server.dir/src/ClientHandler.cpp.o: ../include/CommandsManager.h
 CMakeFiles/server.dir/src/ClientHandler.cpp.o: ../include/ConverString.h
 CMakeFiles/server.dir/src/ClientHandler.cpp.o: ../include/Server.h
+CMakeFiles/server.dir/src/ClientHandler.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/ClientHandler.cpp.o: ../include/ThreadPool.h
 CMakeFiles/server.dir/src/ClientHandler.cpp.o: ../src/ClientHandler.cpp
 
 CMakeFiles/server.dir/src/CommandsManager.cpp.o: ../include/Command.h
@@ -14,6 +16,8 @@ CMakeFiles/server.dir/src/CommandsManager.cpp.o: ../include/JoinCommand.h
 CMakeFiles/server.dir/src/CommandsManager.cpp.o: ../include/ListCommand.h
 CMakeFiles/server.dir/src/CommandsManager.cpp.o: ../include/Server.h
 CMakeFiles/server.dir/src/CommandsManager.cpp.o: ../include/StartCommand.h
+CMakeFiles/server.dir/src/CommandsManager.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/CommandsManager.cpp.o: ../include/ThreadPool.h
 CMakeFiles/server.dir/src/CommandsManager.cpp.o: ../src/CommandsManager.cpp
 
 CMakeFiles/server.dir/src/ConverString.cpp.o: ../include/ConverString.h
@@ -26,29 +30,45 @@ CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/Command.h
 CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/JoinCommand.h
 CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/PlayGame.h
 CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/Server.h
+CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../include/ThreadPool.h
 CMakeFiles/server.dir/src/JoinCommand.cpp.o: ../src/JoinCommand.cpp
 
 CMakeFiles/server.dir/src/ListCommand.cpp.o: ../include/Command.h
 CMakeFiles/server.dir/src/ListCommand.cpp.o: ../include/ListCommand.h
 CMakeFiles/server.dir/src/ListCommand.cpp.o: ../include/Server.h
+CMakeFiles/server.dir/src/ListCommand.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/ListCommand.cpp.o: ../include/ThreadPool.h
 CMakeFiles/server.dir/src/ListCommand.cpp.o: ../src/ListCommand.cpp
 
 CMakeFiles/server.dir/src/PlayGame.cpp.o: ../include/Command.h
 CMakeFiles/server.dir/src/PlayGame.cpp.o: ../include/PlayGame.h
 CMakeFiles/server.dir/src/PlayGame.cpp.o: ../include/Server.h
+CMakeFiles/server.dir/src/PlayGame.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/PlayGame.cpp.o: ../include/ThreadPool.h
 CMakeFiles/server.dir/src/PlayGame.cpp.o: ../src/PlayGame.cpp
 
 CMakeFiles/server.dir/src/Server.cpp.o: ../include/ClientHandler.h
 CMakeFiles/server.dir/src/Server.cpp.o: ../include/Command.h
 CMakeFiles/server.dir/src/Server.cpp.o: ../include/Server.h
+CMakeFiles/server.dir/src/Server.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/Server.cpp.o: ../include/ThreadPool.h
 CMakeFiles/server.dir/src/Server.cpp.o: ../src/Server.cpp
 
 CMakeFiles/server.dir/src/StartCommand.cpp.o: ../include/Command.h
 CMakeFiles/server.dir/src/StartCommand.cpp.o: ../include/Server.h
 CMakeFiles/server.dir/src/StartCommand.cpp.o: ../include/StartCommand.h
+CMakeFiles/server.dir/src/StartCommand.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/StartCommand.cpp.o: ../include/ThreadPool.h
 CMakeFiles/server.dir/src/StartCommand.cpp.o: ../src/StartCommand.cpp
+
+CMakeFiles/server.dir/src/ThreadPool.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/ThreadPool.cpp.o: ../include/ThreadPool.h
+CMakeFiles/server.dir/src/ThreadPool.cpp.o: ../src/ThreadPool.cpp
 
 CMakeFiles/server.dir/src/main.cpp.o: ../include/FileReader.h
 CMakeFiles/server.dir/src/main.cpp.o: ../include/Server.h
+CMakeFiles/server.dir/src/main.cpp.o: ../include/Task.h
+CMakeFiles/server.dir/src/main.cpp.o: ../include/ThreadPool.h
 CMakeFiles/server.dir/src/main.cpp.o: ../src/main.cpp
 

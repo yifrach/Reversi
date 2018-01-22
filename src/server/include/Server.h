@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "ThreadPool.h"
 using namespace std;
 
 struct lobbyRoom {
@@ -17,6 +18,7 @@ struct roomInfo {
   string roomName;
   map<string, lobbyRoom>* lobbyMap;
   vector<pthread_t> threadVector;
+  ThreadPool *threadPool;
 };
 
 class Server {
@@ -24,11 +26,13 @@ class Server {
   Server(int port);
   ~Server();
   void initialize();
+  void acceptClients();
   void shutDown();
   int port;
   int serverSocket; // the socket's file descriptor
   map<string, lobbyRoom> lobbyMap;
   pthread_t mainThread;
+  ThreadPool *threadPool;
   vector<pthread_t> threadVector;
   bool stopServer;
 
